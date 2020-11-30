@@ -12,8 +12,6 @@ path+=(
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
-# this is not part of the XDG spec
-export XDG_LOCAL=$HOME/.local
 # ----------------- default apps ------------------
 
 export EDITOR=nvim
@@ -29,11 +27,11 @@ DIRSTACKSIZE=7
 # ----------------- zinit -------------------------
 
 declare -A ZINIT
-ZINIT[BIN_DIR]=$XDG_LOCAL/zinit/bin
-ZINIT[HOME_DIR]=$XDG_LOCAL/zinit
+ZINIT[BIN_DIR]=$XDG_DATA_HOME/zinit/bin
+ZINIT[HOME_DIR]=$XDG_DATA_HOME/zinit
 # ----------------- asdf  -------------------------
 
-export ASDF_DATA_DIR=$XDG_LOCAL/asdf
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 # ----------------- android -----------------------
 
 export ANDROID_SDK_ROOT=$HOME/.local/android-sdk
@@ -49,6 +47,13 @@ export GHQ_ROOT=$HOME/ghq
 # ----------------- bat   -------------------------
 
 export BAT_THEME="Sublime Snazzy"
+# ----------------- gradle     --------------------
+
+export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
+# ----------------- ruby gem   --------------------
+
+export GEM_HOME=$XDG_DATA_HOME/gem
+export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem
 # ----------------- emacs doom --------------------
 
 # export DOOMDIR=$XDG_CONFIG_HOME/doom # it defaults to searching this directory

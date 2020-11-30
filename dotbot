@@ -2,7 +2,7 @@
 # fail in case any of the commands fails
 set -e
 
-CONFIG=".default.config.yml"
+CONFIG="config.yml"
 DOTBOT_DIR=".dotbot/dotbot"
 PLUGINS_DIR=".dotbot/plugins"
 

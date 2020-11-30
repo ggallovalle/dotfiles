@@ -10,3 +10,5 @@ I fucking hate npm, make it available for these other package managers
 To only install clis
 ** DONE clone zinit
 ** DONE change default shell to zsh
+** DONE asdf install use ASDF_DATA_DIR
+** TODO use pyyml from dotbot in unlink script
