@@ -1,0 +1,10 @@
+alias pacman.se='pacman -Q'
+alias pacman.ls='pacman -Q'
+alias pacman.info'pacman -Qs'
+
+alias pacman.in='sudo pacman -S'
+alias pacman.ad='sudo pacman -S'
+alias pacman.rm='sudo pacman -Rns'
+alias pacman.un='sudo pacman -Rns'
+alias pacman.up='sudo pacman -U'
+alias pacman.up.all='sudo pacman -Syu'

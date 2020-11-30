@@ -1,0 +1,104 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+#--------------- $HOME             ----------------
+
+    ~/.zshenv:
+      force: true
+      path: zsh/zshenv.zsh
+    ~/.zshrc:
+      force: true
+      path: zsh/zshrc.zsh
+    ~/.default-npm-packages:
+      force: true
+      path: default-pkgs/npm
+    ~/.tmux.conf: tmux/oh-my-tmux/.tmux.conf
+    ~/.tmux.conf.local: tmux/tmux.conf
+    ~/.gitconfig:
+      force: true
+      path: git/gitconfig
+    ~/.Xmodmap:
+      force: true
+      path: xmodmap/xmodmap
+#--------------- $XDG_CONFIG_HOME  ----------------
+
+    ~/.config/alacritty:
+    #~/.config/bspwm:
+    ~/.config/doom:
+    ~/.config/fish:
+    ~/.config/fontconfig:
+      force: true
+      path: fontconfig
+    ~/.config/ideavim:
+    ~/.config/kitty:
+    ~/.config/lf:
+    ~/.config/polybar:
+    ~/.config/rofi: 
+    ~/.config/sxhkd:
+    ~/.config/tmux:
+    ~/.config/yay:
+    ~/.config/zsh:
+    ~/.config/zsh/.zshrc: zsh/zshrc.zsh
+#--------------- $XDG_DATA_HOME    ----------------
+
+- ghqfile:
+  - file: repos.txt
+    flags: [--silent]
+
+- asdf:
+  # https://www.reddit.com/r/golang/comments/cmb5bp/is_there_an_lts_version_of_go/
+  # basycally every two major versions, 11 expires when 13 releases and so on
+  - plugin: golang
+    global: 1.15.5
+    versions:
+      - 1.15.5
+    # https://www.oracle.com/java/technologies/java-se-support-roadmap.html
+  - plugin: java
+    global: openjdk-11
+    versions:
+      - openjdk-11
+    # https://kotlinlang.org/releases.html
+  - plugin: kotlin
+    global: 1.4.20
+    versions:
+      - 1.4.20
+    # https://github.com/scala/scala/releases
+  - plugin: scala
+    global: 2.13.4
+    versions:
+      - 2.13.4
+    # https://gradle.org/releases/
+  - plugin: gradle
+    global: 6.7.1
+    versions:
+      - 6.7.1
+    # https://nodejs.org/en/about/releases/
+  - plugin: nodejs
+    global: 14.15.1
+    versions:
+      - 14.15.1
+    url: https://github.com/ggallovalle/asdf-nodejs
+    # https://www.php.net/supported-versions.php
+  - plugin: php
+    global: 7.4.13
+    versions:
+      - 7.4.13
+      - 8.0.0
+    # https://devguide.python.org/#status-of-python-branches
+  - plugin: python
+    global: 3.8.6
+    versions:
+      - 3.8.6
+    # https://www.ruby-lang.org/en/downloads/branches/
+  - plugin: ruby
+    global: 2.7.2
+    versions:
+      - 2.7.2
+  - plugin: flutter
+    global: 1.22.4-stable
+    versions:
+      - 1.22.4-stable

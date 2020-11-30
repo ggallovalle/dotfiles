@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# fail in case any of the commands fails
+set -e
+
+CONFIG=".default.config.yml"
+DOTBOT_DIR=".dotbot/dotbot"
+PLUGINS_DIR=".dotbot/plugins"
+
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "${PLUGINS_DIR}" -c "${CONFIG}" "${@}"

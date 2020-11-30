@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# fail in case any of the commands fails
+set -e
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "$RED Cloning submodules$NC"
+git submodule update --init --recursive
+
+echo -e "$RED Linking dotfiles$NC"
+bash -c "${BASEDIR}/dotbot --only link"
+
+if [[ ! -d ~/.zinit/bin ]]; then
+    echo -e "$RED Cloning zinit$NC"
+    mkdir ~/.zinit
+    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+fi
+
+if [[ ! -x ~/.emacs.d/bin/doom ]]; then
+    if ! command -v emacs; then
+        echo -e "$RED Installing emacs$NC"
+        sudo pacman -S emacs
+    fi
+    echo -e "$RED Cloning doom emacs$NC"
+    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+    echo -e "$RED Installing doom emacs"
+    ~/.emacs.d/bin/doom install --no-config --no-fonts
+fi
+if [[ -x ~/.emacs.d/bin/doom ]]; then
+    ~/.emacs.d/bin/doom doctor
+fi
+
+if [[ ! -d ~/.asdf ]]; then
+    echo -e "$RED Cloning asdf$NC"
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+    cd ~/.asdf
+    git checkout "$(git describe --abbrev=0 --tags)"
+    cd -
+    ~/.asdf/bin/asdf plugin-add nodejs https://github.com/ggallovalle/asdf-nodejs
+    bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+    bash -c "${BASEDIR}/dotbot --only asdf"
+fi
+
+if [[ $(echo $SHELL) = "/bin/bash" ]]; then
+    echo -e "$RED Change default shell to zsh$NC"
+    chsh -s $(which zsh)
+fi
+
+fontsdir=$HOME/.local/share/fonts
+if [[ ! -d $fontsdir/fonts ]]; then
+    echo -e "$RED Setting up fonts$NC"
+    cd $fontsdir
+    curl -O https://srv-store6.gofile.io/download/wzom5C/fonts.zip
+    unzip fonts.zip
+    rm fonts.zip
+    cd -
+fi
+
+echo '----------------'
+echo 'Everything is OK'
+
