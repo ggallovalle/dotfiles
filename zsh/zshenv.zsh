@@ -1,56 +1,64 @@
-# Default programs
+# ----------------- initialization ----------------
+
+typeset -U PATH path
+typeset -U CDPATH cdpath
+path+=(
+    $HOME/.local/bin
+    $HOME/.config/rofi/modes
+)
+# ----------------- XDG standard ------------------
+
+# https://wiki.archlinux.org/index.php/XDG_Base_Directory
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
+# this is not part of the XDG spec
+export XDG_LOCAL=$HOME/.local
+# ----------------- default apps ------------------
+
 export EDITOR=nvim
 export TERMINAL=alacritty
 export BROWSER=firefox
+# ----------------- zsh related -------------------
 
-# Zsh related
 ZDOTDIR=$HOME/.config/zsh
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=120000  # Larger than $SAVEHIST for HIST_EXPIRE_DUPS_FIRST to work
 SAVEHIST=100000
 DIRSTACKSIZE=7
+# ----------------- zinit -------------------------
 
-# Android
+declare -A ZINIT
+ZINIT[BIN_DIR]=$XDG_LOCAL/zinit/bin
+ZINIT[HOME_DIR]=$XDG_LOCAL/zinit
+# ----------------- asdf  -------------------------
+
+export ASDF_DATA_DIR=$XDG_LOCAL/asdf
+# ----------------- android -----------------------
+
 export ANDROID_SDK_ROOT=$HOME/.local/android-sdk
+# ----------------- ssh-agent ---------------------
 
-# SSH (ssh-aget -s)
-export SSH_AUTH_SOCK=/tmp/ssh-MXfmRoJRB3dC/agent.60552
-export SSH_AGENT_PID=60553
+eval $(ssh-agent -s)
+# ----------------- java error on tiling wm -------
 
-# Prevent java error on tiling window managers
 export _JAVA_AWT_WM_NONREPARENTING=1
+# ----------------- ghq   -------------------------
 
-# ghq
 export GHQ_ROOT=$HOME/ghq
+# ----------------- bat   -------------------------
 
-# bat
 export BAT_THEME="Sublime Snazzy"
+# ----------------- emacs doom --------------------
 
-# doom emacs
-export DOOMDIR=$XDG_CONFIG_HOME/doom
+# export DOOMDIR=$XDG_CONFIG_HOME/doom # it defaults to searching this directory
+path+=($HOME/.emacs.d/bin)
+# ----------------- dotnet ------------------------
 
-# dotnet
 # export DOTNET_ROOT=$HOME/.dotnet
+# path+=($HOME/.dotnet $HOME/.dotnet/tools)
+# ----------------- fzf -------------------------
 
-# Path
-typeset -U path
-path+=(
-    $HOME/.local/bin
-    $HOME/.emacs.d/bin
-    # $HOME/.poetry/bin
-    # $HOME/.dotnet
-    # $HOME/.dotnet/tools
-    $HOME/.config/rofi/modes
-)
-typeset -U cdpath
-cdpath+=(
-    # $GHQ_ROOT/github.com/ggallovalle
-)
-
-# fzf
 export FZF_DEFAULT_OPTS="
 --ansi
 --height='80%'
@@ -63,11 +71,11 @@ export FZF_DEFAULT_OPTS="
 --preview-window='right:60%'
 +1
 "
+# ----------------- lf    -------------------------
 
-# lf
 export LF_ICONS="tw=:st=:ow=:dt=:di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.clj=:*.coffee=:*.cpp=:*.css=:*.d=:*.dart=:*.erl=:*.exs=:*.fs=:*.go=:*.h=:*.hh=:*.hpp=:*.hs=:*.html=:*.java=:*.jl=:*.js=:*.json=:*.lua=:*.md=:*.php=:*.pl=:*.pro=:*.py=:*.rb=:*.rs=:*.scala=:*.ts=:*.vim=:*.cmd=:*.ps1=:*.sh=:*.bash=:*.zsh=:*.fish=:*.tar=:*.tgz=:*.arc=:*.arj=:*.taz=:*.lha=:*.lz4=:*.lzh=:*.lzma=:*.tlz=:*.txz=:*.tzo=:*.t7z=:*.zip=:*.z=:*.dz=:*.gz=:*.lrz=:*.lz=:*.lzo=:*.xz=:*.zst=:*.tzst=:*.bz2=:*.bz=:*.tbz=:*.tbz2=:*.tz=:*.deb=:*.rpm=:*.jar=:*.war=:*.ear=:*.sar=:*.rar=:*.alz=:*.ace=:*.zoo=:*.cpio=:*.7z=:*.rz=:*.cab=:*.wim=:*.swm=:*.dwm=:*.esd=:*.jpg=:*.jpeg=:*.mjpg=:*.mjpeg=:*.gif=:*.bmp=:*.pbm=:*.pgm=:*.ppm=:*.tga=:*.xbm=:*.xpm=:*.tif=:*.tiff=:*.png=:*.svg=:*.svgz=:*.mng=:*.pcx=:*.mov=:*.mpg=:*.mpeg=:*.m2v=:*.mkv=:*.webm=:*.ogm=:*.mp4=:*.m4v=:*.mp4v=:*.vob=:*.qt=:*.nuv=:*.wmv=:*.asf=:*.rm=:*.rmvb=:*.flc=:*.avi=:*.fli=:*.flv=:*.gl=:*.dl=:*.xcf=:*.xwd=:*.yuv=:*.cgm=:*.emf=:*.ogv=:*.ogx=:*.aac=:*.au=:*.flac=:*.m4a=:*.mid=:*.midi=:*.mka=:*.mp3=:*.mpc=:*.ogg=:*.ra=:*.wav=:*.oga=:*.opus=:*.spx=:*.xspf=:*.pdf=:*.nix=:"
+# ----------------- ls    -------------------------
 
-# ls
 # install vivid for a new color scheme
 # https://github.com/sharkdp/vivid
 # malokai (goes best with alacritty one_doom)

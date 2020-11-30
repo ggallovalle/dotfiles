@@ -1,21 +1,5 @@
-#  ________
-# < source >
-#  --------
-#   \     .    _  .
-#    \    |\_|/__/|
-#        / / \/ \  \
-#       /__|O||O|__ \
-#      |/_ \_/\_/ _\ |
-#      | | (____) | ||
-#      \/\___/\__/  //
-#      (_/         ||
-#       |          ||
-#       |          ||\
-#        \        //_/
-#         \______//
-#        __ || __||
-#       (____(____)
-#  ____________
+# ----------------- source     --------------------
+
 fpath+="$ZDOTDIR/completions"
 source $ZDOTDIR/bindkeys.zsh
 for f in $ZDOTDIR/plugins/* $ZDOTDIR/lang-envs/* $ZDOTDIR/lang-envs/**/*; do
@@ -24,37 +8,22 @@ done
 if command -v thefuck&>/dev/null; then
     eval $(thefuck --alias)
 fi
-# < alias >
-#  ------------
-#         \    ,-^-.
-#          \   !oYo!
-#           \ /./=\.\______
-#                ##        )\/\
-#                 ||-----w||
-#                 ||      ||
-#
-function src() {
-  clear
-  exec zsh
-}
+# ----------------- alias      --------------------
+
+alias src='clear; exec zsh'
+alias rm='rm -i'
+alias rmr='rm -ri'
+alias cp='cp -i'
+alias cpr='cp -ri'
 alias path='echo -e ${PATH//:/\\n}'
+alias fpath='echo -e ${FPATH//:/\\n}'
 alias grep='grep --color'
 alias inotify='sudo sysctl fs.inotify.max_user_watches=35000'
 alias xclip='xclip -selection clipboard'
-# < functions >
-#  -------
-#    \
-#     \
-#         .--.
-#        |o_o |
-#        |:_/ |
-#       //   \ \
-#      (|     | )
-#     /'\_   _/`\
-#     \___)=(___/
-#
+# ----------------- functions    ------------------
+
 function backup() {
-    cp $filename $filename.bak
+    cp -r $1 $1.bak
 }
 function mkcd() {
     mkdir -p $1
