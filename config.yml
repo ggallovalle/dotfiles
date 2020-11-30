@@ -18,9 +18,6 @@
       path: default-pkgs/npm
     ~/.tmux.conf: tmux/oh-my-tmux/.tmux.conf
     ~/.tmux.conf.local: tmux/tmux.conf
-    ~/.gitconfig:
-      force: true
-      path: git/gitconfig
     ~/.Xmodmap:
       force: true
       path: xmodmap/xmodmap
@@ -33,6 +30,9 @@
     ~/.config/fontconfig:
       force: true
       path: fontconfig
+    ~/.config/git:
+      force: true
+      path: git
     ~/.config/ideavim:
     ~/.config/kitty:
     ~/.config/lf:
