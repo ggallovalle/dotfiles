@@ -16,7 +16,6 @@
     ~/.default-npm-packages:
       force: true
       path: default-pkgs/npm
-    ~/.tmux.conf: tmux/oh-my-tmux/.tmux.conf
     ~/.tmux.conf.local: tmux/tmux.conf
     ~/.Xmodmap:
       force: true

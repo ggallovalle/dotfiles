@@ -34,7 +34,7 @@ ZINIT[HOME_DIR]=$XDG_DATA_HOME/zinit
 export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 # ----------------- android -----------------------
 
-export ANDROID_SDK_ROOT=$HOME/.local/android-sdk
+export ANDROID_SDK_ROOT=$XDG_DATA_HOME/androidsdk
 # ----------------- ssh-agent ---------------------
 
 eval $(ssh-agent -s)
