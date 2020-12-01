@@ -41,7 +41,7 @@ function cexa() {
 # ----------------- source     --------------------
 
 fpath+="$ZDOTDIR/completions"
-for f in $ZDOTDIR/plugins/* $ZDOTDIR/lang-envs/* $ZDOTDIR/lang-envs/**/*; do
+for f in $ZDOTDIR/plugins/* $ZDOTDIR/langs/* $ZDOTDIR/langs/**/*; do
   source $f
 done
 if command -v thefuck&>/dev/null; then
