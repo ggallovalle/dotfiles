@@ -38,7 +38,7 @@ export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 export ANDROID_SDK_ROOT=$XDG_DATA_HOME/androidsdk
 # ----------------- ssh-agent ---------------------
 
-eval $(ssh-agent -s)
+eval $(keychain --quiet --eval github_ggallovalle)
 # ----------------- java error on tiling wm -------
 
 export _JAVA_AWT_WM_NONREPARENTING=1
