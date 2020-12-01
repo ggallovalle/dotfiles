@@ -1,13 +1,57 @@
-# -------------------- source  --------------------
+# -------------------- zsh setopt   ---------------
 
+# changing directories
+setopt auto_pushd pushd_silent pushd_ignore_dups
+# expansion and globing
+# setopt complete_aliases
+# history
+setopt extended_history share_history hist_expiredups_first hist_ignore_dups \
+    hist_ignore_space hist_verify
+# input/output
+setopt correct interactive_comments
+# prompting
+setopt prompt_subst
+# zle
+setopt vi
+# ----------------- alias      --------------------
+
+alias src='clear; exec zsh'
+alias rm='rm -i'
+alias rmr='rm -ri'
+alias cp='cp -i'
+alias cpr='cp -ri'
+alias path='echo -e ${PATH//:/\\n}'
+alias fpath='echo -e ${FPATH//:/\\n}'
+alias grep='grep --color'
+alias inotify='sudo sysctl fs.inotify.max_user_watches=35000'
+alias xclip='xclip -selection clipboard'
+# ----------------- functions    ------------------
+
+function backup() {
+    cp -r $1 $1.bak
+}
+function mkcd() {
+    mkdir -p $1
+    cd $1
+}
+function cexa() {
+  cd $1
+  exa
+}
+# ----------------- source     --------------------
+
+fpath+="$ZDOTDIR/completions"
+for f in $ZDOTDIR/plugins/* $ZDOTDIR/lang-envs/* $ZDOTDIR/lang-envs/**/*; do
+  source $f
+done
+if command -v thefuck&>/dev/null; then
+    eval $(thefuck --alias)
+fi
 # -------------------- p10k    --------------------
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-# -------------------- core    --------------------
-
-source $ZDOTDIR/core.zsh
 # -------------------- asdf    --------------------
 
 if [[ -d $ASDF_DATA_DIR ]];then
@@ -35,21 +79,6 @@ if [[ -f $XDG_CONFIG_HOME/broot/launcher/bash/br ]]; then
     source $XDG_CONFIG_HOME/broot/launcher/bash/br
     alias broot='br'
 fi
-# -------------------- zsh setopt   ---------------
-
-# changing directories
-setopt auto_pushd pushd_silent pushd_ignore_dups autocd
-# expansion and globing
-# setopt complete_aliases
-# history
-setopt extended_history share_history hist_expiredups_first hist_ignore_dups \
-    hist_ignore_space hist_verify
-# input/output
-setopt correct interactive_comments
-# prompting
-setopt prompt_subst
-# zle
-setopt vi
 # -------------------- zinit    -------------------
 
 if [[ -d $ZINIT[BIN_DIR] ]]; then
@@ -64,7 +93,7 @@ if [[ -d $ZINIT[BIN_DIR] ]]; then
         zinit-zsh/z-a-patch-dl \
         zinit-zsh/z-a-bin-gem-node \
         zinit-zsh/z-a-submods
-    source $ZDOTDIR/zinit.zsh
+    source $ZDOTDIR/zinit/zinit.zsh
 fi
 # -------------------- p10k    -------------------
 
@@ -72,3 +101,41 @@ fi
 if [[ -f $XDG_CONFIG_HOME/zsh/p10k.zsh ]];then
     source $XDG_CONFIG_HOME/zsh/p10k.zsh
 fi
+# -------------------- bindkeys  ------------------
+
+zmodload zsh/complist
+export KEYTIMEOUT=1
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+autoload edit-command-line
+zle -N edit-command-line
+autoload -U compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' rehash true
+compinit
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+bindkey '^e' edit-command-line
+bindkey '^[[P' delete-char
