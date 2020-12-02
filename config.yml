@@ -12,7 +12,7 @@
       path: zsh/zshenv.zsh
     ~/.zshrc:
       force: true
-      path: zsh/zshrc.zsh
+      path: zsh/.zshrc
     ~/.default-npm-packages:
       force: true
       path: default-pkgs/npm
@@ -41,7 +41,6 @@
     ~/.config/tmux:
     ~/.config/yay:
     ~/.config/zsh:
-    ~/.config/zsh/.zshrc: zsh/zshrc.zsh
 #--------------- $XDG_DATA_HOME    ----------------
 
 - ghqfile:

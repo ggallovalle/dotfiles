@@ -8,4 +8,6 @@ function lfcd() {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
+zle -N lfcd
+bindkey ^o lfcd
+

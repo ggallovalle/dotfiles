@@ -114,8 +114,8 @@ nnoremap <leader>dt    :action ToggleLineBreakpoint<CR>
 vnoremap <leader>dt    <Esc>:action ToggleLineBreakpoint<CR>
 nnoremap <leader>dC    :action Debugger.RemoveAllBreakpointsInFile<CR>
 vnoremap <leader>dC    <Esc>:action Debugger.RemoveAllBreakpointsInFile<CR>
-nnoremap <leader>dD    :action DebugClass<CR>
-vnoremap <leader>dD    <Esc>:action DebugClass<CR>
+" nnoremap <leader>dD    :action DebugClass<CR>
+" vnoremap <leader>dD    <Esc>:action DebugClass<CR>
 " -------------------- leader e --------------------
 " -------------------- errors   --------------------
 
@@ -133,8 +133,8 @@ vnoremap <leader>eL    :action InspectCode<CR>
 nnoremap <leader>er    :action ShowIntentionActions<CR>
 vnoremap <leader>er    :action ShowIntentionActions<CR>
 " edit inspection settings
-nnoremap <leader>es    :action EditInspectionSettings<CR>
-vnoremap <leader>es    :action EditInspectionSettings<CR>
+" nnoremap <leader>es    :action EditInspectionSettings<CR>
+" vnoremap <leader>es    :action EditInspectionSettings<CR>
 " explain error at point
 nnoremap <leader>ex    :action ShowErrorDescription<CR>
 vnoremap <leader>ex    :action ShowErrorDescription<CR>

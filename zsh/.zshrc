@@ -16,8 +16,6 @@ setopt vi
 # ----------------- alias      --------------------
 
 alias src='clear; exec zsh'
-alias rm='rm -i'
-alias rmr='rm -ri'
 alias cp='cp -i'
 alias cpr='cp -ri'
 alias path='echo -e ${PATH//:/\\n}'
@@ -25,15 +23,34 @@ alias fpath='echo -e ${FPATH//:/\\n}'
 alias grep='grep --color'
 alias inotify='sudo sysctl fs.inotify.max_user_watches=35000'
 alias xclip='xclip -selection clipboard'
+alias copy='xclip -selection clipboard'
 # ----------------- functions    ------------------
+
+function rm() {
+  if git status &> /dev/null; then
+    git rm "$@"
+  else
+    command rm "$@"
+  fi
+}
+
+function mv() {
+  if git status &> /dev/null; then
+    git mv "$@"
+  else
+    command mv "$@"
+  fi
+}
 
 function backup() {
     cp -r $1 $1.bak
 }
+
 function mkcd() {
     mkdir -p $1
     cd $1
 }
+
 function cexa() {
   cd $1
   exa
@@ -101,8 +118,10 @@ fi
 if [[ -f $XDG_CONFIG_HOME/zsh/p10k.zsh ]];then
     source $XDG_CONFIG_HOME/zsh/p10k.zsh
 fi
-# -------------------- bindkeys  ------------------
+# -------------------- bindkeys  -----------------
 
+bindkey -s ^t 'taskwarrior-tui^M'
+# -------------------- vi mode  ------------------
 zmodload zsh/complist
 export KEYTIMEOUT=1
 # Change cursor shape for different vi modes.

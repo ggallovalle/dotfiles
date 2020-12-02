@@ -39,5 +39,5 @@ alias gss='git status --short'
 
 alias ga='git add'
 alias gaa='git add --all'
-alias gau='git restore --staged'
-
+alias gre='git restore'
+alias gres='git restore --staged'
