@@ -1,4 +1,8 @@
 # -------------------- zsh setopt   ---------------
+if [[ -f ~/.alias.zsh ]]
+then
+  source ~/.alias.zsh
+fi
 
 # changing directories
 setopt auto_pushd pushd_silent pushd_ignore_dups
@@ -24,23 +28,12 @@ alias grep='grep --color'
 alias inotify='sudo sysctl fs.inotify.max_user_watches=35000'
 alias xclip='xclip -selection clipboard'
 alias copy='xclip -selection clipboard'
+alias e='nvim'
+alias rmr='rm -r'
+alias rmrf='rm -rf'
 # ----------------- functions    ------------------
 
-function rm() {
-  if git status &> /dev/null; then
-    git rm "$@"
-  else
-    command rm "$@"
-  fi
-}
 
-function mv() {
-  if git status &> /dev/null; then
-    git mv "$@"
-  else
-    command mv "$@"
-  fi
-}
 
 function backup() {
     cp -r $1 $1.bak
@@ -63,11 +56,6 @@ for f in $ZDOTDIR/plugins/* $ZDOTDIR/langs/* $ZDOTDIR/langs/**/*; do
 done
 if command -v thefuck&>/dev/null; then
     eval $(thefuck --alias)
-fi
-# -------------------- p10k    --------------------
-
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 # -------------------- asdf    --------------------
 
@@ -158,3 +146,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 bindkey '^e' edit-command-line
 bindkey '^[[P' delete-char
+
+# -------------------- starship theme--------------
+eval "$(starship init zsh)"

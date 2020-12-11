@@ -1,6 +1,3 @@
-# ----------------- theme -------------------------
-
-zinit load romkatv/powerlevel10k
 # ----------------- completions -------------------
 
 zinit as'completion' for \

@@ -12,12 +12,13 @@ path+=(
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
 export DOTFILES=$HOME/dotfiles
 # ----------------- default apps ------------------
 
 export EDITOR=nvim
 export TERMINAL=alacritty
-export BROWSER=firefox
+export BROWSER=vivaldi-stable
 # ----------------- zsh related -------------------
 
 ZDOTDIR=$HOME/.config/zsh
@@ -47,14 +48,14 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export GHQ_ROOT=$HOME/ghq
 # ----------------- bat   -------------------------
 
-export BAT_THEME="Sublime Snazzy"
+export BAT_THEME="OneHalfDark"
 # ----------------- gradle     --------------------
 
-export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
+# export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
 # ----------------- ruby gem   --------------------
 
-export GEM_HOME=$XDG_DATA_HOME/gem
-export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem
+# export GEM_HOME=$XDG_DATA_HOME/gem
+# export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem
 # ----------------- emacs doom --------------------
 
 # export DOOMDIR=$XDG_CONFIG_HOME/doom # it defaults to searching this directory
