@@ -35,6 +35,7 @@
     ~/.config/ideavim:
     ~/.config/kitty:
     ~/.config/lf:
+    ~/.config/maven:
     ~/.config/polybar:
     ~/.config/rofi: 
     ~/.config/sxhkd:
@@ -74,6 +75,11 @@
       global: 6.7.1
       versions:
         - 6.7.1
+      # https://maven.apache.org/docs/history.html
+    - plugin: maven
+      global: 3.6.3
+      versions: 
+        - 3.6.3
       # https://nodejs.org/en/about/releases/
     - plugin: nodejs
       global: 14.15.1
