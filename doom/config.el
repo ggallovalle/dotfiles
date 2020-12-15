@@ -26,7 +26,10 @@
 
 ;; org-mode
 (setq org-fontify-emphasized-text t)
-
+(org-babel-do-load-languages
+'org-babel-load-languages
+'(; likely other languages here
+  (scala . t)))
 ;; auth
 (setq auth-sources '("~/.authinfo")
       user-full-name "Gerson Gallo"

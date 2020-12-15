@@ -1,34 +1,6 @@
-# lf settings
-set shell zsh
-set shellopts '-eu'
-set ifs "\n"
-set scrolloff 10
-set icons
-set previewer ~/.config/lf/previewer
-
-
 #  __________
 # < commands >
 #  ----------
-#    \
-#     \
-#       _____   _________
-#      /     \_/         |
-#     |                 ||
-#     |                 ||
-#    |    ###\  /###   | |
-#    |     0  \/  0    | |
-#   /|                 | |
-#  / |        <        |\ \
-# | /|                 | | |
-# | |     \_______/   |  | |
-# | |                 | / /
-# /||                 /|||
-#    ----------------|
-#         | |    | |
-#         ***    ***
-#        /___\  /___\
-
 
 cmd open ${{
     case $(file --mime-type $f -b) in
@@ -36,7 +8,6 @@ cmd open ${{
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
-
 
 cmd extract ${{
     set -f
@@ -50,7 +21,6 @@ cmd extract ${{
     esac
 }}
 
-
 cmd tar ${{
     set -f
     mkdir $1
@@ -58,7 +28,6 @@ cmd tar ${{
     tar czf $1.tar.gz $1
     rm -rf $1
 }}
-
 
 cmd zip ${{
     set -f
@@ -68,22 +37,13 @@ cmd zip ${{
     rm -rf $1
 }}
 
-
 cmd trash %trash-put $fx
-
-
 #  _____
 # < map >
 #  -----
-#         \   ^__^
-#          \  (oo)\_______
-#             (__)\       )\/\
-#                 ||----w |
-#                 ||     ||
 
 # cd to directories
 map gc cd ~/ghq/github.com/ggallovalle/
-map gu cd ~/UCA/2020-2s/
 map gd cd ~/Downloads/
 map g. cd ~/dotfiles/
 map i $~/.config/lf/previewer $f | less -RN
@@ -95,3 +55,15 @@ map <delete> trash
 map D delete
 map o &mimeopen $f
 map O $mimeopen --ask $f
+
+#  _____
+# < settings >
+#  -----
+
+set shell zsh
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons
+set previewer ~/.config/lf/previewer
+

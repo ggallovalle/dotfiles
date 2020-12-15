@@ -7,6 +7,7 @@ function pnpm.new() {
     npm init -y
     mkdir lib
 }
+alias pnpm.init='pnpm init'
 alias pnpm.watch='pnpm run watch'
 
 

@@ -41,15 +41,13 @@ map <C-j>              <C-w>j
 map <C-k>              <C-w>k
 map <C-l>              <C-w>l
 " -------------------- leader --------------------
-
+inoremap jj <Esc>
 nnoremap <leader>w     <C-w>
 vnoremap <leader>w     <C-w>
-" show registers content
-nnoremap <leader>"     :registers<CR>
-vnoremap <leader>"     :registers<CR>
 " search action
 nnoremap <leader>:     :action GotoAction<CR>
 vnoremap <leader>:     :action GotoAction<CR>
+nnoremap <leader>;     :action EditorCompleteStatement
 nnoremap <leader><Space>    :action GotoFile<CR>
 vnoremap <leader><Space>    :action GotoFile<CR>
 nnoremap <leader>`     <C-S-6>
@@ -58,38 +56,15 @@ nnoremap <leader>,     :action RecentLocations<CR>
 vnoremap <leader>,     :action RecentLocations<CR>
 vnoremap <leader><CR>    :action ShowBookmarks<CR>
 nnoremap <leader><CR>    :action ShowBookmarks<CR>
-" -------------------- leader a --------------------
-" -------------------- tools    --------------------
-
-nnoremap <leader>at    :action ActivateTerminalToolWindow<CR>
-vnoremap <leader>at    :action ActivateTerminalToolWindow<CR>
-nnoremap <leader>ac    :action ShowColorPicker<CR>
-vnoremap <leader>ac    :action ShowColorPicker<CR>
-nnoremap <leader>ag    :action ActivateVersionControlToolWindow<CR>
-vnoremap <leader>ag    :action ActivateVersionControlToolWindow<CR>
-nnoremap <leader>aD    :action ActivateDatabaseToolWindow<CR>
-vnoremap <leader>aD    :action ActivateDatabaseToolWindow<CR>
-nnoremap <leader>ad    :action ActivateDebugToolWindow<CR>
-vnoremap <leader>ad    :action ActivateDebugToolWindow<CR>
-nnoremap <leader>af    :action ActivateFavoritesToolWindow  <CR>
-vnoremap <leader>af    :action ActivateFavoritesToolWindow  <CR>
-nnoremap <leader>ap    :action ActivateProjectToolWindow<CR>
-vnoremap <leader>ap    :action ActivateProjectToolWindow<CR>
-nnoremap <leader>as    :action ActivateStructureToolWindow<CR>
-vnoremap <leader>as    <Esc>:action ActivateStructureToolWindow<CR>
-nnoremap <leader>aT    :action ActivateTODOToolWindow<CR>
-vnoremap <leader>aT    :action ActivateTODOToolWindow<CR>
 " -------------------- leader b --------------------
 " -------------------- bookmarks -------------------
 
-" vnoremap <leader>bl    :action ShowBookmarks<CR>
-" nnoremap <leader>bl    :action ShowBookmarks<CR>
-" nnoremap <leader>bj    :action GotoPreviousBookmark<CR>
-" vnoremap <leader>bj    <Esc>:action GotoPreviousBookmark<CR>
-" nnoremap <leader>bk    :action GotoNextBookmark<CR>
-" vnoremap <leader>bk    <Esc>:action GotoNextBookmark<CR>
-nnoremap <leader>bm    :action ToggleBookmarkWithMnemonic<CR>
-vnoremap <leader>bm    <Esc>:action ToggleBookmarkWithMnemonic<CR>
+nnoremap <leader>bj    :action GotoPreviousBookmark<CR>
+vnoremap <leader>bj    <Esc>:action GotoPreviousBookmark<CR>
+nnoremap <leader>bk    :action GotoNextBookmark<CR>
+vnoremap <leader>bk    <Esc>:action GotoNextBookmark<CR>
+nnoremap <leader>ba    :action ToggleBookmarkWithMnemonic<CR>
+vnoremap <leader>ba    <Esc>:action ToggleBookmarkWithMnemonic<CR>
 " -------------------- leader d --------------------
 " -------------------- debug    --------------------
 nnoremap <leader>dd    :action Debug<CR>
@@ -107,8 +82,8 @@ vnoremap <leader>dj    <Esc>:action Resume<CR>
 nnoremap <leader>dl    :action ViewBreakpoints<CR>
 vnoremap <leader>dl    <Esc>:action ViewBreakpoints<CR>
 " debug, step over
-nnoremap <leader>do    :action StepOver<CR>
-vnoremap <leader>do    <Esc>:action StepOver<CR>
+nnoremap <leader>dk    :action StepOver<CR>
+vnoremap <leader>dk    <Esc>:action StepOver<CR>
 " debug, toggle breakpoint
 nnoremap <leader>dt    :action ToggleLineBreakpoint<CR>
 vnoremap <leader>dt    <Esc>:action ToggleLineBreakpoint<CR>
@@ -136,48 +111,45 @@ vnoremap <leader>er    :action ShowIntentionActions<CR>
 " nnoremap <leader>es    :action EditInspectionSettings<CR>
 " vnoremap <leader>es    :action EditInspectionSettings<CR>
 " explain error at point
-nnoremap <leader>ex    :action ShowErrorDescription<CR>
-vnoremap <leader>ex    :action ShowErrorDescription<CR>
+nnoremap <leader>ed    :action ShowErrorDescription<CR>
+vnoremap <leader>ed    :action ShowErrorDescription<CR>
 " -------------------- leader f --------------------
 " -------------------- files    --------------------
 
 " reload ideavimrc
-nnoremap <leader>fe    :source ~/.config/ideavim/ideavimrc<CR>
-vnoremap <leader>fe    <Esc>:source ~/.config/ideavim/ideavimrc<CR>
+nnoremap <leader>fs    :source ~/.config/ideavim/ideavimrc<CR>
+vnoremap <leader>fs    <Esc>:source ~/.config/ideavim/ideavimrc<CR>
 " edit ideavimrc
-nnoremap <leader>fE    :edit ~/.config/ideavim/ideavimrc<CR>
-vnoremap <leader>fE    <Esc>:edit ~/.config/ideavim/ideavimrc<CR>
+nnoremap <leader>fe    :edit ~/.config/ideavim/ideavimrc<CR>
+vnoremap <leader>fe    <Esc>:edit ~/.config/ideavim/ideavimrc<CR>
 nnoremap <leader>fh    :action LocalHistory.ShowHistory<CR>
 vnoremap <leader>fh    :action LocalHistory.ShowHistory<CR>
 nnoremap <leader>fl    :action LocalHistory.PutLabel<CR>
 vnoremap <leader>fl    :action LocalHistory.PutLabel<CR>
-nnoremap <leader>fn    :action NewElement<CR>
-vnoremap <leader>fn    :action NewElement<CR>
+nnoremap <leader>fc    :action NewElement<CR>
+vnoremap <leader>fc    :action NewElement<CR>
 nnoremap <leader>fr    :action RenameFile<CR>
 vnoremap <leader>fr    :action RenameFile<CR>
-nnoremap <leader>fc    :action CloseContent<CR>
-vnoremap <leader>fc    <Esc>:action CloseContent<CR>
+nnoremap <leader>fd    :action CloseContent<CR>
+vnoremap <leader>fd    <Esc>:action CloseContent<CR>
 " -------------------- leader g --------------------
 " -------------------- git      --------------------
 
 " git blame
-nnoremap <leader>gB    :action Annotate<CR>
-vnoremap <leader>gB    :action Annotate<CR>
+nnoremap <leader>gl    :action Annotate<CR>
+vnoremap <leader>gl    :action Annotate<CR>
 " git diff current file with branch
 nnoremap <leader>gd    :action Git.CompareWithBranch <CR>
 vnoremap <leader>gd    :action Git.CompareWithBranch <CR>
 " git branches
-nnoremap <leader>gb    :action Git.Branches<CR>
-vnoremap <leader>gb    :action Git.Branches<CR>
+nnoremap <leader>gc    :action Git.Branches<CR>
+vnoremap <leader>gc    :action Git.Branches<CR>
 " log current file
-nnoremap <leader>gh    :action Vcs.ShowTabbedFileHistory<CR>
-vnoremap <leader>gh    :action Vcs.ShowTabbedFileHistory<CR>
-" git log
-nnoremap <leader>gl    :action Vcs.Show.Log<CR>
-vnoremap <leader>gl    :action Vcs.Show.Log<CR>
+nnoremap <leader>gf    :action Vcs.ShowTabbedFileHistory<CR>
+vnoremap <leader>gf    :action Vcs.ShowTabbedFileHistory<CR>
 " git pull
-nnoremap <leader>gf    :action Vcs.UpdateProject<CR>
-vnoremap <leader>gf    :action Vcs.UpdateProject<CR>
+" nnoremap <leader>gf    :action Vcs.UpdateProject<CR>
+" vnoremap <leader>gf    :action Vcs.UpdateProject<CR>
 " select action
 nnoremap <leader>gg    :action Vcs.QuickListPopupAction<CR>
 vnoremap <leader>gg    :action Vcs.QuickListPopupAction<CR>
@@ -204,15 +176,15 @@ vnoremap <leader>hc    <Esc>:action CallHierarchy<CR>
 " this works for help in all languages
 nnoremap <leader>hd    :action QuickJavaDoc<CR>
 vnoremap <leader>hd    <Esc>:action QuickJavaDoc<CR>
-nnoremap <leader>hi    :action TypeHierarchy<CR>
-vnoremap <leader>hi    <Esc>:action TypeHierarchy<CR>
+nnoremap <leader>ht    :action TypeHierarchy<CR>
+vnoremap <leader>ht    <Esc>:action TypeHierarchy<CR>
 nnoremap <leader>hk    :map<CR>
 vnoremap <leader>hk    <Esc>:map<CR>
 nnoremap <leader>hp    :action ParameterInfo<CR>
 vnoremap <leader>hp    <Esc>:action ParameterInfo<CR>
 " popup with the code
-nnoremap <leader>hq    :action QuickImplementations<CR>
-vnoremap <leader>hq    <Esc>:action QuickImplementations<CR>
+nnoremap <leader>hi    :action QuickImplementations<CR>
+vnoremap <leader>hi    <Esc>:action QuickImplementations<CR>
 " -------------------- leader j --------------------
 " -------------------- jump     --------------------
 
@@ -246,18 +218,37 @@ vnoremap <leader>js    :action FileStructurePopup<CR>
 " jump to character (AceJump plugin required)
 vnoremap <leader>jj    :action AceAction<CR>
 nnoremap <leader>jj    :action AceAction<CR>
+" -------------------- leader o --------------------
+" -------------------- tools    --------------------
+
+nnoremap <leader>ot    :action ActivateTerminalToolWindow<CR>
+vnoremap <leader>ot    :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>oc    :action ShowColorPicker<CR>
+vnoremap <leader>oc    :action ShowColorPicker<CR>
+nnoremap <leader>og    :action ActivateVersionControlToolWindow<CR>
+vnoremap <leader>og    :action ActivateVersionControlToolWindow<CR>
+nnoremap <leader>oa    :action ActivateDatabaseToolWindow<CR>
+vnoremap <leader>oa    :action ActivateDatabaseToolWindow<CR>
+nnoremap <leader>op    :action ActivateProjectToolWindow<CR>
+vnoremap <leader>op    :action ActivateProjectToolWindow<CR>
+nnoremap <leader>of    :action ActivateFavoritesToolWindow  <CR>
+vnoremap <leader>of    :action ActivateFavoritesToolWindow  <CR>
+nnoremap <leader>os    :action ActivateStructureToolWindow<CR>
+vnoremap <leader>os    <Esc>:action ActivateStructureToolWindow<CR>
+nnoremap <leader>od    :action ActivateTODOToolWindow<CR>
+vnoremap <leader>od    :action ActivateTODOToolWindow<CR>
 " -------------------- leader r --------------------
 " -------------------- refactor --------------------
 
 nnoremap <leader>rc    :action CodeCleanup<CR>
 vnoremap <leader>rc    :action CodeCleanup<CR>
-nnoremap <leader>rn    :action RenameElement<CR>
-vnoremap <leader>rn    :action RenameElement<CR>
+nnoremap <leader>re    :action RenameElement<CR>
+vnoremap <leader>re    :action RenameElement<CR>
 nnoremap <leader>rm    :action Move<CR>
 vnoremap <leader>rm    :action Move<CR>
 " choose a refactoring action
-nnoremap <leader>re    :action Refactorings.QuickListPopupAction<CR>
-vnoremap <leader>re    <Esc>:action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rr    :action Refactorings.QuickListPopupAction<CR>
+vnoremap <leader>rr    <Esc>:action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>rs    :action SurroundWith<CR>
 vnoremap <leader>rs    :action SurroundWith<CR>
 " -------------------- leader R --------------------
@@ -265,10 +256,10 @@ vnoremap <leader>rs    :action SurroundWith<CR>
 
 nnoremap <leader>Ra    :action RunAnything<CR>
 vnoremap <leader>Ra    :action RunAnything<CR>
-nnoremap <leader>Rk    :action Stop<CR>
-vnoremap <leader>Rk    :action Stop<CR>
-nnoremap <leader>Ro    :action Rerun<CR>
-vnoremap <leader>Ro    :action Rerun<CR>
+nnoremap <leader>Rs    :action Stop<CR>
+vnoremap <leader>Rs    :action Stop<CR>
+nnoremap <leader>Re    :action Rerun<CR>
+vnoremap <leader>Re    :action Rerun<CR>
 nnoremap <leader>Rr    :action Run<CR>
 vnoremap <leader>Rr    :action Run<CR>
 nnoremap <leader>Rc    :action ChooseRunConfiguration<CR>
