@@ -31,6 +31,11 @@ DIRSTACKSIZE=7
 declare -A ZINIT
 ZINIT[BIN_DIR]=$XDG_DATA_HOME/zinit/bin
 ZINIT[HOME_DIR]=$XDG_DATA_HOME/zinit
+# ----------------- golang ------------------------
+
+export GOROOT=$XDG_DATA_HOME/asdf/installs/golang/1.15.5/go
+export GOPATH=$XDG_DATA_HOME/go
+path+=($GOPATH/bin)
 # ----------------- asdf  -------------------------
 
 export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
