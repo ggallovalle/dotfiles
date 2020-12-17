@@ -39,6 +39,9 @@ clonner() {
 # first clone and setup dotbot
 clonner dotbot https://github.com/anishathalye/dotbot "$data/dotbot" --recurse-submodules --jobs 8
 info add dotbot to ~/.local/bin
+clonner dotbot-plugin https://github.com/ggallovalle/dotbot-plugins "$data/dotbot-plugins"
+info add dotbot-plugins to ~/.local/bin
+# add dotbot shim to PATH
 if [[ ! -d "$HOME/.local/bin" ]]; then
     mkdir "$HOME/.local/bin"
 fi
