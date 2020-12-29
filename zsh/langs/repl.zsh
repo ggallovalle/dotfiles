@@ -15,9 +15,6 @@ alias repl.java='jshell'
 alias repl.scala='scala'
 alias repl.kotlin='kotlin'
 
-### php
-alias repl.php='php --interactive'
-
 ## python
 function repl.python() {
   if hash bpython 2>/dev/null; then

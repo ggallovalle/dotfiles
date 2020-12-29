@@ -21,3 +21,27 @@
 # composer.rm
 # composer.rmD
 # composer.rmT
+
+function php.pm() {
+    case "$1" in
+        ad)
+            shift
+            composer require "$@"
+            ;;
+        adD)
+            shift
+            composer require --dev "$@"
+            ;;
+        rm)
+            shift
+            composer remove "$@"
+            ;;
+        rmD)
+            shift
+            composer remove --dev "$@"
+            ;;
+        *)
+            composer "$@"
+            ;;
+    esac
+}

@@ -1,30 +1,27 @@
-function php() {
+function php.la() {
+    local base=$(find-up artisan) artisan
+    if [[ -z $base ]]; then
+        +zinit-message "{info3}Not inside a laravel project.{rst}"
+        return 1
+    fi
+    artisan="$base/artisan"
+    # Laravel functions
     case "$1" in
-        pm)
+        server) shift;"$artisan" serve;;
+        g:model)
             shift
-            command composer "$@"
+            +zinit-message "{warn} Usage:{rst}"
+            +zinit-message "    make:model [options] [--] <name>"
+            echo
+            +zinit-message "{keyword}-a, --all {rst}        Generate a migration, seeder, factory, and resource controller for the model"
+            +zinit-message "{keyword}-c, --controller {rst} Generate a new controller for the model"
+            +zinit-message "{keyword}-f, --factory {rst}    Generate a new factory for the model"
+            +zinit-message "{keyword}--force {rst}          Create the class even if the model already exist"
+            "$artisan" make:model "$@"
             ;;
-        la)
-            shift
-            ./artisan "$@"
-            ;;
-        repl)
-            shift
-            command php --interactive "$@"
-            ;;
-        cmd)
-            +zinit-message "{info3}Php related commands.{rst}"
-            +zinit-message "{cmd}cmd{rst} -> {obj}this info msg{rst}"
-            +zinit-message "{cmd}pm{rst} -> {obj}composer{rst}"
-            +zinit-message "{cmd}la{rst} -> {obj}laravel{rst}"
-            +zinit-message "{cmd}repl{rst} -> {obj}repl{rst}"
-            ;;
-        *)
-            command php "$@"
-            ;;
+        *)  "$artisan" "$@";;
     esac
 }
-
 alias laravel='php artisan'
 
 # one time

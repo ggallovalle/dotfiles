@@ -48,6 +48,17 @@ function cexa() {
   cd $1
   exa
 }
+
+function find-up () {
+  local found=$(pwd)
+  while [[ -n "$found" && ! -e "$found/$1" ]]; do
+    found=${found%/*}
+  done
+  if [[ -z "$found" ]]; then
+      return 1
+  fi
+  echo "$found"
+}
 # ----------------- source     --------------------
 
 fpath+="$ZDOTDIR/completions"
