@@ -1,2 +1,2 @@
 thefuck --alias | source
-source ~/.asdf/asdf.fish
+source $ASDF_DATA_DIR/asdf.fish
