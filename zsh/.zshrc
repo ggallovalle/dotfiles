@@ -59,6 +59,10 @@ function find-up () {
   fi
   echo "$found"
 }
+
+function find-base-path() {
+  echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
+}
 # ----------------- source     --------------------
 
 fpath+="$ZDOTDIR/completions"

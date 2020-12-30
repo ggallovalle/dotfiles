@@ -7,9 +7,6 @@ alias repl.fsharp='dotnet fsi'
 ### elixir
 alias repl.elixir='iex'
 
-### js
-alias repl.js='node'
-
 ### jvm
 alias repl.java='jshell'
 alias repl.scala='scala'
@@ -26,4 +23,3 @@ function repl.python() {
 
 ### ruby
 alias repl.ruby='irb'
-
