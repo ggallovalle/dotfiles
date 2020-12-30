@@ -14,13 +14,14 @@ function js() {
     case "$cmd" in
     # others
     bin) "$pmx" "$@" ;;
+    # TODO if -z $1 open language docs
     docs) npm docs "$@" ;;
     # TODO fmt)
     # TODO lint)
     repl) command node "$@" ;;
-    repo) xdg-open 'https://www.npmjs.com/' &>/dev/null ;;
     script) command node "$cmd" "$@" ;;
     search) npm search "$@" ;;
+    surf) xdg-open 'https://www.npmjs.com/' &>/dev/null ;;
     test)
         # if it has a script.test execute it
         if [[ "true" = $(jq '.scripts | has("test")' $pkgconf -r) ]]; then
@@ -35,6 +36,14 @@ function js() {
     pm:init) npm init ;;
     pm:ad | pm:add) "$pm" add "$@" ;;
     pm:adD | pm:add-dev) "$pm" add -D "$@" ;;
+    pm:rm | pm:remove) "$pm" remove "$@" ;;
+    pm:rmD | pm:remove-dev)
+        if [[ $pm = yarn ]]; then
+            "$pm" remove "$@"
+        else
+            "$pm" remove -D "$@"
+        fi
+        ;;
     pm:in | pm:install) "$pm" install ;;
     pm:un | pm:uninstall)
         if [[ -z $pkg ]]; then
@@ -62,14 +71,6 @@ function js() {
             pnpm list -D --color $@ | sed "/not saved/Q"
         else
             jq .devDependencies $pkgconf
-        fi
-        ;;
-    pm:rm | pm:remove) "$pm" remove "$@" ;;
-    pm:rmD | pm:remove-dev)
-        if [[ $pm = yarn ]]; then
-            "$pm" remove "$@"
-        else
-            "$pm" remove -D "$@"
         fi
         ;;
     *) command node "$cmd" "$@" ;;

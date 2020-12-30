@@ -14,13 +14,14 @@ function php() {
     case "$cmd" in
     # others
     bin) composer exec -- "$1" "${@:2}" ;;
+    # TODO if -z $1 open language docs
     docs) composer browse "$@" ;;
     fmt) php bin php-cs-fixer "$@" ;;
     lint) php bin psalm "$@" ;;
     repl) command php --interactive "$@" ;;
-    repo) xdg-open 'https://packagist.org/' &>/dev/null ;;
     script) command php "$cmd" "$@" ;;
     search) composer search "$@" ;;
+    surf) xdg-open 'https://packagist.org/' &>/dev/null ;;
     test) php bin phpunit "$@" ;;
 
     # laravel
@@ -44,6 +45,8 @@ function php() {
     pm:init) composer init "$@" ;;
     pm:ad | pm:add) composer require "$@" ;;
     pm:adD | pm:add-dev) composer require --dev "$@" ;;
+    pm:rm | pm:remove) composer remove "$@" ;;
+    pm:rmD | pm:remove-dev) composer remove --dev "$@" ;;
     pm:in | pm:install) composer install "$@" ;;
     pm:un | pm:uninstall)
         local pkg=$(find-up composer.json)
@@ -62,8 +65,6 @@ function php() {
         ;;
     pm:ls | pm:list) jq .require composer.json ;;
     pm:lsD | pm:list-dev) jq '."require-dev"' composer.json ;;
-    pm:rm | pm:remove) composer remove "$@" ;;
-    pm:rmD | pm:remove-dev) composer remove --dev "$@" ;;
     *) command php "$cmd" "$@" ;;
     esac
 }
