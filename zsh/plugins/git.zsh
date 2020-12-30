@@ -8,11 +8,11 @@ alias gm='git commit'
 function gmallm() {
     git add --all
     git commit --message $1
-} 
+}
 function gmamend() {
     git add --all
     git commit --amend --no-edit
-} 
+}
 alias gmm='git commit --message'
 
 alias gc='git checkout'
@@ -31,6 +31,7 @@ alias gd='git diff'
 alias gds='git diff --stat'
 
 alias gl='git log'
+alias glo='git log --oneline'
 alias gls='git log --oneline --stat'
 alias glg="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
