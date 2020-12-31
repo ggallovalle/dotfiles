@@ -1,6 +1,6 @@
 function __io__read_confirm
     while true
-        read -l -P 'Do you want to continue? [y/N] ' confirm
+        read -l -n 1 -P 'Continue? [y/N] ' confirm
         switch $confirm
             case Y y
                 return 0
