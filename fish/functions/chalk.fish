@@ -1,33 +1,41 @@
-function chalk -a spec -d 'stdout styling'
+function chalk -a spec -w 'set_color' -d 'stdout styling'
     switch $spec
         case ''
             set_color normal
         case header
-            chalk black.bgYellow.bold
+            set_color bryellow -o -r
         case title
-            chalk brYellow
+            set_color bryellow
         case cmd
-            chalk cyan
+            set_color brcyan
         case path
-            chalk brMagenta.bold
+            set_color brmagenta -o
         case rm
-            chalk brMagenta.bold.strike
+            set_color brmagenta -o -r
         case url
-            chalk blue.underline
+            set_color brblue -u
         case ok
-            chalk brGreen.bold
+            set_color brgreen --bold
         case error
-            chalk black.bgRed.bold
-            # show colors
+            set_color brred -o -r
         case colors
-            echo (chalk header) header (chalk)(chalk title) title (chalk)(chalk cmd) cmd (chalk) \
-                (chalk path) path (chalk)
-            echo (chalk rm) rm (chalk) (chalk url) url (chalk) (chalk ok) ok (chalk) (chalk error) error
+            set -l m_header (_ "header:\t"(chalk header)"%s\n"(chalk))
+            set -l m_title (_ "title:\t"(chalk title)"%s\n"(chalk))
+            set -l m_cmd (_ "cmd:\t"(chalk cmd)"%s\n"(chalk))
+            set -l m_path (_ "path:\t"(chalk path)"%s\n"(chalk))
+            set -l m_rm (_ "rm:\t"(chalk rm)"%s\n"(chalk))
+            set -l m_url (_ "url:\t"(chalk url)"%s\n"(chalk))
+            set -l m_ok (_ "ok:\t"(chalk ok)"%s\n"(chalk))
+            set -l m_error (_ "error:\t"(chalk error)"%s\n"(chalk))
+            printf $m_header 'pretty cool header'
+            printf $m_title 'pretty cool title'
+            printf $m_cmd 'pretty cool cmd'
+            printf $m_path 'pretty cool path'
+            printf $m_rm 'pretty cool rm'
+            printf $m_url 'pretty cool url'
+            printf $m_ok 'pretty cool ok'
+            printf $m_error 'pretty cool error'
         case '*'
-            for modifier in (string split . $spec)
-                if set -l index (contains -i -- $modifier $_k_colors) # `set` won't modify $status, so this succeeds if `contains` succeeds
-                    echo $_v_colors[$index]
-                end
-            end
+            set_color $argv
     end
 end

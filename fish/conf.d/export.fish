@@ -1,8 +1,20 @@
-set -x TERM "xterm"
-set -x EDITOR "nvim"
-set -x VISUAL "code"
-set -x SSH_AUTH_SOCK "/tmp/ssh-MTkyEBuEeCQt/agent.17024"
-set -x SSH_AGENT_PID "17025"
+# ----------------- initialization ----------------
+set -p PATH $HOME/.local/bin
+set -p PATH $HOME/.config/rofi/modes
+# ----------------- XDG standard ------------------
+
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x DOTFILES $HOME/dotfiles
+# ----------------- default apps ------------------
+
+set -x TERM xterm
+set -x EDITOR nvim
+set -x VISUAL nvim
+set -x TERMINAL alacritty
+set -x BROWSER firefox-developer-edition
 # install vivid for a new color scheme
 # https://github.com/sharkdp/vivid
 # malokai (goes best with alacritty one_doom)
