@@ -34,7 +34,14 @@ function ghq.others() {
         cd -
         return
     fi
-    cd $repo
+    if [[ -z "$@" ]]; then
+        cd $repo
+    else
+        cd "$repo"
+        "$@"
+        cd
+    fi
+
 }
 
 function ghq.get() {
@@ -49,6 +56,6 @@ function ghq.get() {
     fi
     ghq get -l $repo
     for it in ${@:2}; do
-	tmsu tag . $it
+        tmsu tag . $it
     done
 }
