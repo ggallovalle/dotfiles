@@ -23,6 +23,7 @@
 #--------------- $XDG_CONFIG_HOME  ----------------
 
     ~/.config/alacritty:
+    ~/.config/awesome:
     #~/.config/bspwm:
     ~/.config/doom:
     ~/.config/fish:
@@ -37,6 +38,7 @@
     ~/.config/lf:
     ~/.config/maven:
     ~/.config/polybar:
+    ~/.config/picom:
     ~/.config/rofi: 
     ~/.config/sxhkd:
     ~/.config/tmux:
