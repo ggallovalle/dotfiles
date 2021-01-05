@@ -5,21 +5,25 @@
 - clean: ['~']
 
 - link:
-#--------------- $HOME             ----------------
+#--------------- home rogue             ----------------
 
+    ~/.default-npm-packages:
+      force: true
+      path: home/.default-npm-packages
+    ~/.tldrrc:
+      force: true
+      path: home/.tldrrc
+    ~/.Xmodmap:
+      force: true
+      path: home/.Xmodmap
     ~/.zshenv:
       force: true
-      path: zsh/zshenv.zsh
+      path: home/.zshenv
+#--------------- $HOME             ----------------
+    ~/.tmux.conf.local: tmux/tmux.conf
     ~/.zshrc:
       force: true
       path: zsh/.zshrc
-    ~/.default-npm-packages:
-      force: true
-      path: default-pkgs/npm
-    ~/.tmux.conf.local: tmux/tmux.conf
-    ~/.Xmodmap:
-      force: true
-      path: xmodmap/xmodmap
 #--------------- $XDG_CONFIG_HOME  ----------------
 
     ~/.config/alacritty:
