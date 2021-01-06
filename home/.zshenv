@@ -26,19 +26,11 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=120000 # Larger than $SAVEHIST for HIST_EXPIRE_DUPS_FIRST to work
 SAVEHIST=100000
 DIRSTACKSIZE=7
-# ----------------- zinit -------------------------
-
-declare -A ZINIT
-ZINIT[BIN_DIR]=$XDG_DATA_HOME/zinit/bin
-ZINIT[HOME_DIR]=$XDG_DATA_HOME/zinit
 # ----------------- golang ------------------------
 
 # export GOROOT=$XDG_DATA_HOME/asdf/installs/golang/1.15.5/go
 export GOPATH=$XDG_DATA_HOME/go
 path+=($GOPATH/bin)
-# ----------------- asdf  -------------------------
-
-export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 # ----------------- android -----------------------
 
 export ANDROID_SDK_ROOT=$XDG_DATA_HOME/androidsdk

@@ -1,3 +1,4 @@
+source ~/.zshenv
 # -------------------- zsh setopt   ---------------
 # changing directories
 setopt auto_pushd pushd_silent pushd_ignore_dups
@@ -92,6 +93,7 @@ if command -v thefuck &>/dev/null; then
 fi
 # -------------------- asdf    --------------------
 
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 if [[ -d $ASDF_DATA_DIR ]]; then
   source $ASDF_DATA_DIR/asdf.sh
   javahome=$ASDF_DATA_DIR/plugins/java/set-java-home.zsh
@@ -119,6 +121,9 @@ if [[ -f $XDG_CONFIG_HOME/broot/launcher/bash/br ]]; then
 fi
 # -------------------- zinit    -------------------
 
+declare -A ZINIT
+ZINIT[BIN_DIR]=$XDG_DATA_HOME/zinit/bin
+ZINIT[HOME_DIR]=$XDG_DATA_HOME/zinit
 if [[ -d $ZINIT[BIN_DIR] ]]; then
   source $ZINIT[BIN_DIR]/zinit.zsh
   unalias zini zpl zplg zi # unalias the default alias for zinit
