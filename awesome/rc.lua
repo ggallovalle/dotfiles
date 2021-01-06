@@ -236,7 +236,7 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     -- {{{ Personal bindings
-    awful.key({ modkey, "Shift"}, "Return",
+    awful.key({ modkey,}, "d",
     function ()
         awful.spawn.with_shell("rofi -show combi -combi-modi window,drun")
     end,
