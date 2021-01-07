@@ -61,12 +61,14 @@ function __composer_needs_command
     return 1
 end
 
-complete -f -c wphp
-complete -c wphp -n __composer_needs_command -a test -d 'test "phpunit"'
-complete -f -c wphp -n __composer_needs_command -a pm -d 'package manager "composer"'
-complete -f -c wphp -n '__composer_inside_project; and __composer_needs_command' -a pm:remove -d 'remove package'
-complete -f -c wphp -n '__composer_inside_project; and __composer_needs_command' -a pm:remove-dev -d 'remove dev package'
+set -l this wphp
+complete -f -c $this
+complete -c $this -n __composer_needs_command -a pm -d 'package manager "composer"'
+# root, composer inside project
+complete -c $this -n '__composer_inside_project; and __composer_needs_command' -a test -d 'test "phpunit"'
+complete -c $this -n '__composer_inside_project; and __composer_needs_command' -a remove -d 'remove package'
+complete -c $this -n '__composer_inside_project; and __composer_needs_command' -a remove-dev -d 'remove dev package'
 
 # remove
-complete -f -c wphp -n '__fish_seen_subcommand_from pm:remove' -a '(__composer_required_packages_prod)'
-complete -f -c wphp -n '__fish_seen_subcommand_from pm:remove-dev' -a '(__composer_required_packages_dev)'
+complete -f -c $this -n '__fish_seen_subcommand_from remove' -a '(__composer_required_packages_prod)'
+complete -f -c $this -n '__fish_seen_subcommand_from remove-dev' -a '(__composer_required_packages_dev)'
