@@ -1,10 +1,10 @@
 function confirm
-    set -l msg (chalk header)'Continue?'
+    set -l msg 'Continue?'
     test -n "$argv"
     set msg "$argv"
     # echo $msg
     while true
-        read -l -n 1 -p "echo \$msg ' [y/N] '; chalk green; echo '[>] '" confirm
+        read -l -n 1 -p "echo \$msg; chalk green; echo '[y/N] [>] '" confirm
         switch $confirm
             case Y y
                 return 0
