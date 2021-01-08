@@ -19,11 +19,16 @@
     ~/.zshenv:
       force: true
       path: home/.zshenv
-#--------------- $HOME             ----------------
-    ~/.tmux.conf.local: tmux/tmux.conf
-    ~/.zshrc:
+    ~/.tmux.conf.local: 
       force: true
-      path: zsh/.zshrc
+      path: home/.tmux.conf.local
+    ~/.tmux.conf:
+      force: true
+      path: home/.tmux.conf
+# #--------------- $HOME             ----------------
+#     ~/.zshrc:
+#       force: true
+#       path: zsh/.zshrc
 #--------------- $XDG_CONFIG_HOME  ----------------
 
     ~/.config/alacritty:
@@ -45,7 +50,6 @@
     ~/.config/picom:
     ~/.config/rofi: 
     ~/.config/sxhkd:
-    ~/.config/tmux:
     ~/.config/yay:
     ~/.config/zsh:
 #--------------- $XDG_DATA_HOME    ----------------

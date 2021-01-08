@@ -1,4 +1,3 @@
-source ~/.zshenv
 # -------------------- zsh setopt   ---------------
 # changing directories
 setopt auto_pushd pushd_silent pushd_ignore_dups
@@ -188,3 +187,4 @@ bindkey '^[[P' delete-char
 
 # -------------------- starship theme--------------
 eval "$(starship init zsh)"
+
