@@ -9,19 +9,8 @@ function ghq
                 echo $tagi
             end | sed 's/://g' | column -t | fzf | awk '{print $1}')
             set -e tag
-            if cd $repo
-                set -l icmd
-                echo "Inside $PWD"
+            cd $repo
 
-                while read icmd
-
-                    __fish_complete_command
-                    eval $icmd
-
-                end
-            end
-            cd $from_dir
-            # eval (echo $argv[2..-1])
         case others
             set -l tagi
             cd $HOME/ghq
