@@ -10,6 +10,9 @@
     ~/.default-npm-packages:
       force: true
       path: home/.default-npm-packages
+    ~/.default-gems:
+      force: true
+      path: home/.default-gems
     ~/.tldrrc:
       force: true
       path: home/.tldrrc
