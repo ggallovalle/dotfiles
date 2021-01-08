@@ -87,7 +87,6 @@ fi
 
 installer tmux tmux
 clonner "tmux plugin manager" https://github.com/tmux-plugins/tpm "$data/tmux/tpm"
-clonner "oh my tmux" https://github.com/gpakosz/.tmux "$data/tmux/oh-my-tmux"
 if [[ -d "$data/tmux" ]]; then
     info install tmux plugins
     bash -c "$data/tmux/tpm/bindings/install_plugins"
