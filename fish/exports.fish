@@ -22,10 +22,15 @@ set -x LS_COLORS "ln=0;38;2;249;38;114:cd=0;38;2;249;38;114;48;2;51;51;51:st=0:p
 
 set -p PATH $HOME/.local/bin
 set -p PATH $HOME/.config/rofi/modes
-# set -x GOROOT $XDG_DATA_HOME/asdf/installs/golang/1.15.5/go
+
+# ----------------- golang -----------------------
+
 set -x GOPATH $XDG_DATA_HOME/go
 set -x GOBIN $GOPATH/bin
 set -p PATH $GOBIN
+# ----------------- dotnet -----------------------
+
+source $ASDF_DATA_DIR/plugins/dotnet-core/set-dotnet-home.fish
 # ----------------- android -----------------------
 
 export ANDROID_SDK_ROOT=$XDG_DATA_HOME/androidsdk

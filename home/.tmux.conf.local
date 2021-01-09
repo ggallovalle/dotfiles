@@ -311,7 +311,7 @@ set -g mouse on
 unbind &
 new-session -n $HOST
 # tmux plugins
-set-environment -g TMUX_PLUGIN_MANAGER_PATH "$XDG_DATA_HOME/tmux"
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.local/share/tmux"
 set -g @tpm_plugins '          \
    tmux-plugins/tpm             \
    tmux-plugins/tmux-resurrect  \
@@ -325,7 +325,7 @@ set -g @resurrect-restore 'R'
 # see tmux-resurrect/scrips/helpers.sh#resurrect_dir
 set -g @resurrect-dir '$HOME/.local/share/tmux/resurrect/'
 
-run '$XDG_DATA_HOME/tmux/tpm/tpm'
+run '$HOME/.local/share/tmux/tpm/tpm'
 # weather() {
 #   curl -m 1 wttr.in?format=3 2>/dev/null
 #   sleep 900 # sleep for 15 minutes, throttle network requests whatever the value of status-interval
