@@ -38,6 +38,10 @@ export ANDROID_SDK_ROOT=$XDG_DATA_HOME/androidsdk
 
 set -x ASDF_DATA_DIR $XDG_DATA_HOME/asdf
 source $ASDF_DATA_DIR/asdf.fish
+
+# ----------------- dotnet -----------------------
+
+source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
 # ----------------- autoloading ------------------
 
 set -p fish_function_path $XDG_CONFIG_HOME/fish/scope-shadowing
