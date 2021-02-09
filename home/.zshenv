@@ -28,7 +28,7 @@ export DOTFILES=$HOME/dotfiles
 
 export EDITOR=nvim
 export TERMINAL=alacritty
-export BROWSER=firefox-developer-edition
+export BROWSER=vivaldi-stable
 # ----------------- golang ------------------------
 
 # export GOROOT=$XDG_DATA_HOME/asdf/installs/golang/1.15.5/go
