@@ -5,11 +5,26 @@
       display-line-numbers-type 'relative)
 ;; unset a bunch of not useful bindings
 
-(map! :leader "h C" nil) ; describe coding system
-(map! :leader "h g" nil) ; describe gnu project
-(map! :leader "h I" nil) ; describe input method
-(map! :leader "h I" nil) ; describe input method
-;; (map! :map "C-h C-f" nil) ; emacs FAQ
+(map! :leader
+      "h C" nil ; describe coding system
+      "h g" nil ; describe gnu project
+      "h I" nil) ; describe input method
+(map! :map help-map
+      "C-\\" nil
+      "C-a" nil ; about emacs
+      "C-c" nil
+      "C-d" nil
+      "C-e" nil
+      "C-f" nil
+      "C-k" nil
+      "C-l" nil
+      "C-n" nil
+      "C-o" nil
+      "C-p" nil
+      "C-s" nil
+      "C-t" nil
+      "C-w" nil
+      "help" nil)
 ;; ------------------------------------------------
 ;; -------------- package configs -----------------
 ;; ------------------------------------------------
@@ -20,7 +35,8 @@
       org-directory "~/org/"
       org-tag-faces
       '(("WARN" . org-warning)
-        ("NOTE" . org-list-dt))
+        ("NOTE" . org-list-dt)
+        ("PROCONS" . org-verbatim))
       ; roam
       org-roam-directory "~/org/roam/"
       ; journal
