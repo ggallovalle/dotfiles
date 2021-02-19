@@ -215,6 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             require("battery-widget") {},
+            require("awesome-wm-widgets.volumearc-widget.volumearc") {},
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
@@ -230,6 +231,7 @@ root.buttons(gears.table.join(awful.button({}, 3, function()
 end), awful.button({}, 4, awful.tag.viewnext), awful.button({}, 5, awful.tag.viewprev)))
 -- END Mouse bindings }}}
 -- {{{ Key bindings
+-- Custom
 globalkeys = gears.table.join(awful.key({modkey}, "d", function()
     awful.spawn.with_shell("rofi -show combi -combi-modi window,drun")
 end, {
@@ -240,7 +242,16 @@ end, {
 end, {
     description = "rofi powermenu",
     group = "hotkeys"
-}), awful.key({modkey}, "s", hotkeys_popup.show_help, {
+}),
+    awful.key({}, "Print", function()
+    awful.spawn.with_shell("flameshot gui")
+end, {
+    description = "take screenshot",
+    group = "hotkeys"
+}))
+
+-- Defaults
+globalkeys = gears.table.join(globalkeys, awful.key({modkey}, "s", hotkeys_popup.show_help, {
     description = "show help",
     group = "awesome"
 }), awful.key({modkey}, "Left", awful.tag.viewprev, {
@@ -302,7 +313,7 @@ end, {
     awful.spawn("alacritty -e tmux attach")
 end, {
     description = "open a terminal",
-    group = "launcher"
+    group = "hotkeys"
 }), awful.key({modkey, "Control"}, "r", awesome.restart, {
     description = "reload awesome",
     group = "awesome"
@@ -619,4 +630,5 @@ awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("bluetoothctl power on")
 awful.spawn.with_shell("copyq")
+awful.spawn.with_shell("flameshot")
 -- END Autostart }}}

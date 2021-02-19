@@ -11,7 +11,7 @@ set -x TERM xterm
 set -x EDITOR nvim
 set -x VISUAL nvim
 set -x TERMINAL alacritty
-set -x BROWSER vivaldi-stable
+set -x BROWSER firefox-developer-edition
 # install vivid for a new color scheme
 # https://github.com/sharkdp/vivid
 # malokai (goes best with alacritty one_doom)

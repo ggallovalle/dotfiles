@@ -16,7 +16,19 @@
 
 ;; org-mode
 
-(setq org-fontify-emphasized-text t)
+(setq org-fontify-emphasized-text t
+      org-directory "~/org/"
+      org-tag-faces
+      '(("WARN" . org-warning)
+        ("NOTE" . org-list-dt))
+      ; roam
+      org-roam-directory "~/org/roam/"
+      ; journal
+      org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "* "
+      org-journal-date-format "%a, %Y-%m-%d"
+      org-journal-file-format "%Y-%m-%d.org"
+      )
 ;; auth
 
 (setq auth-sources '("~/.authinfo")
@@ -27,3 +39,6 @@
 (setq projectile-project-search-path '("~/ghq/github.com/ggallovalle/"))
 (put 'projectile-project-test-cmd 'safe-local-variable #'stringp)
 (put 'projectile-project-run-cmd 'safe-local-variable #'stringp)
+
+;; flyspell
+(setq flyspell-lazy-idle-seconds 2)

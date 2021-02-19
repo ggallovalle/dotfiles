@@ -17,3 +17,4 @@ default.target.wants/
 *.uuid
 .directory
 fish_variables
+awesome/awesome-wm-widgets
