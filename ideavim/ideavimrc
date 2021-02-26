@@ -305,12 +305,12 @@ vnoremap <leader>tw    :action HideAllWindows<CR>
 " -------------------- leader t --------------------
 " -------------------- tests    --------------------
 
-nnoremap <leader>td    :action GotoTest<CR>
-vnoremap <leader>td    :action GotoTest<CR>
-nnoremap <leader>tf    :action RerunFailedTests<CR>
-vnoremap <leader>tf    :action RerunFailedTests<CR>
-nnoremap <leader>tr    :action RerunTests<CR>
-vnoremap <leader>tr    :action RerunTests<CR>
+nnoremap <leader>Td    :action GotoTest<CR>
+vnoremap <leader>Td    :action GotoTest<CR>
+nnoremap <leader>Tf    :action RerunFailedTests<CR>
+vnoremap <leader>Tf    :action RerunFailedTests<CR>
+nnoremap <leader>Tr    :action RerunTests<CR>
+vnoremap <leader>Tr    :action RerunTests<CR>
 " -------------------- leader w --------------------
 " -------------------- leader x --------------------
 " nnoremap <leader>xj    :action MoveLineDown<CR>

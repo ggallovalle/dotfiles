@@ -34,6 +34,12 @@ source $ASDF_DATA_DIR/plugins/dotnet-core/set-dotnet-home.fish
 # ----------------- android -----------------------
 
 export ANDROID_SDK_ROOT=$XDG_DATA_HOME/androidsdk
+# avdmanager, sdkmanager
+set -a PATH $ANDROID_SDK_ROOT/tools/bin
+# adb, logcat
+set -a PATH $ANDROID_SDK_ROOT/platform-tools
+# emulator
+set -a PATH $ANDROID_SDK_ROOT/emulator
 # ----------------- asdf ------------------
 
 set -x ASDF_DATA_DIR $XDG_DATA_HOME/asdf
