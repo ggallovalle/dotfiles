@@ -19,6 +19,9 @@
     ~/.Xmodmap:
       force: true
       path: home/.Xmodmap
+    ~/.xmodmaprc:
+      force: true
+      path: home/.Xmodmap
     ~/.zshenv:
       force: true
       path: home/.zshenv
@@ -52,7 +55,7 @@
     ~/.config/polybar:
     ~/.config/picom:
     ~/.config/rofi: 
-    ~/.config/sxhkd:
+    # ~/.config/sxhkd: # is deleted for some reason
     ~/.config/yay:
     ~/.config/zsh:
 #--------------- $XDG_DATA_HOME    ----------------
