@@ -1,9 +1,9 @@
 function ghq
     set -l from_dir $PWD
-    argparse 'l-ls' -- $argv
-    or return
     switch $argv[1]
         case mine
+            argparse 'l-ls' -- $argv
+            or return
             set -l tagi
             cd $HOME/ghq
             if test -z "$_flag_ls"
@@ -21,6 +21,8 @@ function ghq
             end
 
         case others
+            argparse 'l-ls' -- $argv
+            or return
             set -l tagi
             cd $HOME/ghq
             if test -z "$_flag_ls"

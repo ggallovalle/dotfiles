@@ -11,7 +11,7 @@ set -x TERM xterm
 set -x EDITOR nvim
 set -x VISUAL nvim
 set -x TERMINAL alacritty
-set -x BROWSER firefox-developer-edition
+set -x BROWSER firefox
 # install vivid for a new color scheme
 # https://github.com/sharkdp/vivid
 # malokai (goes best with alacritty one_doom)
@@ -42,12 +42,11 @@ set -a PATH $ANDROID_SDK_ROOT/platform-tools
 set -a PATH $ANDROID_SDK_ROOT/emulator
 # ----------------- asdf ------------------
 
-set -x ASDF_DATA_DIR $XDG_DATA_HOME/asdf
+set -x ASDF_DATA_DIR $HOME/.asdf
 source $ASDF_DATA_DIR/asdf.fish
 
 # ----------------- dotnet -----------------------
-
-source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
+# source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
 # ----------------- autoloading ------------------
 
 set -p fish_function_path $XDG_CONFIG_HOME/fish/scope-shadowing

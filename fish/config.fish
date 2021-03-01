@@ -2,7 +2,7 @@ if test "$SHELL" = /bin/fish; or test "$SHELL" = /usr/bin/fish
     source "$__fish_config_dir/exports.fish"
 end
 # ----------------- sane defaults ------------------
-
+fish_vi_key_bindings
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
 alias la='exa -a --color=always --group-directories-first' # all files and dirs
 alias ll='exa -l --color=always --group-directories-first --header' # long format
