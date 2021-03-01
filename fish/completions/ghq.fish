@@ -1,6 +1,13 @@
 set -l this ghq
 set -l commands get list root create help h
 
+# CUSTOM
+complete -f -c $this -n __gg_needs_command -a mine -d 'my repos'
+complete -f -c $this -n '__gg_using_command others' -l ls -d 'only list'
+complete -f -c $this -n __gg_needs_command -a others -d 'other repos'
+complete -f -c $this -n '__gg_using_command mine' -l ls -d 'only list'
+
+# builtin
 complete -f -c $this
 complete -f -c $this -n __gg_needs_command -a get -d 'clone/sync remote repo'
 complete -f -c $this -n __gg_needs_command -a list -d 'list local repos'
