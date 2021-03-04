@@ -1,5 +1,4 @@
 set -l this ghq
-set -l commands get list root create help h
 
 # CUSTOM
 complete -f -c $this -n __gg_needs_command -a mine -d 'my repos'
