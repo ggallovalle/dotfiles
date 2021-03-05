@@ -1,0 +1,21 @@
+#!/bin/bash
+source ./utils.sh
+
+GHQ_ROOT=${GHQ_ROOT:-$HOME/ghq}
+declare -A grepos
+
+grepos['laravel/framework']='framework, php, laravel'
+grepos['django/django']='framework, py, django'
+
+for key in ${!grepos[@]}; do
+    if [[ ! -d $GHQ_ROOT/github.com/$key ]]; then
+        # clone
+        ghq get $key
+        IFS=', ' read -r -a tags <<<${grepos[$key]}
+        for t in ${tags[@]}; do
+            # tag
+            tmsu tag $GHQ_ROOT/github.com/$key $t
+        done
+    fi
+    g_k "$key" '->' ${grepos[$key]}
+done

@@ -9,7 +9,7 @@ function g_asdf_install() {
     # $1 plugin
     # $2 default global version
     # ${@:2} versions to be installed
-    g_i installing plugin $1
+    g_w installing plugin $1
     asdf plugin add $1
     for v in ${@:2}; do
         if ! asdf install $1 $v; then
@@ -27,9 +27,8 @@ if ! hash asdf &>/dev/null && [[ ! -e $ASDFSCRIPT ]]; then
     git checkout "$(git describe --abbrev=0 --tags)"
 fi
 source $ASDFSCRIPT
+
 # asdf is for sure available
-
-
 ## nodejs
 # asdf plugin add nodejs
 # bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
@@ -38,3 +37,11 @@ source $ASDFSCRIPT
 # g_asdf_install python 3.9.2
 ## dotnet
 # g_asdf_install dotnet-core 5.0.200 3.1.406
+## php
+# g_asdf_install php 8.0.3 7.4.16
+## ruby
+# g_asdf_install ruby 2.7.2 3.0.0
+## erlang, elixir depends on int
+# g_asdf_install erlang 23.2.7
+## elixir
+# g_asdf_install elixir 1.11.3
