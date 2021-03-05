@@ -1,0 +1,4 @@
+#!/bin/bash
+source ./utils.sh
+
+pipx install git+https://github.com/ggallovalle/pkginfo
