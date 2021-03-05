@@ -1,0 +1,16 @@
+#!/bin/bash
+source ./utils.sh
+
+g_clonner dotbot https://github.com/anishathalye/dotbot "$XDG_DATA_HOME/dotbot" --recurse-submodules --jobs 8
+g_clonner dotbot-plugin https://github.com/ggallovalle/dotbot-plugins "$XDG_DATA_HOME/dotbot-plugins"
+
+echo '#!/bin/bash
+
+XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+DOTFILES=${DOTFILES:-$HOME/.dotfiles}
+
+"$XDG_DATA_HOME/dotbot/bin/dotbot" -d "$DOTFILES" --plugin-dir \
+    "$XDG_DATA_HOME/dotbot-plugins" -c "$DOTFILES/config.yml" "$@"
+' > $HOME/.local/bin/dotbot
+chmod u+x ~/.local/bin/dotbot
+g_k dotbot cloned

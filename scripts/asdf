@@ -1,0 +1,40 @@
+#!/bin/bash
+source ./utils.sh
+# locals
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
+ASDFSCRIPT=$ASDF_DATA_DIR/asdf.sh
+
+# functions
+function g_asdf_install() {
+    # $1 plugin
+    # $2 default global version
+    # ${@:2} versions to be installed
+    g_i installing plugin $1
+    asdf plugin add $1
+    for v in ${@:2}; do
+        if ! asdf install $1 $v; then
+            g_e $1 $v not installed 
+            exit
+        fi
+        g_k $1 $v installed
+    done
+    asdf global $1 $2
+}
+# if asdf is installed
+if ! hash asdf &>/dev/null && [[ ! -e $ASDFSCRIPT ]]; then
+    g_cloner asdf https://github.com/asdf-vm/asdf.git $ASDF_DATA_DIR --branch v0.8.0
+    cd $ASDF_DATA_DIR
+    git checkout "$(git describe --abbrev=0 --tags)"
+fi
+source $ASDFSCRIPT
+# asdf is for sure available
+
+
+## nodejs
+# asdf plugin add nodejs
+# bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+# g_asdf_install nodejs 14.16.0 15.11.0 0.0.00
+## python
+# g_asdf_install python 3.9.2
+## dotnet
+# g_asdf_install dotnet-core 5.0.200 3.1.406

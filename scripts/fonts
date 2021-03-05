@@ -1,0 +1,29 @@
+#!/bin/bash
+source ./utils.sh
+
+NERDFONT_RELEASE=v2.1.0
+if [[ ! -d "$XDG_DATA_HOME/fonts" ]]; then
+    mkdir $XDG_DATA_HOME/fonts
+fi
+
+cd $XDG_DATA_HOME/fonts
+fonts=(JetBrainsMono FantasqueSansMono Meslo SourceCodePro FiraCode)
+for f in ${fonts[@]}; do
+    if [[ ! -d $f ]]; then
+        if curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/$NERDFONT_RELEASE/$f.zip; then
+            unzip $f.zip -d $f
+        fi
+    fi
+    g_k $f '->' $XDG_DATA_HOME/.local/share/fonts/$f
+done
+
+zipped=(`find ./ -maxdepth 1 -name "*.zip"`)
+if [ ${#zipped[@]} -gt 0 ]; then 
+    g_w 'Do you want to clean zip files?'
+    if g_confirm; then
+        for z in ${zipped[@]}; do
+            rm $z
+            g_w DELETED $z
+        done
+    fi
+fi

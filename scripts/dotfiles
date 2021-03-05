@@ -1,0 +1,7 @@
+#!/bin/bash
+source ./utils.sh
+
+g_clonner dotfiles https://github.com/ggallovalle/dotfiles.git $DOTFILES
+
+bash ~/.local/bin/dotbot --only link  
+g_k 'dotfiles linked'
