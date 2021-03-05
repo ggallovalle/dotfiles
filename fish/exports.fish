@@ -4,14 +4,14 @@ set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
-set -x DOTFILES $HOME/dotfiles
+set -x DOTFILES $HOME/.dotfiles
 # ----------------- default apps ------------------
 
 set -x TERM xterm
 set -x EDITOR nvim
 set -x VISUAL nvim
 set -x TERMINAL alacritty
-set -x BROWSER firefox
+set -x BROWSER firefox-developer-edition
 # install vivid for a new color scheme
 # https://github.com/sharkdp/vivid
 # malokai (goes best with alacritty one_doom)
@@ -30,7 +30,6 @@ set -x GOBIN $GOPATH/bin
 set -p PATH $GOBIN
 # ----------------- dotnet -----------------------
 
-source $ASDF_DATA_DIR/plugins/dotnet-core/set-dotnet-home.fish
 # ----------------- android -----------------------
 
 export ANDROID_SDK_ROOT=$XDG_DATA_HOME/androidsdk
@@ -42,17 +41,9 @@ set -a PATH $ANDROID_SDK_ROOT/platform-tools
 set -a PATH $ANDROID_SDK_ROOT/emulator
 # ----------------- asdf ------------------
 
-set -x ASDF_DATA_DIR $HOME/.asdf
-source $ASDF_DATA_DIR/asdf.fish
-
-# ----------------- dotnet -----------------------
-# source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
-# ----------------- autoloading ------------------
+set -x ASDF_DATA_DIR $XDG_DATA_HOME/asdf
 
 set -p fish_function_path $XDG_CONFIG_HOME/fish/scope-shadowing
-# ----------------- ssh-agent ---------------------
-
-keychain --quiet --eval github_ggallovalle | source
 # ----------------- ghq   -------------------------
 
 set -x GHQ_ROOT $HOME/ghq

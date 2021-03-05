@@ -1,5 +1,6 @@
 #!/bin/bash
-source ./utils.sh
+DIR=$(dirname "$0")
+source $DIR/utils.sh
 
 GHQ_ROOT=${GHQ_ROOT:-$HOME/ghq}
 declare -A grepos
@@ -7,15 +8,39 @@ declare -A grepos
 grepos['laravel/framework']='framework, php, laravel'
 grepos['django/django']='framework, py, django'
 
+g_w "OTHERS REPOSITORE"
 for key in ${!grepos[@]}; do
-    if [[ ! -d $GHQ_ROOT/github.com/$key ]]; then
+    directory=$GHQ_ROOT/github.com/$key
+    repo_path=$key
+    if [[ ! -d $directory ]]; then
         # clone
-        ghq get $key
+        ghq get $repo_path
         IFS=', ' read -r -a tags <<<${grepos[$key]}
         for t in ${tags[@]}; do
             # tag
-            tmsu tag $GHQ_ROOT/github.com/$key $t
+            tmsu tag $directory $t
         done
     fi
     g_k "$key" '->' ${grepos[$key]}
+done
+
+# my repositories
+declare -A myrepos
+
+myrepos[pkginfo]='project, cli, py'
+
+g_w "MINE REPOSITORIES"
+for key in ${!myrepos[@]}; do
+    directory=$GHQ_ROOT/github.com/ggallovalle/$key
+    repo_path=ggallovalle/$key
+    if [[ ! -d $directory ]]; then
+        # clone
+        ghq get $repo_path
+        IFS=', ' read -r -a tags <<<${myrepos[$key]}
+        for t in ${tags[@]}; do
+            # tag
+            tmsu tag $directory $t
+        done
+    fi
+    g_k "$key" '->' ${myrepos[$key]}
 done

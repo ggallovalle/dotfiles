@@ -1,5 +1,6 @@
 #!/bin/bash
-source ./utils.sh
+DIR=$(dirname "$0")
+source $DIR/utils.sh
 
 g_clonner dotfiles https://github.com/ggallovalle/dotfiles.git $DOTFILES
 

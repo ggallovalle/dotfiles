@@ -1,6 +1,6 @@
 #!/bin/bash
-source ./utils.sh
-
+DIR=$(dirname "$0")
+source $DIR/utils.sh
 
 g_pkg tmux tmux
 g_clonner "tmux plugin manager" https://github.com/tmux-plugins/tpm "$XDG_DATA_HOME/tmux/tpm"

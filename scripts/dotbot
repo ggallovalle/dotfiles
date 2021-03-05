@@ -1,5 +1,7 @@
 #!/bin/bash
-source ./utils.sh
+DIR=$(dirname "$0")
+source $DIR/utils.sh
+
 
 g_clonner dotbot https://github.com/anishathalye/dotbot "$XDG_DATA_HOME/dotbot" --recurse-submodules --jobs 8
 g_clonner dotbot-plugin https://github.com/ggallovalle/dotbot-plugins "$XDG_DATA_HOME/dotbot-plugins"

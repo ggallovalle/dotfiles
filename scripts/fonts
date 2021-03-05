@@ -1,5 +1,6 @@
 #!/bin/bash
-source ./utils.sh
+DIR=$(dirname "$0")
+source $DIR/utils.sh
 
 NERDFONT_RELEASE=v2.1.0
 if [[ ! -d "$XDG_DATA_HOME/fonts" ]]; then

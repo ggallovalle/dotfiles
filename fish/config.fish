@@ -1,7 +1,16 @@
 if test "$SHELL" = /bin/fish; or test "$SHELL" = /usr/bin/fish
     source "$__fish_config_dir/exports.fish"
 end
+
+# ----------------- sources ------------------
+# asdf
+source $ASDF_DATA_DIR/asdf.fish
+source $ASDF_DATA_DIR/plugins/dotnet-core/set-dotnet-home.fish
+# source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
+# ssh-agent
+keychain --quiet --eval github_ggallovalle | source
 # ----------------- sane defaults ------------------
+
 fish_vi_key_bindings
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
 alias la='exa -a --color=always --group-directories-first' # all files and dirs
@@ -42,6 +51,8 @@ set -q XDG_DATA_HOME
 and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
 or set -gx OMF_PATH "$HOME/.local/share/omf"
 # Load Oh My Fish configuration.
+test -d $OMF_PATH
+or git clone https://github.com/oh-my-fish/oh-my-fish $OMF_PATH
 source $OMF_PATH/init.fish
 # ----------------- theme ------------------
 
