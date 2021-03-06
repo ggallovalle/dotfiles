@@ -1,6 +1,6 @@
-if test "$SHELL" = /bin/fish; or test "$SHELL" = /usr/bin/fish
-    source "$__fish_config_dir/exports.fish"
-end
+# if test "$SHELL" = /bin/fish; or test "$SHELL" = /usr/bin/fish
+source "$__fish_config_dir/exports.fish"
+# end
 
 # ----------------- sources ------------------
 # asdf
@@ -8,7 +8,6 @@ source $ASDF_DATA_DIR/asdf.fish
 source $ASDF_DATA_DIR/plugins/dotnet-core/set-dotnet-home.fish
 # source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
 # ssh-agent
-keychain --quiet --eval github_ggallovalle | source
 # ----------------- sane defaults ------------------
 
 fish_vi_key_bindings
@@ -31,17 +30,18 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias upd='sudo reflector --latest 5 --country Germany --age 2 --fastest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && sudo pacman -Syu'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias pacui="bash $DOTFILES/scripts/pacui"
 # ----------------- thefuck ------------------
 
-thefuck --alias | source
 # ----------------- greeting ------------------
 
 function fish_greeting
     # neofetch
+    keychain --quiet --eval github_ggallovalle | source
+    thefuck --alias | source
 end
 # ----------------- omf ------------------
 
