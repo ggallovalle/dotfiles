@@ -7,6 +7,7 @@ declare -A grepos
 
 grepos['laravel/framework']='framework, php, laravel'
 grepos['django/django']='framework, py, django'
+grepos['dotnet/aspnetcore']='framework, c#, dotnet'
 
 g_w "OTHERS REPOSITORE"
 for key in ${!grepos[@]}; do
