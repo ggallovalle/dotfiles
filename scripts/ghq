@@ -8,6 +8,9 @@ declare -A grepos
 grepos['laravel/framework']='framework, php, laravel'
 grepos['django/django']='framework, py, django'
 grepos['dotnet/aspnetcore']='framework, c#, dotnet'
+grepos['nestjs/typeorm']='lib, ts, nestjs'
+grepos['nestjs/passport']='lib, ts, nestjs'
+grepos['vincit/objection.js']='lib, js'
 
 g_w "OTHERS REPOSITORE"
 for key in ${!grepos[@]}; do

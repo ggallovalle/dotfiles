@@ -40,7 +40,7 @@ alias pacui="bash $DOTFILES/scripts/pacui"
 
 function fish_greeting
     # neofetch
-    keychain --quiet --eval github_ggallovalle | source
+    keychain --quiet --eval github_ggallovalle --eval id_rsa | source
     thefuck --alias | source
 end
 # ----------------- omf ------------------
