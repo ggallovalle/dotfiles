@@ -17,3 +17,4 @@ default.target.wants/
 *.uuid
 .directory
 awesome/awesome-wm-widgets
+firs_variables
