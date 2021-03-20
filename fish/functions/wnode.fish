@@ -34,6 +34,26 @@ function wnode_run -S
     eval "$pm[3] $cmd[3] $argv"
 end
 
+function wnode_bin -S
+    set -l node_modules_path "$PWD/node_modules/.bin"
+    if test -e "$node_modules_path"
+        set -g __node_binpath "$node_modules_path"
+        set -x PATH $PATH $__node_binpath
+        msg -k "$node_modules_path added to path"
+    else
+        msg -e "not inside a node project"
+    end
+end
+
+function wnode_unbin -S
+    set -q __node_binpath
+    and set -l index (contains -i -- $__node_binpath $PATH)
+    and set -e PATH[$index]
+    and msg -k "$__node_binpath removed from path"
+    and set -e __node_binpath
+    or msg -e "there was no nodebin added to path"
+end
+
 function wnode -d 'Node Wraper'
     # $1 cmd
     # $argv[2..-1] specific command
@@ -55,10 +75,14 @@ function wnode -d 'Node Wraper'
             wnode_run $argv[2..-1]
         case pm
             pnpm $argv[2..-1]
+        case bin
+            wnode_bin $argv[2..-1]
+        case unbin
+            wnode_unbin $argv[2..-1]
         case '*'
             msg -e default
     end
-    for f in add add_dev rm rm_dev install run
+    for f in add add_dev rm rm_dev install run bin unbin
         set -e wnode_$f
     end
 end

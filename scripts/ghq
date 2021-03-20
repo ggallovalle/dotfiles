@@ -31,7 +31,8 @@ done
 # my repositories
 declare -A myrepos
 
-myrepos[pkginfo]='project, cli, py'
+# myrepos[pkginfo]='project, cli, py'
+myrepos['objection-utils']='project, lib, ts'
 
 g_w "MINE REPOSITORIES"
 for key in ${!myrepos[@]}; do
@@ -39,7 +40,7 @@ for key in ${!myrepos[@]}; do
     repo_path=ggallovalle/$key
     if [[ ! -d $directory ]]; then
         # clone
-        ghq get $repo_path
+        ghq get -p $repo_path
         IFS=', ' read -r -a tags <<<${myrepos[$key]}
         for t in ${tags[@]}; do
             # tag
