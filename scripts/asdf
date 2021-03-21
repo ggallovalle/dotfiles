@@ -15,7 +15,7 @@ function g_asdf_install() {
     asdf plugin add $1
     for v in ${@:2}; do
         if ! asdf install $1 $v; then
-            g_e $1 $v not installed 
+            g_e $1 $v not installed
             exit
         fi
         g_k $1 $v installed
@@ -47,3 +47,5 @@ source $ASDFSCRIPT
 # g_asdf_install erlang 23.2.7
 ## elixir
 # g_asdf_install elixir 1.11.3
+## golang
+# g_asdf_install golang 1.16.2
