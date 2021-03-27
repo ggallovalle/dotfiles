@@ -11,6 +11,10 @@ grepos['dotnet/aspnetcore']='framework, c#, dotnet'
 grepos['nestjs/typeorm']='lib, ts, nestjs'
 grepos['nestjs/passport']='lib, ts, nestjs'
 grepos['vincit/objection.js']='lib, js'
+grepos['rails/rails']='framework, ruby, rails'
+grepos['rspec/rspec-core']='test, ruby, rspec'
+grepos['rspec/rspec-mocks']='test, ruby, rspec'
+grepos['rspec/rspec-expectations']='test, ruby, rspec'
 
 g_w "OTHERS REPOSITORE"
 for key in ${!grepos[@]}; do
