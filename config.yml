@@ -2,10 +2,10 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-#--------------- home rogue             ----------------
+    #--------------- home rogue             ----------------
 
     ~/.default-npm-packages:
       force: true
@@ -25,17 +25,23 @@
     ~/.zshenv:
       force: true
       path: home/.zshenv
-    ~/.tmux.conf.local: 
+    ~/.tmux.conf.local:
       force: true
       path: home/.tmux.conf.local
     ~/.tmux.conf:
       force: true
       path: home/.tmux.conf
-# #--------------- $HOME             ----------------
-#     ~/.zshrc:
-#       force: true
-#       path: zsh/.zshrc
-#--------------- $XDG_CONFIG_HOME  ----------------
+
+    #--------------- config rogue             ----------------
+    ~/.config/starship.toml:
+      force: true
+      path: config/starship.toml
+
+    # #--------------- $HOME             ----------------
+    #     ~/.zshrc:
+    #       force: true
+    #       path: zsh/.zshrc
+    #--------------- $XDG_CONFIG_HOME  ----------------
 
     ~/.config/alacritty:
     ~/.config/awesome:
@@ -54,15 +60,15 @@
     ~/.config/maven:
     ~/.config/polybar:
     ~/.config/picom:
-    ~/.config/rofi: 
+    ~/.config/rofi:
     # ~/.config/sxhkd: # is deleted for some reason
     ~/.config/yay:
     ~/.config/zsh:
 #--------------- $XDG_DATA_HOME    ----------------
 
 - ghqfile:
-  - file: repos.txt
-    flags: [--silent]
+    - file: repos.txt
+      flags: [--silent]
 
 - asdf:
     # https://www.reddit.com/r/golang/comments/cmb5bp/is_there_an_lts_version_of_go/
@@ -71,32 +77,32 @@
     #   global: 1.15.5
     #   versions:
     #     - 1.15.5
-      # https://www.oracle.com/java/technologies/java-se-support-roadmap.html
+    # https://www.oracle.com/java/technologies/java-se-support-roadmap.html
     # - plugin: java
     #   global: openjdk-11
     #   versions:
     #     - openjdk-11
-      # https://kotlinlang.org/releases.html
+    # https://kotlinlang.org/releases.html
     # - plugin: kotlin
     #   global: 1.4.20
     #   versions:
     #     - 1.4.20
-      # https://github.com/scala/scala/releases
+    # https://github.com/scala/scala/releases
     # - plugin: scala
     #   global: 2.13.4
     #   versions:
     #     - 2.13.4
-      # https://gradle.org/releases/
+    # https://gradle.org/releases/
     # - plugin: gradle
     #   global: 6.7.1
     #   versions:
     #     - 6.7.1
-      # https://maven.apache.org/docs/history.html
+    # https://maven.apache.org/docs/history.html
     # - plugin: maven
     #   global: 3.6.3
     #   versions:
     #     - 3.6.3
-      # https://nodejs.org/en/about/releases/
+    # https://nodejs.org/en/about/releases/
     - plugin: nodejs
       global: 14.15.1
       versions:
