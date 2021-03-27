@@ -34,6 +34,15 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pacui="bash $DOTFILES/scripts/pacui"
+alias gs="git status"
+alias gc="git commit"
+function gca -w "git commit"
+    git status --short
+    if confirm "Add all?"
+        git add --all
+        git commit
+    end
+end
 # ----------------- thefuck ------------------
 
 # ----------------- greeting ------------------

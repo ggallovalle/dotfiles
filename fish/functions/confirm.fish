@@ -4,7 +4,7 @@ function confirm
     set msg "$argv"
     # echo $msg
     while true
-        read -l -n 1 -p "echo \$msg; chalk green; echo '[y/N] [>] '" confirm
+        read -l -n 1 -p "chalk green; echo \$msg; echo '[y/N] [>] '" confirm
         switch $confirm
             case Y y
                 return 0
