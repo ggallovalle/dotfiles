@@ -35,6 +35,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pacui="bash $DOTFILES/scripts/pacui"
 alias gs="git status"
+alias gss="git status --short"
+alias gd="git diff"
 alias gc="git commit"
 function gca -w "git commit"
     git status --short
