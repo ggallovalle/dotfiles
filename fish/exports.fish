@@ -24,7 +24,7 @@ set -p PATH $HOME/.local/bin
 set -p PATH $HOME/.config/rofi/modes
 
 # ----------------- golang -----------------------
-
+set -x CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 set -x GOPATH $XDG_DATA_HOME/go
 set -x GOBIN $GOPATH/bin
 set -p PATH $GOBIN

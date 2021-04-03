@@ -170,7 +170,7 @@ vnoremap <leader>gt    :action Git.Stash<CR>
 
 nnoremap <leader>ha    :actionlist<CR>
 vnoremap <leader>ha    <Esc>:actionlist<CR>
-" like a stack trace 
+" like a stack trace
 nnoremap <leader>hc    :action CallHierarchy<CR>
 vnoremap <leader>hc    <Esc>:action CallHierarchy<CR>
 " this works for help in all languages
@@ -282,35 +282,35 @@ vnoremap <leader>su    :action ShowUsages<CR>
 " -------------------- leader t --------------------
 " -------------------- toggle   --------------------
 
-nnoremap <leader>td    :action ToggleDistractionFreeMode<CR>
-vnoremap <leader>td    :action ToggleDistractionFreeMode<CR>
-nnoremap <leader>td    :action ToggleDistractionFreeMode<CR>
-vnoremap <leader>td    :action ToggleDistractionFreeMode<CR>
-nnoremap <leader>tz    :action ToggleZenMode<CR>
-vnoremap <leader>tz    :action ToggleZenMode<CR>
-nnoremap <leader>ti    :action EditorToggleShowIndentLines<CR>
-vnoremap <leader>ti    <Esc>:action EditorToggleShowIndentLines<CR>
-nnoremap <leader>ts    :action EditorToggleUseSoftWraps<CR>
-vnoremap <leader>ts    :action EditorToggleUseSoftWraps<CR>
-nnoremap <leader>tn    :action EditorToggleShowLineNumbers<CR>
-vnoremap <leader>tn    :action EditorToggleShowLineNumbers<CR>
-nnoremap <leader>tp    :action TogglePresentationMode<CR>
-vnoremap <leader>tp    :action TogglePresentationMode<CR>
-nnoremap <leader>tr    :set relativenumber!<CR>
-vnoremap <leader>tr    <Esc>:set relativenumber!<CR>
-nnoremap <leader>tg    :action TogglePowerSave<CR>
-vnoremap <leader>tg    :action TogglePowerSave<CR>
-nnoremap <leader>tw    :action HideAllWindows<CR>
-vnoremap <leader>tw    :action HideAllWindows<CR>
+nnoremap <leader>Td    :action ToggleDistractionFreeMode<CR>
+vnoremap <leader>Td    :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>Td    :action ToggleDistractionFreeMode<CR>
+vnoremap <leader>Td    :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>Tz    :action ToggleZenMode<CR>
+vnoremap <leader>Tz    :action ToggleZenMode<CR>
+nnoremap <leader>Ti    :action EditorToggleShowIndentLines<CR>
+vnoremap <leader>Ti    <Esc>:action EditorToggleShowIndentLines<CR>
+nnoremap <leader>Ts    :action EditorToggleUseSoftWraps<CR>
+vnoremap <leader>Ts    :action EditorToggleUseSoftWraps<CR>
+nnoremap <leader>Tn    :action EditorToggleShowLineNumbers<CR>
+vnoremap <leader>Tn    :action EditorToggleShowLineNumbers<CR>
+nnoremap <leader>Tp    :action TogglePresentationMode<CR>
+vnoremap <leader>Tp    :action TogglePresentationMode<CR>
+nnoremap <leader>Tr    :set relativenumber!<CR>
+vnoremap <leader>Tr    <Esc>:set relativenumber!<CR>
+nnoremap <leader>Tg    :action TogglePowerSave<CR>
+vnoremap <leader>Tg    :action TogglePowerSave<CR>
+nnoremap <leader>Tw    :action HideAllWindows<CR>
+vnoremap <leader>Tw    :action HideAllWindows<CR>
 " -------------------- leader t --------------------
 " -------------------- tests    --------------------
 
-nnoremap <leader>Td    :action GotoTest<CR>
-vnoremap <leader>Td    :action GotoTest<CR>
-nnoremap <leader>Tf    :action RerunFailedTests<CR>
-vnoremap <leader>Tf    :action RerunFailedTests<CR>
-nnoremap <leader>Tr    :action RerunTests<CR>
-vnoremap <leader>Tr    :action RerunTests<CR>
+nnoremap <leader>td    :action GotoTest<CR>
+vnoremap <leader>td    :action GotoTest<CR>
+nnoremap <leader>tf    :action RerunFailedTests<CR>
+vnoremap <leader>tf    :action RerunFailedTests<CR>
+nnoremap <leader>tr    :action RerunTests<CR>
+vnoremap <leader>tr    :action RerunTests<CR>
 " -------------------- leader w --------------------
 " -------------------- leader x --------------------
 " nnoremap <leader>xj    :action MoveLineDown<CR>

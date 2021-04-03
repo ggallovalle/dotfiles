@@ -17,6 +17,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+local xrandr = require("xrandr")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -214,8 +215,8 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            require("battery-widget") {},
-            require("awesome-wm-widgets.volumearc-widget.volumearc") {},
+            -- require("battery-widget") {},
+            -- require("awesome-wm-widgets.volumearc-widget.volumearc") {},
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
@@ -242,8 +243,7 @@ end, {
 end, {
     description = "rofi powermenu",
     group = "hotkeys"
-}),
-    awful.key({}, "Print", function()
+}), awful.key({}, "Print", function()
     awful.spawn.with_shell("flameshot gui")
 end, {
     description = "take screenshot",
@@ -314,6 +314,11 @@ end, {
 end, {
     description = "open a terminal",
     group = "hotkeys"
+}), awful.key({modkey, "Control"}, "p", function()
+    xrandr.xrandr()
+end, {
+    description = "Arrange multipel screens",
+    group = "awesome"
 }), awful.key({modkey, "Control"}, "r", awesome.restart, {
     description = "reload awesome",
     group = "awesome"
@@ -631,4 +636,5 @@ awful.spawn.with_shell("picom")
 awful.spawn.with_shell("bluetoothctl power on")
 awful.spawn.with_shell("copyq")
 awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("xmodmap ~/.xmodmaprc")
 -- END Autostart }}}
