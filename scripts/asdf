@@ -24,7 +24,7 @@ function g_asdf_install() {
 }
 # if asdf is installed
 if ! hash asdf &>/dev/null && [[ ! -e $ASDFSCRIPT ]]; then
-    g_cloner asdf https://github.com/asdf-vm/asdf.git $ASDF_DATA_DIR --branch v0.8.0
+    g_clonner asdf https://github.com/asdf-vm/asdf.git $ASDF_DATA_DIR --branch v0.8.0
     cd $ASDF_DATA_DIR
     git checkout "$(git describe --abbrev=0 --tags)"
 fi

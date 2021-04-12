@@ -18,6 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 local xrandr = require("xrandr")
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -215,8 +218,15 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            -- require("battery-widget") {},
-            -- require("awesome-wm-widgets.volumearc-widget.volumearc") {},
+            spotify_widget({
+                dim_opacity = 0.5,
+                dim_when_paused = true,
+                max_length = 30,
+                play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
+                pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg',
+            }),
+            battery_widget(),
+            volume_widget(),
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
@@ -638,5 +648,5 @@ awful.spawn.with_shell("picom")
 awful.spawn.with_shell("bluetoothctl power on")
 awful.spawn.with_shell("copyq")
 awful.spawn.with_shell("flameshot")
-awful.spawn.with_shell("xmodmap ~/.xmodmaprc")
+-- awful.spawn.with_shell("xmodmap ~/.xmodmaprc")
 -- END Autostart }}}

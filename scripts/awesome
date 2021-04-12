@@ -1,0 +1,5 @@
+#!/bin/bash
+DIR=$(dirname "$0")
+source $DIR/utils.sh
+
+g_clonner 'awesome-wm-widgets' https://github.com/streetturtle/awesome-wm-widgets.git $XDG_CONFIG_HOME/awesome/awesome-wm-widgets
