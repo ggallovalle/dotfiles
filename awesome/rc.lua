@@ -326,8 +326,6 @@ end, {
     group = "hotkeys"
 }), awful.key({modkey, "Control"}, "p", function()
     xrandr.xrandr()
-    -- it needs to reactivate wallpaper
-    awful.spawn.with_shell("nitrogen --restore")
 end, {
     description = "Arrange multipel screens",
     group = "awesome"
