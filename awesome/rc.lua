@@ -21,6 +21,9 @@ local xrandr = require("xrandr")
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+local docker_widget = require("awesome-wm-widgets.docker-widget.docker")
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -111,7 +114,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(awful.button({}, 1, function(t)
@@ -165,6 +167,14 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+local mytextclock = wibox.widget.textclock()
+local cw = calendar_widget({
+    placement = "top_right"
+})
+mytextclock:connect_signal("button::press", 
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
@@ -225,6 +235,8 @@ awful.screen.connect_for_each_screen(function(s)
                 play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
                 pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg',
             }),
+            docker_widget(),
+            brightness_widget(),
             battery_widget(),
             volume_widget(),
             mykeyboardlayout,
