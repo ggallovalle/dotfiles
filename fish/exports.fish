@@ -50,6 +50,8 @@ set -x GHQ_ROOT $HOME/ghq
 # ----------------- emacs doom --------------------
 
 set -a PATH $HOME/.emacs.d/bin
+# ----------------- scala coursier -------------------------
+set -a PATH $XDG_DATA_HOME/coursier/bin
 # ----------------- fzf -------------------------
 
 set -x FZF_DEFAULT_OPTS "
