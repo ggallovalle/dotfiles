@@ -73,3 +73,5 @@ set -x LF_ICONS "tw=:st=:ow=:dt=:di=:fi=:ln=:or=:ex=:
 # ----------------- forgit    -------------------------
 
 set -x FORGIT_NO_ALIASES true
+
+set -x BAT_THEME OneHalfDark

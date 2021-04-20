@@ -5,7 +5,7 @@ source "$__fish_config_dir/exports.fish"
 # ----------------- sources ------------------
 # asdf
 source $ASDF_DATA_DIR/asdf.fish
-source $ASDF_DATA_DIR/plugins/dotnet-core/set-dotnet-home.fish
+# source $ASDF_DATA_DIR/plugins/dotnet-core/set-dotnet-home.fish
 # source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
 # ssh-agent
 # ----------------- sane defaults ------------------
@@ -52,9 +52,11 @@ end
 
 # ----------------- greeting ------------------
 
+set -x hb /mnt/c/Users/GersonGallo/projects/homebuilders
 function fish_greeting
     # neofetch
-    keychain --quiet --eval github_ggallovalle --eval id_rsa | source
+    # keychain --quiet --eval github_ggallovalle --eval id_rsa | source
+    keychain --quiet --eval id_rsa | source
     thefuck --alias | source
 end
 # ----------------- omf ------------------
