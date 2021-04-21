@@ -14,9 +14,7 @@ local function outputs()
     if xrandr then
         for line in xrandr:lines() do
             local output = line:match("^([%w-]+) connected ")
-            if output then
-                outputs[#outputs + 1] = output
-            end
+            if output then outputs[#outputs + 1] = output end
         end
         xrandr:close()
     end
@@ -76,9 +74,7 @@ local function menu()
             label = 'Only <span weight="bold">' .. choice[1] .. '</span>'
         else
             for i, o in pairs(choice) do
-                if i > 1 then
-                    label = label .. " + "
-                end
+                if i > 1 then label = label .. " + " end
                 label = label .. '<span weight="bold">' .. o .. '</span>'
             end
         end
@@ -90,12 +86,11 @@ local function menu()
 end
 
 -- Display xrandr notifications from choices
-local state = {
-    cid = nil
-}
+local state = {cid = nil}
 
 local function naughty_destroy_callback(reason)
-    if reason == naughty.notificationClosedReason.expired or reason == naughty.notificationClosedReason.dismissedByUser then
+    if reason == naughty.notificationClosedReason.expired or reason ==
+        naughty.notificationClosedReason.dismissedByUser then
         local action = state.index and state.menu[state.index - 1][2]
         if action then
             spawn(action, false)
@@ -132,9 +127,4 @@ local function xrandr()
     }).id
 end
 
-return {
-    outputs = outputs,
-    arrange = arrange,
-    menu = menu,
-    xrandr = xrandr
-}
+return {outputs = outputs, arrange = arrange, menu = menu, xrandr = xrandr}

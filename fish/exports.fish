@@ -75,3 +75,5 @@ set -x LF_ICONS "tw=:st=:ow=:dt=:di=:fi=:ln=:or=:ex=:
 set -x FORGIT_NO_ALIASES true
 
 set -x BAT_THEME OneHalfDark
+
+eval (luarocks path)
