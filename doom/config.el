@@ -1,7 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (add-hook 'text-mode-hook #'auto-fill-mode) ;automatically wrap lines when certain number line reached
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 16)
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 13)
       display-line-numbers-type 'relative)
 ;; unset a bunch of not useful bindings
 

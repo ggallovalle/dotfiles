@@ -49,3 +49,5 @@ source $ASDFSCRIPT
 # g_asdf_install elixir 1.11.3
 ## golang
 # g_asdf_install golang 1.16.2
+## lua
+g_asdf_install lua 5.4.2
