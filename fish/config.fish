@@ -55,7 +55,7 @@ end
 set -x hb /mnt/c/Users/GersonGallo/projects/homebuilders
 function fish_greeting
     # neofetch
-    # keychain --quiet --eval github_ggallovalle --eval id_rsa | source
+    keychain --quiet --eval github_ggallovalle --eval id_rsa | source
     keychain --quiet --eval id_rsa | source
     thefuck --alias | source
 end
