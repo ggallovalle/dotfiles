@@ -34,15 +34,15 @@ source $ASDFSCRIPT
 ## nodejs
 # asdf plugin add nodejs
 # bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-# g_asdf_install nodejs 14.16.0 15.11.0 0.0.00
+g_asdf_install nodejs 14.16.0 
 ## python
-# g_asdf_install python 3.9.2
+g_asdf_install python 3.9.2
 ## dotnet
 # g_asdf_install dotnet-core 5.0.200 3.1.406
 ## php
 # g_asdf_install php 8.0.3 7.4.16
 ## ruby
-# g_asdf_install ruby 2.7.2 3.0.0
+g_asdf_install ruby 2.7.2
 ## erlang, elixir depends on int
 # g_asdf_install erlang 23.2.7
 ## elixir
