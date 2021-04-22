@@ -41,7 +41,6 @@ set -a PATH $ANDROID_SDK_ROOT/platform-tools
 set -a PATH $ANDROID_SDK_ROOT/emulator
 # ----------------- asdf ------------------
 
-set -x ASDF_DATA_DIR $XDG_DATA_HOME/asdf
 
 set -p fish_function_path $XDG_CONFIG_HOME/fish/scope-shadowing
 # ----------------- ghq   -------------------------
