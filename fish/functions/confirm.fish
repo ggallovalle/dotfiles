@@ -1,4 +1,5 @@
 function confirm
+    # $argv message of the continue
     set -l msg 'Continue?'
     test -n "$argv"
     set msg "$argv"

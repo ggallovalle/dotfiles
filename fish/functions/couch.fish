@@ -1,4 +1,6 @@
 function couch -w http -a url
+    # $1 command HTTP verb | auth
+    # $2 usually an url from the basepath
     set -l verb
     set -l shifted $argv[2..-1]
     # set -l basepath ':5984'
