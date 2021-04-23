@@ -5,7 +5,9 @@ function fish_greeting
     command -q thefuck
     and thefuck --alias | source
 end
-if not test "$SHELL" = /bin/fish; or not test "$SHELL" = /usr/bin/fish
+if not test "$SHELL" = /bin/fish
+    and not test "$SHELL" = /usr/bin/fish
+
     msg -w "fish is not the default shell"
 end
 # END ]]
