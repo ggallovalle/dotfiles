@@ -26,6 +26,7 @@ load-component keychain
 load-component exa
 load-component git
 load-component sane-defaults
+load-component lua
 # END  ]]
 
 # [[ load for specific environmet work | laptop | etc
