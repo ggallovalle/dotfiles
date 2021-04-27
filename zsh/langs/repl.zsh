@@ -1,4 +1,4 @@
-# TODO add instructions on how to load file when inside the repl
+# NOTE add instructions on how to load file when inside the repl
 # 	and also before entering on it
 ### csharp
 alias repl.csharp='csi'

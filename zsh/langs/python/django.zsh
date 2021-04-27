@@ -1,5 +1,5 @@
 alias django='python manage.py'
-# TODO: consider django_extensions commands aliases
+# NOTE: consider django_extensions commands aliases
 # https://django-extensions.readthedocs.io/en/latest/command_extensions.html
 # one time
 alias django.server='python manage.py runserver'
