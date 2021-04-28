@@ -177,7 +177,8 @@ mytextclock:connect_signal("button::press", function(_, _, _, button)
 end)
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    set_wallpaper(s)
+    awful.spawn.with_shell("nitrogen --restore")
+    -- set_wallpaper(s)
 
     -- Each screen has its own tag table.
     awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s,
@@ -565,9 +566,8 @@ client.connect_signal("unfocus",
 -- END Signals }}}
 
 -- {{{ Autostart
-awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
--- awful.spawn.with_shell("bluetoothctl power on")
+awful.spawn.with_shell("bluetoothctl power on")
 awful.spawn.with_shell("copyq")
 awful.spawn.with_shell("flameshot")
 -- awful.spawn.with_shell("xmodmap ~/.xmodmaprc")

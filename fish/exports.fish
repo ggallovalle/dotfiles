@@ -39,9 +39,6 @@ set -a PATH $ANDROID_SDK_ROOT/tools/bin
 set -a PATH $ANDROID_SDK_ROOT/platform-tools
 # emulator
 set -a PATH $ANDROID_SDK_ROOT/emulator
-# ----------------- asdf ------------------
-
-
 set -p fish_function_path $XDG_CONFIG_HOME/fish/scope-shadowing
 # ----------------- ghq   -------------------------
 
@@ -51,6 +48,7 @@ set -x GHQ_ROOT $HOME/ghq
 set -a PATH $HOME/.emacs.d/bin
 # ----------------- scala coursier -------------------------
 set -a PATH $XDG_DATA_HOME/coursier/bin
+set -x ASDF_DATA_DIR $XDG_DATA_HOME/asdf
 # ----------------- fzf -------------------------
 
 set -x FZF_DEFAULT_OPTS "

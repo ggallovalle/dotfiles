@@ -4,6 +4,7 @@ function fish_greeting
     # neofetch
     command -q thefuck
     and thefuck --alias | source
+    load-component keychain
 end
 if not test "$SHELL" = /bin/fish
     and not test "$SHELL" = /usr/bin/fish
@@ -13,13 +14,10 @@ end
 # END ]]
 
 # [[ stuff that needs to start first
-function load-component
-    # $1 component
-    source "$__fish_config_dir/components/$argv[1].fish"
-end
-load-component asdf
+# ALWAYS FIRST
 source "$__fish_config_dir/exports.fish"
-load-component keychain
+#
+load-component asdf
 # END ]]
 
 # [[ components
@@ -40,11 +38,5 @@ end
 
 # [[ this two needs to always be the last two
 # Omf needs to be inline in config.fish or it gives some nasty errors
-set -x OMF_CONFIG "$__fish_config_dir/omf"
-set -x OMF_PATH "$XDG_DATA_HOME/omf"
-# Load Oh My Fish configuration.
-test -d $OMF_PATH
-or git clone https://github.com/oh-my-fish/oh-my-fish $OMF_PATH
-source $OMF_PATH/init.fish
 load-component starship
 # END ]]

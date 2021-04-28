@@ -1,4 +1,3 @@
-set -x ASDF_DATA_DIR $XDG_DATA_HOME/asdf
 if test -f "$ASDF_DATA_DIR/asdf.fish"
     source $ASDF_DATA_DIR/asdf.fish
 else
