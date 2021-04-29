@@ -72,3 +72,6 @@ set -x LF_ICONS "tw=:st=:ow=:dt=:di=:fi=:ln=:or=:ex=:
 set -x FORGIT_NO_ALIASES true
 
 set -x BAT_THEME OneHalfDark
+
+set -x OMF_CONFIG "$__fish_config_dir/omf"
+set -x OMF_PATH "$XDG_DATA_HOME/omf"
