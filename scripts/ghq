@@ -16,7 +16,9 @@ grepos['rspec/rspec-core']='test, ruby, rspec'
 grepos['rspec/rspec-mocks']='test, ruby, rspec'
 grepos['rspec/rspec-expectations']='test, ruby, rspec'
 grepos['nestjs/nest']='framework, nestjs, ts'
-grepos['nestjs/nest']='framework, nestjs, ts'
+grepos['nestjs/cqrs']='nestjs, ts, cqrs'
+grepos['gcanti/fp-ts-fluture']='fp-ts, ts'
+grepos['gcanti/io-ts']='fp-ts, ts'
 #_others
 g_w "OTHERS REPOSITORIES"
 for key in ${!grepos[@]}; do
@@ -38,7 +40,7 @@ done
 declare -A myrepos
 
 # myrepos[pkginfo]='project, cli, py'
-myrepos['objection-utils']='project, lib, ts'
+# myrepos['objection-utils']='project, lib, ts'
 
 g_w "MINE REPOSITORIES"
 for key in ${!myrepos[@]}; do

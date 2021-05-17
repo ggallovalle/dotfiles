@@ -3,6 +3,7 @@ if command -q git
     alias gss="git status --short"
     alias gd="git diff"
     alias gc="git commit"
+    alias gch="git checkout"
     function gca -w "git commit"
         git status --short
         if confirm "Show diff?"
