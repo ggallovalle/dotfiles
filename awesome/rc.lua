@@ -471,7 +471,37 @@ awful.rules.rules = {
             placement = awful.placement.no_overlap +
                 awful.placement.no_offscreen
         }
-    }, {
+    },
+    {
+        rule = { class = "Teams" },
+        properties = {
+            tag = "8",
+            screen = 1
+        }
+    },
+    {
+        rule = { class = "Spotify" },
+        properties = {
+            tag = "9",
+            screen = 1,
+            switchtotag = true
+        }
+    },
+    {
+        rule = { class = "Marvin" },
+        properties = {
+            tag = "6",
+            screen = 1,
+        }
+    },
+    {
+        rule = { class = "Notion" },
+        properties = {
+            tag = "7",
+            screen = 1,
+        }
+    },
+    {
         rule_any = {
             instance = {
                 "DTA", -- Firefox addon DownThemAll.
@@ -496,7 +526,8 @@ awful.rules.rules = {
             }
         },
         properties = {floating = true}
-    }, {
+    },
+    {
         rule_any = {type = {"normal", "dialog"}},
         properties = {titlebars_enabled = true}
     }
