@@ -601,5 +601,9 @@ awful.spawn.with_shell("picom")
 awful.spawn.with_shell("bluetoothctl power on")
 awful.spawn.with_shell("copyq")
 awful.spawn.with_shell("flameshot")
+-- @see https://wiki.archlinux.org/title/Touchpad_Synaptics#Using_xinput_to_determine_touchpad_capabilities
+-- enable natural scrolling and click on tap
+awful.spawn.with_shell("xinput set-prop \"ETPS/2 Elantech Touchpad\" \"libinput Tapping Enabled\" 1")
+awful.spawn.with_shell(" xinput set-prop \"ETPS/2 Elantech Touchpad\" \"libinput Natural Scrolling Enabled\" 1")
 -- awful.spawn.with_shell("xmodmap ~/.xmodmaprc")
 -- END Autostart }}}
