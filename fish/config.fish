@@ -22,5 +22,3 @@ load-component whereami
 load-component omf
 load-component starship
 # END ]]
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH

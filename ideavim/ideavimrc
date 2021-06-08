@@ -36,10 +36,10 @@ set exchange
 let g:EasyMotion_override_acejump = 0
 " --------------- remap default keys -------------
 
-map <C-h>              <C-w>h
-map <C-j>              <C-w>j
-map <C-k>              <C-w>k
-map <C-l>              <C-w>l
+" map <C-h>              <C-w>h
+" map <C-j>              <C-w>j
+" map <C-k>              <C-w>k
+" map <C-l>              <C-w>l
 " -------------------- leader --------------------
 inoremap jj <Esc>
 nnoremap <leader>w     <C-w>
