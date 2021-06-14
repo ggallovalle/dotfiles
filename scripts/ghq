@@ -17,6 +17,7 @@ grepos['rspec/rspec-mocks']='test, ruby, rspec'
 grepos['rspec/rspec-expectations']='test, ruby, rspec'
 grepos['nestjs/nest']='framework, nestjs, ts'
 grepos['nestjs/cqrs']='nestjs, ts, cqrs'
+grepos['nestjs/graphql']='framework, nestjs, ts, graphql'
 grepos['gcanti/fp-ts-fluture']='fp-ts, ts'
 grepos['gcanti/io-ts']='fp-ts, ts'
 #_others
