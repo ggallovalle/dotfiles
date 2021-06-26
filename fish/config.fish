@@ -15,6 +15,7 @@ load-component git
 load-component sane-defaults
 load-component lua
 load-component whereami
+load-component az
 # END  ]]
 
 # [[ this two needs to always be the last two
