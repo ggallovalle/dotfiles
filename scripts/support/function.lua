@@ -26,17 +26,27 @@ function Function.call(table, method, ...)
     end
 end
 
-function Function.map(f)
-    return function (table)
-        if is.func(table.map) then
-            return table:map(f)
-        elseif is.array(table) then
-            return array.map(f, table)
-        elseif is.record(table) then
-            return record.map(f, table)
-        end
-        error("This shit ain't a Functor")
+function Function.map(f, table)
+    if is.func(table.map) then
+        return table:map(f)
+    elseif is.array(table) then
+        return array.map(f, table)
+    elseif is.record(table) then
+        return record.map(f, table)
     end
+    error("This shit ain't a Functor")
+end
+
+
+function Function.filter(f, table)
+    if is.func(table.filter) then
+        return table:map(f)
+    elseif is.array(table) then
+        return array.filter(f, table)
+    elseif is.record(table) then
+        return record.filter(f, table)
+    end
+    error("This shit ain't a Filterable")
 end
 
 function Function.constant(value)
@@ -51,7 +61,7 @@ Function.constantFalse = Function.constant(false)
 
 Function.constantNil = Function.constant(nil)
 
-function Function.absurd(value)
+function Function.absurd()
     return function()
         error("This shit should never be called")
     end
