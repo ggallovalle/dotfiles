@@ -1,4 +1,4 @@
--- this module can only depend on foundation package
+-- this module can only depend on foundation and function packages
 local array = require("foundation.array")
 local curry2 = require("foundation.curry").curry2
 

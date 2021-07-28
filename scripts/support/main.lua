@@ -1,30 +1,43 @@
-local pipe = require "function".pipe
+local dump = require("foundation.dump")
+local pipe = require("function").pipe
+local filter = require("pointfree").filter
+local map = require("pointfree").map
 
 local function add1(x)
-    print("add", ">>", x)
+    dump("add" .. " >> " .. x)
     return x + 1
 end
 
 local function multiply1(x)
-    print("multiply", ">>", x)
+    dump("multiply" .. " >> " .. x)
     return x * 1
 end
 
 local function substract(x)
-    print("substract", ">>", x)
+    dump("substract" .. " >> " .. x)
     return x - 1
 end
 
-
 local function pi(x)
-    print("pi", ">>", x)
+    dump("pi" .. " >> " .. x)
     return math.pi * x
 end
 
 local function main()
-    local result = pipe(10, add1, multiply1, substract, pi)
+    local result =
+        pipe(
+        {one = 1, two = 2, three = 3},
+        map(add1),
+        map(multiply1),
+        filter(
+            function(value)
+                return value % 2 == 0
+            end
+        ),
+        map(substract)
+    )
     -- local result = {1,2,3} + {5,6,7}
-    print(result)
+    dump(result)
 end
 
 main()

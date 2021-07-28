@@ -1,11 +1,15 @@
 -- this module can't contain dependencies
-local function parser(value, indent, subcategory)
+local function dump(value, indent, subcategory)
+  if(type(value) ~= "table") then
+    print(value)
+    return
+  end
   local indent = indent or 2
   local response = '(\n'
   local subcategory = type(subcategory) == 'number' and subcategory or indent
   for key, value in pairs(value) do
     if type(value) == 'table' then
-      value = parser(value, indent, subcategory + indent)
+      value = dump(value, indent, subcategory + indent)
 
     elseif type(value) == 'string' then
       value = '\''.. value .. '\''
@@ -26,4 +30,4 @@ local function parser(value, indent, subcategory)
 
 end 
 
-return parser
+return dump

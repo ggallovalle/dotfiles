@@ -11,7 +11,7 @@ end
 
 function Record.filter(f, t)
     local acc = {}
-    for index, value in ipairs(t) do
+    for index, value in pairs(t) do
         if f(value, index, t) then
             acc[index] = value
         end

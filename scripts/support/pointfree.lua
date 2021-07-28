@@ -1,6 +1,5 @@
-local curry2 = require("curry").curry2
+local curry2 = require("foundation.curry").curry2
 local func = require("function")
-local array = require("foundation.array")
 
 local PointFree = {}
 
