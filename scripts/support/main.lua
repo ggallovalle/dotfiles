@@ -1,8 +1,8 @@
 local math = math
-local dump = require("foundation.dump")
-local pipe = require("foundation.pointfree").pipe
-local filter = require("foundation.pointfree").filter
-local map = require("foundation.pointfree").map
+local dump = require("foundation").dump
+local pipe = require("foundation").pipe
+local filter = require("foundation").filter
+local map = require("foundation").map
 _ENV = nil
 
 local function add1(x)
