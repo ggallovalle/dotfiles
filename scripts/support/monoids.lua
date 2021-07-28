@@ -4,7 +4,7 @@ local curry2 = require("foundation.curry").curry2
 
 local Monoids = {}
 
-local funcLeft = {
+local func = {
     empty = function(value)
         return value
     end,
@@ -15,7 +15,7 @@ local funcLeft = {
     end
 }
 
-local func = {
+local funcRight = {
     empty = function(value)
         return value
     end,
@@ -61,8 +61,8 @@ Monoids.reduce =
     end
 )
 
-Monoids.flow = Monoids.reduce(funcLeft)
-Monoids.compose = Monoids.reduce(func)
+Monoids.flow = Monoids.reduce(func)
+Monoids.compose = Monoids.reduce(funcRight)
 Monoids.sum = Monoids.reduce(sum)
 Monoids.product = Monoids.reduce(product)
 Monoids.any = Monoids.reduce(any)
