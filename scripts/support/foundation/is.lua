@@ -80,7 +80,7 @@ Is.type = curry2(function(metatable, value)
 end)
 
 function Is.monoid(value)
-    return Is.record(value) and Is.any(value.initial) and Is.any(value.concat)
+    return Is.record(value) and Is.any(value.empty) and Is.any(value.concat)
 end
 
 Is.union = curry2(function(tag, value)
