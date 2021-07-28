@@ -1,6 +1,7 @@
-local is = require("is")
-local pipe = require("function").pipe
-    
+local setmetatable = setmetatable
+local is = require("foundation.is")
+local pipe = require("foundation.pointfree").pipe
+_ENV = nil
 
 local Some = {_tag = "Some", _value = {}}
 Some.__index = Some

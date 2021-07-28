@@ -1,4 +1,9 @@
--- this module can't contain dependencies
+local type = type
+local error = error
+local setmetatable = setmetatable
+local table = table
+_ENV = nil
+
 local Curry = { }
 
 Curry.__index = Curry

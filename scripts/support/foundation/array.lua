@@ -1,4 +1,6 @@
--- this module can't contain dependencies
+local ipairs = ipairs
+_ENV = nil
+
 local Array = {}
 
 function Array.map(f, table)

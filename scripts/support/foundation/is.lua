@@ -1,4 +1,8 @@
--- this module can't contain dependencies
+local setmetatable = setmetatable
+local table = table
+local getmetatable = getmetatable
+local type = type
+_ENV = nil
 
 --#region [ circular dependencies , forced to copy paste
 local Curry = { }

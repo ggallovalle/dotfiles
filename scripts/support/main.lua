@@ -1,7 +1,9 @@
+local math = math
 local dump = require("foundation.dump")
-local pipe = require("function").pipe
-local filter = require("pointfree").filter
-local map = require("pointfree").map
+local pipe = require("foundation.pointfree").pipe
+local filter = require("foundation.pointfree").filter
+local map = require("foundation.pointfree").map
+_ENV = nil
 
 local function add1(x)
     dump("add" .. " >> " .. x)
@@ -37,7 +39,7 @@ local function main()
         map(substract)
     )
     -- local result = {1,2,3} + {5,6,7}
-    dump(result)
+    dump(result, "result")
 end
 
 main()

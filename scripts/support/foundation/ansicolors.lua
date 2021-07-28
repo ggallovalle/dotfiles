@@ -1,3 +1,12 @@
+local type = type
+local package = package
+local string = string
+local assert = assert
+local table = table
+local os = os
+local tostring = tostring
+local setmetatable = setmetatable
+_ENV = nil
 -- ansicolors.lua v1.0.2 (2012-08)
 
 -- Copyright (c) 2009 Rob Hoelz <rob@hoelzro.net>

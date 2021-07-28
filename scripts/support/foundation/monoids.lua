@@ -1,6 +1,6 @@
--- this module can only depend on foundation and function packages
-local array = require("foundation.array")
+local reduce = require("foundation.collection").reduce
 local curry2 = require("foundation.curry").curry2
+_ENV = nil
 
 local Monoids = {}
 
@@ -57,7 +57,7 @@ local all = {
 Monoids.reduce =
     curry2(
     function(monoid, table)
-        return array.reduce(monoid.concat, monoid.empty, table)
+        return reduce(monoid.concat, monoid.empty, table)
     end
 )
 

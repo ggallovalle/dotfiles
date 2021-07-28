@@ -1,4 +1,6 @@
--- this module can't contain dependencies
+local pairs = pairs
+_ENV = nil
+
 local Record = {}
 
 function Record.map(f, table)
@@ -15,6 +17,14 @@ function Record.filter(f, t)
         if f(value, index, t) then
             acc[index] = value
         end
+    end
+    return acc
+end
+
+function Record.reduce(reducer, initial, table)
+    local acc = initial
+    for _, value in pairs(table) do
+        acc = reducer(acc, value)
     end
     return acc
 end
