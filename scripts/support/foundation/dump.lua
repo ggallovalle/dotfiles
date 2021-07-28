@@ -1,3 +1,4 @@
+-- this module can't contain dependencies
 local function parser(value, indent, subcategory)
   local indent = indent or 2
   local response = '(\n'

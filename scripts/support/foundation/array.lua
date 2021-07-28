@@ -1,3 +1,4 @@
+-- this module can't contain dependencies
 local Array = {}
 
 function Array.map(f, table)

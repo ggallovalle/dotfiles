@@ -1,3 +1,4 @@
+-- this module can't contain dependencies
 local Dict = {}
 
 function Dict.map(f, table)

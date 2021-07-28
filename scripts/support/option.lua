@@ -1,5 +1,5 @@
-local is = require "is"
-local pipe = require "function".pipe
+local is = require("is")
+local pipe = require("function").pipe
     
 
 local Some = {_tag = "Some", _value = {}}

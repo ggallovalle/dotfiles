@@ -1,7 +1,7 @@
-local array = require "array"
-local record = require "record"
-local is = require "is"
-local monoids = require "monoids"
+local array = require("foundation.array")
+local record = require("foundation.record")
+local is = require("foundation.is")
+local monoids = require("monoids")
 
 local Function = {}
 

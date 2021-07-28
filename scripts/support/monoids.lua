@@ -1,5 +1,6 @@
-local array = require "array"
-local curry2 = require "curry".curry2
+-- this module can only depend on foundation package
+local array = require("foundation.array")
+local curry2 = require("foundation.curry").curry2
 
 local Monoids = {}
 
