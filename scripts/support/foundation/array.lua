@@ -1,20 +1,13 @@
 local ipairs = ipairs
+local table = table
 _ENV = nil
 
 local Array = {}
 
-function Array.map(f, table)
-    local acc = {}
-    for index, value in ipairs(table) do
-        acc[index] = f(value, index, table)
-    end
-    return acc
-end
-
-function Array.reduce(reducer, initial, table)
+function Array.reduce(reducer, initial, t)
     local acc = initial
-    for _, value in ipairs(table) do
-        acc = reducer(acc, value)
+    for index, value in ipairs(t) do
+        acc = reducer(acc, value, index, t)
     end
     return acc
 end
@@ -27,18 +20,21 @@ function Array.reduceRight(reducer, initial, table)
     return acc
 end
 
-function Array.filter(f, t)
-    local acc = {}
-    for index, value in ipairs(t) do
-        if f(value, index, t) then
-            Array["push!"](value, acc)
-        end
-    end
-    return acc
+function Array.map(f, t)
+    return Array.reduce(function (acc, curr, index, t2)
+        acc[index] = f(curr, index, t2)
+        return acc
+    end, {}, t)
 end
 
-Array["push!"] = function(a, table)
-    table[#table+1] = a
+
+function Array.filter(f, t)
+    return Array.reduce(function (acc, curr, index, t2)
+        if f(curr, index, t2) then
+            acc[index] = curr
+        end
+        return acc
+    end, {}, t)
 end
 
 function Array.reverse(table)

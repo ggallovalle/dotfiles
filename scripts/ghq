@@ -7,7 +7,7 @@ declare -A grepos
 
 grepos['laravel/framework']='framework, php, laravel'
 grepos['django/django']='framework, py, django'
-grepos['dotnet/aspnetcore']='framework, c#, dotnet'
+# grepos['dotnet/aspnetcore']='framework, c#, dotnet'
 grepos['nestjs/typeorm']='lib, ts, nestjs'
 grepos['nestjs/passport']='lib, ts, nestjs'
 grepos['vincit/objection.js']='lib, js'
@@ -23,6 +23,7 @@ grepos['taskforcesh/bullmq']='redis, ts, queue'
 grepos['gcanti/fp-ts-fluture']='fp-ts, ts'
 grepos['gcanti/io-ts']='fp-ts, ts'
 grepos['nodemailer/nodemailer']='fp-ts, ts'
+grepos['mikro-orm/mikro-orm']='orm, ts'
 #_others
 g_w "OTHERS REPOSITORIES"
 for key in ${!grepos[@]}; do

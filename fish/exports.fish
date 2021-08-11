@@ -76,6 +76,10 @@ set -x BAT_THEME OneHalfDark
 set -x OMF_CONFIG "$__fish_config_dir/omf"
 set -x OMF_PATH "$XDG_DATA_HOME/omf"
 
+# ----------------- volta    -------------------------
 set -gx VOLTA_HOME "$HOME/.volta"
 set -a PATH "$VOLTA_HOME/bin"
 set -p PATH "$VOLTA_HOME/tools/image/yarn/1.22.10/bin"
+
+# ----------------- docker    -------------------------
+set -x DOCKER_BUILDKIT 1
