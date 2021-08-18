@@ -1,5 +1,7 @@
 if test -f "$ASDF_DATA_DIR/asdf.fish"
     source $ASDF_DATA_DIR/asdf.fish
+    source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
+
 else
     msg -w "asdf not installed"
 end
