@@ -48,7 +48,7 @@ local function main()
         {"Y", "y$"}, -- make it behave like D or C
         {"J", "mzJ`z"}, -- join the lines but keep the cursor wherte it is
         {"n", "nzzzv"}, -- keen the screen center when going forward
-        {"n", "nzzzv"}, -- keen the screen center when going backwards
+        {"N", "Nzzzv"}, -- keen the screen center when going backwards
         -- keep k and j in the C-O and C-I go back and forward
         {
             "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'",
@@ -56,7 +56,8 @@ local function main()
         }, {
             "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'",
             {expr = true, noremap = true}
-        }
+        },
+        {"<leader>Y",  "gg+yG\""} -- yank all buffer
     }
 
     i_map {
@@ -66,7 +67,8 @@ local function main()
     }
 
     nv_map {
-        {"<leader>w", "<C-w>"} -- more ergonomic C-w
+        {"<leader>w", "<C-w>"}, -- more ergonomic C-w
+        {"<leader>y", "\"+y"} -- yank to clipboard
     }
 
     -- [[ combos 
