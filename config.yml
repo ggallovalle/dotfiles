@@ -64,6 +64,7 @@
     # ~/.config/sxhkd: # is deleted for some reason
     ~/.config/yay:
     ~/.config/zsh:
+    ~/.config/nvim:
 #--------------- $XDG_DATA_HOME    ----------------
 
 - ghqfile:
