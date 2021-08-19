@@ -44,7 +44,7 @@ end
 ---@return nil
 local function main()
     n_map {
-        {"<leader><CR>", ":so ~/.config/nvim/init.vim<CR>"}, -- reload init.vim
+        {"<leader><CR>", ":so ~/.config/nvim/init.lua<CR>"}, -- reload init.vim
         {"Y", "y$"}, -- make it behave like D or C
         {"J", "mzJ`z"}, -- join the lines but keep the cursor wherte it is
         {"n", "nzzzv"}, -- keen the screen center when going forward
