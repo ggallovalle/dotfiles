@@ -2,44 +2,49 @@
 local vim = vim
 
 local map_opts = {noremap = true, silent = true}
-local key_map = vim.api.nvim_set_keymap
 
 ---@param options string[][]
 ---@return nil
-local function nmap(options)
+local function n_map(options)
     for _, mapper in ipairs(options) do
-        key_map("n", mapper[1], mapper[2], mapper[3] or map_opts)
+        vim.api
+            .nvim_set_keymap("n", mapper[1], mapper[2], mapper[3] or map_opts)
     end
 end
 
 ---@param options string[][]
 ---@return nil
-local function vmap(options)
+local function v_map(options)
     for _, mapper in ipairs(options) do
-        key_map("v", mapper[1], mapper[2], mapper[3] or map_opts)
+        vim.api
+            .nvim_set_keymap("v", mapper[1], mapper[2], mapper[3] or map_opts)
     end
 end
 
 ---@param options string[][]
 ---@return nil
-local function nvmap(options)
+local function nv_map(options)
     for _, mapper in ipairs(options) do
-        key_map("n", mapper[1], mapper[2], mapper[3] or map_opts)
-        key_map("v", mapper[1], mapper[2], mapper[3] or map_opts)
+        vim.api
+            .nvim_set_keymap("n", mapper[1], mapper[2], mapper[3] or map_opts)
+        vim.api
+            .nvim_set_keymap("v", mapper[1], mapper[2], mapper[3] or map_opts)
     end
 end
 
 ---@param options string[][]
 ---@return nil
-local function imap(options)
+local function i_map(options)
     for _, mapper in ipairs(options) do
-        key_map("i", mapper[1], mapper[2], mapper[3] or map_opts)
+        vim.api
+            .nvim_set_keymap("i", mapper[1], mapper[2], mapper[3] or map_opts)
     end
 end
 
 ---@return nil
 local function main()
-    nmap {
+    n_map {
+        {"<leader><CR>", ":so ~/.config/nvim/init.vim<CR>"}, -- reload init.vim
         {"Y", "y$"}, -- make it behave like D or C
         {"J", "mzJ`z"}, -- join the lines but keep the cursor wherte it is
         {"n", "nzzzv"}, -- keen the screen center when going forward
@@ -54,21 +59,21 @@ local function main()
         }
     }
 
-    imap {
+    i_map {
         {"jj", "<Esc>"}, -- easier escape from insert mode 
         -- better undo, keeps marks on every specified special character
         {",", ",<c-g>u"}, {".", ".<c-g>u"}, {"!", "!<c-g>u"}, {"?", "?<c-g>u"}
     }
 
-    nvmap {
+    nv_map {
         {"<leader>w", "<C-w>"} -- more ergonomic C-w
     }
 
     -- [[ combos 
     -- [ move the lines up and down just as in vs code
-    vmap {{"J", ":m '>+1<CR>gv=gv"}, {"K", ":m '<-2<CR>gv=gv"}}
-    imap {{"<C-J>", "<esc>:m .+1<CR>=="}, {"<C-K>", "<esc>:m .-2<CR>=="}}
-    nmap {{"<leader>k", ":m .-2<CR>=="}, {"<leader>j", ":m .+1<CR>=="}}
+    v_map {{"J", ":m '>+1<CR>gv=gv"}, {"K", ":m '<-2<CR>gv=gv"}}
+    i_map {{"<C-J>", "<esc>:m .+1<CR>=="}, {"<C-K>", "<esc>:m .-2<CR>=="}}
+    n_map {{"<leader>k", ":m .-2<CR>=="}, {"<leader>j", ":m .+1<CR>=="}}
     -- ]
     -- end combos]]
 end
