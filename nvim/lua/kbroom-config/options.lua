@@ -10,6 +10,15 @@ local function buffer(options)
     end
 end
 
+
+---@param options table
+---@return nil
+local function global(options)
+    for key, value in pairs(options) do
+        vim.g[key] = value
+    end
+end
+
 ---@param options table
 ---@return nil
 local function window(options)
@@ -32,10 +41,7 @@ local function main()
         -- left hand side number
         number = true,
         relativenumber = true,
-        signcolumn = "number"
-    }
-
-    window {
+        signcolumn = "number",
         -- wrap lines
         wrap = true
     }
@@ -45,4 +51,9 @@ local function main()
     vim.b.mapleader = " "
 end
 
-return main
+return {
+    main = main,
+    window = window,
+    buffer = buffer,
+    global = global
+}

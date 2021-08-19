@@ -1,5 +1,7 @@
 local remaps = require("kbroom-config.remaps")
 local options = require("kbroom-config.options")
+local plugins = require("kbroom-config.packer")
 
-options()
-remaps()
+plugins()
+options.main()
+remaps.main()

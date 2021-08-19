@@ -78,4 +78,10 @@ local function main()
     -- end combos]]
 end
 
-return main
+return {
+    main = main,
+    n_map = n_map,
+    v_map = v_map,
+    nv_map = nv_map,
+    i_map = i_map
+}
