@@ -3,6 +3,7 @@
 source "$__fish_config_dir/exports.fish"
 #
 load-component asdf
+load-component kb
 # END ]]
 # [[ fish stuff
 fish_vi_key_bindings
