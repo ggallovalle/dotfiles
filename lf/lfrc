@@ -1,9 +1,37 @@
+#
+#region maps
+#
+map gc cd ~/ghq/github.com/ggallovalle/
+map gd cd ~/Downloads/
+map g. cd ~/.dotfiles
+map i $~/.config/lf/previewer $f | less -RN
+map <enter> shell
+map x $$f # execute a file (must to be executable)
+map X !$f
+map <delete> trash
+map D delete
+# NOTE: prefer e (edit) i (pager) and w (shell in current dir)
+# map o &mimeopen $f
+# map O $mimeopen --ask $f
+#
+#region settings
+#
 set ratios 1:2:3
 set cleaner ~/.config/lf/cleaner
 set previewer ~/.config/lf/preview
-#  __________
-# < commands >
-#  ----------
+set relativenumber # vim like line number
+set number # vim like line number
+set shell bash
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons
+#
+#endregion settings
+#
+#
+#region commands
+#
 
 cmd open ${{
     case $(file --mime-type $f -b) in
@@ -41,33 +69,6 @@ cmd zip ${{
 }}
 
 cmd trash %trash-put $fx
-#  _____
-# < map >
-#  -----
-
-# cd to directories
-map gc cd ~/ghq/github.com/ggallovalle/
-map gd cd ~/Downloads/
-map g. cd ~/dotfiles/
-map i $~/.config/lf/previewer $f | less -RN
-map <enter> shell
-# execute a file (must to be executable)
-map x $$f
-map X !$f
-map <delete> trash
-map D delete
-map o &mimeopen $f
-map O $mimeopen --ask $f
-
-#  _____
-# < settings >
-#  -----
-
-set shell bash
-set shellopts '-eu'
-set ifs "\n"
-set scrolloff 10
-set icons
-set previewer ~/.config/lf/preview
-set cleaner ~/.config/lf/cleaner
-
+#
+#endregion commands
+#

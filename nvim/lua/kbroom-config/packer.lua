@@ -10,6 +10,10 @@ local function main()
         use("tpope/vim-surround")
         use("tpope/vim-commentary")
         use("vim-scripts/ReplaceWithRegister")
+				-- for markdown, this has to be in the exact order
+				use("godlygeek/tabular")
+				use("plasticboy/vim-markdown")
+				-- end for markdown
     end)
 end
 

@@ -57,7 +57,8 @@ local function main()
             "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'",
             {expr = true, noremap = true}
         },
-        {"<leader>Y",  "gg+yG\""} -- yank all buffer
+        {"<leader>Y",  "gg+yG\""}, -- yank all buffer
+				{"<esc>", ":noh<cr><esc>"} -- stop highlighting
     }
 
     i_map {
