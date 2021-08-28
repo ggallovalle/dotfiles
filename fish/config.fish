@@ -1,6 +1,5 @@
 # [[ stuff that needs to start first
 # ALWAYS FIRST
-source "$__fish_config_dir/exports.fish"
 #
 load-component asdf
 load-component kb
