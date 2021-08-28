@@ -1,3 +1,6 @@
+# NOTE As we've explained, autoload files are loaded by name, so, while you can put 
+# multiple functions into one file, the file will only be loaded automatically once
+# you try to execute the one that shares the name.
 fish_vi_key_bindings
 
 if not test "$SHELL" = /bin/fish
@@ -10,6 +13,8 @@ function fish_greeting
     # neofetch
     command -q thefuck
     and thefuck --alias | source
+    # NOTE Load function information so it shows up in auto completion
+    # load-em # this significatly slows down the sehll
 
     #ssh
     if command -q keychain
@@ -40,7 +45,6 @@ alias egrep='egrep --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-# END  ]]
 
 # [[ this two needs to always be the last two
 # Omf needs to be inline in config.fish or it gives some nasty errors, sometimes
