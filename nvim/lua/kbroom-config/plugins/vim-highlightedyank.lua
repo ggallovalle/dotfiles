@@ -1,6 +1,8 @@
-local global = require("kbroom-config.options").global
+local opts = require("kbroom-config.options")
 
 return {
-    "machakann/vim-highlightedyank",
-    config = function() global {highlightedyank_whighlight_duration = 100} end
+	"machakann/vim-highlightedyank",
+	config = function()
+		opts.global({ highlightedyank_whighlight_duration = 100 })
+	end,
 }

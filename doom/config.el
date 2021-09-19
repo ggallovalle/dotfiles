@@ -44,7 +44,35 @@
                                          :unnarrowed t
                                          :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                                                             "#+title: ${title}\n"))
+                                        ;; Shells
+                                        ("s" "Shells")
+                                        ("s," "root" plain "%?"
+                                         :unnarrowed t
+                                         :target (file+head
+                                                  "shell/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                  "#+title: ${title}\n"))
+                                        ("sh" "Bash" plain "%?"
+                                         :unnarrowed t
+                                         :target (file+head
+                                                  "shell/bash/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                  "#+title: ${title}\n"))
+                                        ("sf" "Fish" plain "%?"
+                                         :unnarrowed t
+                                         :target (file+head
+                                                  "shell/fish/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                  "#+title: ${title}\n"))
+                                        ("sp" "PowerShell" plain "%?"
+                                         :unnarrowed t
+                                         :target (file+head
+                                                  "shell/powershell/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                  "#+title: ${title}\n"))
+                                        ;; Prorgamming Languages
                                         ("l" "Programming Languages")
+                                        ("s," "root" plain "%?"
+                                         :unnarrowed t
+                                         :target (file+head
+                                                  "programming-languages/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                  "#+title: ${title}\n"))
                                         ("lc" "Starts with C")
                                         ("lcs" "C#" plain "%?"
                                          :unnarrowed t
