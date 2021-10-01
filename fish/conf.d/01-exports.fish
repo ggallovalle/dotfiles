@@ -5,7 +5,8 @@ set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x DOTFILES $HOME/.dotfiles
 # ----------------- default apps ------------------
-set -x TERM xterm
+set -x TERM xterm # use the following because tmux messes up vim colors
+# set -x TERM screen-256color-bce
 set -x EDITOR nvim
 set -x VISUAL nvim
 set -x TERMINAL alacritty

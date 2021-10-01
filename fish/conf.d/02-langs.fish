@@ -19,3 +19,6 @@ set -p PATH $HOME/.dotnet/tools
 source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
 # ----------------- lua    -------------------------
 # eval (luarocks path)
+# ----------------- nim    -------------------------
+set -p PATH $HOME/.nimble/bin
+
