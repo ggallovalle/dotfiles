@@ -38,9 +38,31 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'alaviss/nim.nvim' -- nim
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use {'kristijanhusak/orgmode.nvim', config = function ()
+	  require('orgmode').setup()
+  end}
+  use 'udalov/kotlin-vim' -- kotlin
+  use 'ray-x/lsp_signature.nvim' -- lsp show signature
+  use 'dart-lang/dart-vim-plugin' -- dart
+	use 'vim-crystal/vim-crystal' -- crystal
 end)
 
+---@param options table
+---@return nil
+local function buffer(options)
+    for key, value in pairs(options) do
+        vim.o[key] = value
+        vim.bo[key] = value
+    end
+end
+buffer {
+	-- use tabs instead of spaces with a default value of 2
+	tabstop = 2,
+	shiftwidth = 2,
+	expandtab = false
+}
 --Incremental live completion (note: this is now a default on master)
 vim.o.inccommand = 'nosplit'
 
@@ -206,7 +228,7 @@ local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -225,18 +247,54 @@ local on_attach = function(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+---Different tab size for each language.
+---@param tabstop number
+---@return function
+local function on_attach_with_tabspace(tabstop)
+	return function (client, bufnr)
+    require("lsp_signature").on_attach()
+		buffer {
+			-- use tabs instead of spaces with a default value of 2
+			tabstop = tabstop,
+			shiftwidth = tabstop,
+		}
+		on_attach(client, bufnr)
+
+	end
+end
+
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'nimls', 'gopls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+
+-- dartk
+require('lspconfig').dartls.setup {
+	cmd = { 'dart', '/home/kbroom/.local/share/asdf/installs/dart/2.13.4/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp' },
+	on_attach = on_attach_with_tabspace(2),
+	capabilities = capabilities,
+}
+
+-- kotlin
+require('lspconfig').kotlin_language_server.setup {
+	on_attach = on_attach_with_tabspace(4),
+	capabilities = capabilities,
+}
+
+-- omnisharp
+require('lspconfig').omnisharp.setup {
+  cmd = { '/usr/bin/omnisharp', '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
+  on_attach = on_attach_with_tabspace(4),
+  capabilities = capabilities,
+}
 
 -- Example custom server
 local sumneko_root_path = vim.fn.getenv 'HOME' .. '/.local/bin/sumneko_lua' -- Change to your sumneko root installation
@@ -249,7 +307,7 @@ table.insert(runtime_path, 'lua/?/init.lua')
 
 require('lspconfig').sumneko_lua.setup {
   cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
-  on_attach = on_attach,
+  on_attach = on_attach_with_tabspace(2),
   capabilities = capabilities,
   settings = {
     Lua = {
