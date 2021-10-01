@@ -25,12 +25,13 @@
     ~/.zshenv:
       force: true
       path: home/.zshenv
-    ~/.tmux.conf.local:
-      force: true
-      path: home/.tmux.conf.local
-    ~/.tmux.conf:
-      force: true
-      path: home/.tmux.conf
+    # NOTE use $XDG_CONFIG instead
+    # ~/.tmux.conf.local:
+    #   force: true
+    #   path: home/.tmux.conf.local
+    # ~/.tmux.conf:
+    #   force: true
+    #   path: home/.tmux.conf
 
     #--------------- config rogue             ----------------
     ~/.config/starship.toml:
@@ -62,6 +63,7 @@
     ~/.config/picom:
     ~/.config/rofi:
     # ~/.config/sxhkd: # is deleted for some reason
+    ~/.config/tmux:
     ~/.config/yay:
     ~/.config/zsh:
     ~/.config/nvim:

@@ -20,6 +20,7 @@ set wrapscan
 set ideamarks
 set ideajoin
 set ideastatusicon="disabled"
+set relativenumber
 " -------------------- plugins -------------------
 
 set surround
