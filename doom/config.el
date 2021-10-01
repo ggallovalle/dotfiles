@@ -68,7 +68,7 @@
                                                   "#+title: ${title}\n"))
                                         ;; Prorgamming Languages
                                         ("l" "Programming Languages")
-                                        ("s," "root" plain "%?"
+                                        ("l~" "root" plain "%?"
                                          :unnarrowed t
                                          :target (file+head
                                                   "programming-languages/%<%Y%m%d%H%M%S>-${slug}.org"
