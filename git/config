@@ -29,3 +29,6 @@
 [init]
 	defaultBranch = main
 
+[alias]
+	unstage = reset HEAD --
+	stash-untracked = !~/.dotfiles/scripts/stash-untracked
