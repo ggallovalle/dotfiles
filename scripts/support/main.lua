@@ -26,16 +26,13 @@ local function pi(x)
 end
 
 local function main()
-    local result =
-        pipe(
-        {one = 1, two = 2, three = 3},
+    local result = pipe(
+        { one = 1, two = 2, three = 3 },
         map(add1),
         map(multiply1),
-        filter(
-            function(value)
-                return value % 2 == 0
-            end
-        ),
+        filter(function(value)
+            return value % 2 == 0
+        end),
         map(substract)
     )
     -- local result = {1,2,3} + {5,6,7}

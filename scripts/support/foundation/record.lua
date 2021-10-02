@@ -13,20 +13,19 @@ function Record.reduce(reducer, initial, t)
 end
 
 function Record.map(f, t)
-    return Record.reduce(function (acc, curr, index, t2)
+    return Record.reduce(function(acc, curr, index, t2)
         acc[index] = f(curr, index, t2)
         return acc
     end, {}, t)
 end
 
 function Record.filter(f, t)
-    return Record.reduce(function (acc, curr, index, t2)
+    return Record.reduce(function(acc, curr, index, t2)
         if f(curr, index, t2) then
             acc[index] = curr
         end
         return acc
     end, {}, t)
 end
-
 
 return Record

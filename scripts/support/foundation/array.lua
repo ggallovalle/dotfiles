@@ -21,15 +21,14 @@ function Array.reduceRight(reducer, initial, table)
 end
 
 function Array.map(f, t)
-    return Array.reduce(function (acc, curr, index, t2)
+    return Array.reduce(function(acc, curr, index, t2)
         acc[index] = f(curr, index, t2)
         return acc
     end, {}, t)
 end
 
-
 function Array.filter(f, t)
-    return Array.reduce(function (acc, curr, index, t2)
+    return Array.reduce(function(acc, curr, index, t2)
         if f(curr, index, t2) then
             acc[index] = curr
         end

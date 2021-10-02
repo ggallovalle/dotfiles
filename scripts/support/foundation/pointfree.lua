@@ -17,5 +17,4 @@ function PointFree.pipe(value, ...)
     return monoids.flow(table.pack(...))(value)
 end
 
-
 return PointFree

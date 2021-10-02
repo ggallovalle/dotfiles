@@ -12,7 +12,7 @@ local func = {
         return function(...)
             return g(f(...))
         end
-    end
+    end,
 }
 
 local funcRight = {
@@ -23,43 +23,40 @@ local funcRight = {
         return function(...)
             return f(g(...))
         end
-    end
+    end,
 }
 
 local sum = {
     empty = 0,
     concat = function(a, b)
         return a + b
-    end
+    end,
 }
 
 local product = {
     empty = 1,
     concat = function(a, b)
         return a * b
-    end
+    end,
 }
 
 local any = {
     empty = false,
-    concat = function (a, b)
+    concat = function(a, b)
         return a or b
-    end
+    end,
 }
 
 local all = {
     empty = true,
-    concat = function (a, b)
+    concat = function(a, b)
         return a and b
-    end
+    end,
 }
 
-Monoids.reduce =
-    curry2(
-    function(monoid, table)
-        return reduce(monoid.concat, monoid.empty, table)
-    end
-)
+Monoids.reduce = curry2(function(monoid, table)
+    return reduce(monoid.concat, monoid.empty, table)
+end)
 
 Monoids.flow = Monoids.reduce(func)
 Monoids.compose = Monoids.reduce(funcRight)

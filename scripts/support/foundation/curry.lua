@@ -4,7 +4,7 @@ local setmetatable = setmetatable
 local table = table
 _ENV = nil
 
-local Curry = { }
+local Curry = {}
 
 Curry.__index = Curry
 
@@ -20,7 +20,7 @@ function Curry.new(table)
 end
 
 local function curryN(func, argc)
-    return Curry.new({func, argc})
+    return Curry.new({ func, argc })
 end
 
 local function curry2(func)
@@ -41,18 +41,17 @@ function Curry.__call(me, ...)
     local argc = me[2]
     local argsdiff = argc - args.n
     if argsdiff > 0 then
-        return function (...)
+        return function(...)
             return func(table.unpack(args), ...)
         end
     else
         return func(...)
     end
-
 end
 
 return {
     curryN = curryN,
     curry2 = curry2,
     curry3 = curry3,
-    curry4 = curry4
+    curry4 = curry4,
 }

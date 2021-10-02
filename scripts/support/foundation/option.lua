@@ -3,10 +3,10 @@ local is = require("foundation.is")
 local pipe = require("foundation.pointfree").pipe
 _ENV = nil
 
-local Some = {_tag = "Some", _value = {}}
+local Some = { _tag = "Some", _value = {} }
 Some.__index = Some
 function Some.new(value)
-    local o = {_value = value, _tag = "Some"}
+    local o = { _value = value, _tag = "Some" }
     setmetatable(o, Some)
     return o
 end
@@ -19,7 +19,7 @@ function Some:get()
     return self._value
 end
 
-local None = {_tag = "None"}
+local None = { _tag = "None" }
 local function none()
     return None
 end
@@ -43,7 +43,7 @@ function Option:map(f)
         return self
     end
     if is.some(self) then
-       return pipe(self:get(), f, Option.new)
+        return pipe(self:get(), f, Option.new)
     end
 end
 
@@ -60,5 +60,5 @@ return {
     Some = Some,
     None = None,
     some = some,
-    none = none
+    none = none,
 }

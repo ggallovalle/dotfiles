@@ -12,5 +12,4 @@ function ASDF:setup()
     cmd:close()
 end
 
-
 -- main()

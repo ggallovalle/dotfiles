@@ -1,27 +1,43 @@
----@diagnostic disable-next-line: undefined-global
-local vim = vim
+local M = {}
 
+-- Set global options.
+-- Example
+-- ```
+-- global { key = "value", ["key-2"] = "value2" }
+-- ```
 ---@param options table
 ---@return nil
-local function buffer(options)
+function M.global(options)
     for key, value in pairs(options) do
-        vim.o[key] = value
-        vim.bo[key] = value
+        vim.api.nvim_set_option(key, value)
     end
 end
 
-
+-- Set buffer options.
+-- Example
+-- ```
+-- buffer(1,  { key = "value", ["key-2"] = "value2" })
+-- buffer(bufnr,  { key = "value", ["key-2"] = "value2" })
+-- ```
+---@param bufnr any
 ---@param options table
 ---@return nil
-local function global(options)
+function M.buffer(bufnr, options)
     for key, value in pairs(options) do
-        vim.g[key] = value
+        vim.api.nvim_buf_set_option(bufnr, key, value)
     end
 end
 
+-- Set window options.
+-- Example
+-- ```
+-- window(1,  { key = "value", ["key-2"] = "value2" })
+-- window(bufnr,  { key = "value", ["key-2"] = "value2" })
+-- ```
+---@param windownr any
 ---@param options table
 ---@return nil
-local function window(options)
+function M.window(windownr, options)
     for key, value in pairs(options) do
         -- vo[key] = value
         vim.wo[key] = value
@@ -29,31 +45,6 @@ local function window(options)
 end
 
 ---@return nil
-local function main()
-    buffer {
-        -- use tabs instead of spaces with a default value of 2
-        tabstop = 2,
-        shiftwidth = 2,
-        expandtab = false
-    }
+local function main() end
 
-    window {
-        -- left hand side number
-        number = true,
-        relativenumber = true,
-        signcolumn = "number",
-        -- wrap lines
-        wrap = true
-    }
-
-    -- leader key as space
-    vim.g.mapleader = " "
-    vim.b.mapleader = " "
-end
-
-return {
-    main = main,
-    window = window,
-    buffer = buffer,
-    global = global
-}
+return M

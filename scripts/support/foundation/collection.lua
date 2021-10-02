@@ -17,7 +17,6 @@ function Collection.map(f, table)
     error("This shit ain't a Functor")
 end
 
-
 function Collection.filter(f, table)
     if is.func(table.filter) then
         return table:map(f)

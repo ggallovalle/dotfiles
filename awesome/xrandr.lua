@@ -14,7 +14,9 @@ local function outputs()
     if xrandr then
         for line in xrandr:lines() do
             local output = line:match("^([%w-]+) connected ")
-            if output then outputs[#outputs + 1] = output end
+            if output then
+                outputs[#outputs + 1] = output
+            end
         end
         xrandr:close()
     end
@@ -26,7 +28,7 @@ local function arrange(out)
     -- We need to enumerate all permutations of horizontal outputs.
 
     local choices = {}
-    local previous = {{}}
+    local previous = { {} }
     for i = 1, #out do
         -- Find all permutation of length `i`: we take the permutation
         -- of length `i-1` and for each of them, we create new
@@ -36,7 +38,7 @@ local function arrange(out)
         for _, p in pairs(previous) do
             for _, o in pairs(out) do
                 if not gtable.hasitem(p, o) then
-                    new[#new + 1] = gtable.join(p, {o})
+                    new[#new + 1] = gtable.join(p, { o })
                 end
             end
         end
@@ -71,26 +73,30 @@ local function menu()
 
         local label = ""
         if #choice == 1 then
-            label = 'Only <span weight="bold">' .. choice[1] .. '</span>'
+            label = 'Only <span weight="bold">' .. choice[1] .. "</span>"
         else
             for i, o in pairs(choice) do
-                if i > 1 then label = label .. " + " end
-                label = label .. '<span weight="bold">' .. o .. '</span>'
+                if i > 1 then
+                    label = label .. " + "
+                end
+                label = label .. '<span weight="bold">' .. o .. "</span>"
             end
         end
 
-        menu[#menu + 1] = {label, cmd}
+        menu[#menu + 1] = { label, cmd }
     end
 
     return menu
 end
 
 -- Display xrandr notifications from choices
-local state = {cid = nil}
+local state = { cid = nil }
 
 local function naughty_destroy_callback(reason)
-    if reason == naughty.notificationClosedReason.expired or reason ==
-        naughty.notificationClosedReason.dismissedByUser then
+    if
+        reason == naughty.notificationClosedReason.expired
+        or reason == naughty.notificationClosedReason.dismissedByUser
+    then
         local action = state.index and state.menu[state.index - 1][2]
         if action then
             spawn(action, false)
@@ -123,8 +129,8 @@ local function xrandr()
         timeout = 4,
         screen = mouse.screen,
         replaces_id = state.cid,
-        destroy = naughty_destroy_callback
+        destroy = naughty_destroy_callback,
     }).id
 end
 
-return {outputs = outputs, arrange = arrange, menu = menu, xrandr = xrandr}
+return { outputs = outputs, arrange = arrange, menu = menu, xrandr = xrandr }
