@@ -47,6 +47,7 @@ require('packer').startup(function()
   use 'ray-x/lsp_signature.nvim' -- lsp show signature
   use 'dart-lang/dart-vim-plugin' -- dart
 	use 'vim-crystal/vim-crystal' -- crystal
+	use 'khaveesh/vim-fish-syntax' -- fish
 end)
 
 ---@param options table
