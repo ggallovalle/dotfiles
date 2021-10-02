@@ -4,6 +4,7 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x DOTFILES $HOME/.dotfiles
+set -x SCRIPTFILES $XDG_DATA_HOME/scripts
 # ----------------- default apps ------------------
 # set -x TERM xterm # use the following because tmux messes up vim colors
 # set -x TERM screen-256color-bce
