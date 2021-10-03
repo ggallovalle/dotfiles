@@ -71,6 +71,8 @@ require("packer").startup(function(use)
 	use("dart-lang/dart-vim-plugin") -- dart
 	use("vim-crystal/vim-crystal") -- crystal
 	use("khaveesh/vim-fish-syntax") -- fish
+	use("fladson/vim-kitty") -- kitty syntax highligh
+
 end)
 
 --Set colorscheme (order is important here)
@@ -373,7 +375,7 @@ require("lspconfig").sumneko_lua.setup({
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
+				globals = { "vim", },
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files

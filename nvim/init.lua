@@ -17,6 +17,7 @@ options.global({
     ignorecase = true,
     smartcase = true, -- case insensitive unless capital letter in search
     termguicolors = true,
+    hlsearch = false,
 })
 
 options.buffer(0, {
@@ -59,8 +60,6 @@ remaps.n_map({
         '(v:count > 5 ? "m\'" . v:count : "") . \'j\'',
         { expr = true, noremap = true },
     },
-    { "<esc>", ":noh <CR><ESC>" }, -- stop highlighting
-    -- { "<esc>", ":noh<cr><esc>" }, -- stop highlighting
 })
 
 remaps.i_map({
