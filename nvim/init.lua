@@ -9,7 +9,15 @@ local options = require("kbroom-config.options")
 -- NOTE If any "global" option is an error, just use vim.g
 vim.g.mapleader = " "
 
-options.global({})
+options.global({
+    inccommand = "nosplit",
+    hidden = true,
+    mouse = "a",
+    breakindent = true,
+    ignorecase = true,
+    smartcase = true, -- case insensitive unless capital letter in search
+    termguicolors = true,
+})
 
 options.buffer(0, {
     -- [ identation
@@ -18,6 +26,7 @@ options.buffer(0, {
     shiftwidth = 2,
     autoindent = true,
     expandtab = true,
+    undofile = true, -- undo persistance
     -- ]
 })
 
@@ -29,7 +38,7 @@ options.window(0, {
     signcolumn = "number",
 })
 
--- ]] options
+-- options ]]
 
 -- [[[ mappings
 
@@ -50,7 +59,8 @@ remaps.n_map({
         '(v:count > 5 ? "m\'" . v:count : "") . \'j\'',
         { expr = true, noremap = true },
     },
-    { "<esc>", ":noh<cr><esc>" }, -- stop highlighting
+    { "<esc>", ":noh <CR><ESC>" }, -- stop highlighting
+    -- { "<esc>", ":noh<cr><esc>" }, -- stop highlighting
 })
 
 remaps.i_map({
@@ -82,6 +92,10 @@ remaps.n_map({
     { "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>" }, -- reload init.vim
     { "<leader>Y", 'gg+yG"' }, -- yank all buffer
     { "<leader>w", "<C-w>" }, -- more ergonomic C-w
+    { "<leader>y", '"+y' }, -- yank to clipboard
+})
+
+remaps.v_map({
     { "<leader>y", '"+y' }, -- yank to clipboard
 })
 -- ]]
