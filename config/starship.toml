@@ -1,18 +1,206 @@
-# Inserts a blank line between shell prompts
-# Use custom format
-# format = """
-# [┌──────>](bold green) $package$nodejs$elixir$python$ruby$dart$php$dotnet$java$scala$kotlin
-# ([│](bold green)$git_branch $git_commit $git_state $git_status)
-# [│](bold green)$directory$status
-# [└─>](bold green) """
+# [[ stylish
+command_timeout = 1000
+scan_timeout = 100
+add_newline = false
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$erlang\
+$golang\
+$java\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$php\
+$python\
+$ruby\
+$rust\
+$scala\
+$package\
+$docker_context\
+$vagrant
+[$character](bold green) """
 
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+right_format = """
+$git_metrics\
+$git_status\
+$aws
+"""
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-display_private = true
+[line_break]
+disabled = false
 
 [status]
 disabled = false
-symbol = "🚨"
+symbol = ""
+
+[character]
+success_symbol = "[λ](bold green)"
+vicmd_symbol = "[❮](bold yellow)"
+# end stylish ]]
+
+# [[ system
+[directory]
+read_only = " "
+fish_style_pwd_dir_length = 2
+[nix_shell]
+symbol = " "
+#  end system ]]
+
+# [[ infraestructure
+[aws]
+symbol = " "
+[docker_context]
+# @see https://docs.docker.com/engine/context/working-with-contexts/
+symbol = " "
+[vagrant]
+version_format = "v${major}.${minor}"
+# end infraestructure ]]
+
+# [[ git
+[git_branch]
+symbol = " "
+[git_state]
+disabled = true
+[git_metrics]
+disabled = false
+# end git ]]
+
+# [[ languages
+[dart]
+symbol = " "
+version_format = "v${major}.${minor}"
+style = "bold cyan"
+[deno]
+symbol = "ﯤ "
+version_format = "v${major}.${minor}"
+style = "bold cyan"
+[dotnet]
+symbol = " "
+version_format = "v${major}.${minor}"
+style = "bold purple"
+[elixir]
+symbol = " "
+version_format = "v${major}.${minor}"
+[java]
+symbol = " "
+style = "red bold"
+version_format = "v${major}.${minor}"
+[kotlin]
+style = "red bold"
+version_format = "v${major}.${minor}"
+[lua]
+symbol = " "
+version_format = "v${major}.${minor}"
+[nim]
+symbol = " "
+version_format = "v${major}.${minor}"
+[nodejs]
+version_format = "v${major}.${minor}"
+[python]
+symbol = " "
+version_format = "v${major}.${minor}"
+[rust]
+symbol = " "
+version_format = "v${major}.${minor}"
+[package]
+symbol = " "
+display_private = true
+# end languages ]]
+
+
+# [[ disabled
+# [ cloud
+[gcloud]
+disabled = true
+[terraform]
+disabled = true
+# cloud ]
+[battery]
+disabled = true
+[conda]
+symbol = " "
+[cmake]
+disabled = true
+
+[cmd_duration]
+disabled = true
+[env_var]
+disabled = true
+[memory_usage]
+symbol = " "
+disabled = true
+[shlvl]
+symbol = " "
+disabled = true
+
+
+[singularity]
+disabled = true
+[hg_branch]
+symbol = ""
+disabled = true
+[vcsh]
+disabled = true
+
+
+#
+[crystal]
+disabled = true
+[helm]
+disabled = true
+[cobol]
+disabled = true
+[elm]
+symbol = " "
+disabled = true
+[julia]
+symbol = " "
+disabled = true
+[erlang]
+version_format = "v${major}.${minor}"
+disabled = true
+[golang]
+symbol = " "
+version_format = "v${major}.${minor}"
+[ocaml]
+disabled = true
+[openstack]
+disabled = true
+[perl]
+symbol = " "
+disabled = true
+[purescript]
+disabled = true
+[rlang]
+disabled = true
+[red]
+disabled = true
+[php]
+symbol = " "
+version_format = "v${major}.${minor}"
+disabled = true
+[ruby]
+symbol = " "
+version_format = "v${major}.${minor}"
+disabled = true
+[scala]
+symbol = " "
+version_format = "v${major}.${minor}"
+disabled = true
+[swift]
+symbol = "ﯣ "
+disabled = true
+[vlang]
+disabled = true
+[zig]
+disabled = true
+# disabled ]]
+

@@ -23,6 +23,7 @@ if status --is-interactive
     abbr --add --global .gch "git checkout"
     abbr --add --global .gbd ":git-branch-del"
     abbr --add --global .gaa "git add --all"
+    abbr --add --global .ga "git add"
     abbr --add --global .gl "git log"
     abbr --add --global .glo "git log --oneline"
     abbr --add --global .gb "git branch"
