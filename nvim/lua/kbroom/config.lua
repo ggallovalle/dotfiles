@@ -72,7 +72,13 @@ require("packer").startup(function(use)
 	use("vim-crystal/vim-crystal") -- crystal
 	use("khaveesh/vim-fish-syntax") -- fish
 	use("fladson/vim-kitty") -- kitty syntax highligh
-
+	use("cespare/vim-toml") -- toml
+        use("easymotion/vim-easymotion")
+        use("tpope/vim-surround")
+        use("tpope/vim-commentary")
+        use("vim-scripts/ReplaceWithRegister")
+        use("godlygeek/tabular")
+        use("plasticboy/vim-markdown")
 end)
 
 --Set colorscheme (order is important here)
