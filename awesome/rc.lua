@@ -20,6 +20,7 @@ local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
 local docker_widget = require("awesome-wm-widgets.docker-widget.docker")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local runonce = require("runonce")
 
 local os = os
 local type = type
@@ -66,7 +67,6 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 local terminal = os.getenv("TERM") or "kitty"
 local editor = os.getenv("EDITOR") or "nano"
 local editor_cmd = terminal .. " -e " .. editor
-local tmux_cmd = terminal .. "-e tmux attach"
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -378,7 +378,7 @@ globalkeys = gears.table.join(
 		group = "client",
 	}),
 	awful.key({ modkey }, "Return", function()
-		awful.spawn("kitty -e tmux attach")
+		awful.spawn(terminal)
 	end, {
 		description = "open a terminal",
 		group = "hotkeys",
@@ -768,13 +768,17 @@ end)
 -- END Signals }}}
 
 -- {{{ Autostart
-awful.spawn.with_shell("picom")
-awful.spawn.with_shell("bluetoothctl power on")
-awful.spawn.with_shell("copyq")
-awful.spawn.with_shell("flameshot")
+-- awful.spawn.with_shell("picom")
+-- awful.spawn.with_shell("bluetoothctl power on")
+-- awful.spawn.with_shell("copyq")
+-- awful.spawn.with_shell("flameshot")
+runonce.run("picom")
+runonce.run("bluetoothctl power on")
+runonce.run("copyq")
+-- runonce.run("flameshot")
 -- @see https://wiki.archlinux.org/title/Touchpad_Synaptics#Using_xinput_to_determine_touchpad_capabilities
 -- enable natural scrolling and click on tap
-awful.spawn.with_shell('xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1')
-awful.spawn.with_shell(' xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1')
+runonce.run('xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1')
+runonce.run(' xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1')
 -- awful.spawn.with_shell("xmodmap ~/.xmodmaprc")
 -- END Autostart }}}
