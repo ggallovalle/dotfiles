@@ -89,6 +89,7 @@
        emacs-lisp                     ; drown in parentheses
        (javascript +lsp)              ; all(hope(abandon(ye(who(enter(here))))))
        (kotlin +lsp)                  ; a better, slicker Java(Script)
+       (csharp +lsp)           ; unity, .NET, and mono shenanigans
        (python +lsp +poetry +pyenv)   ; beautiful is better than ugly
        (lua +lsp)                           ; one-based indices? one-based indices
        nim                            ; python + lisp at the speed of c
@@ -100,7 +101,6 @@
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
-       ;;csharp            ; unity, .NET, and mono shenanigans
        ;;data              ; config/data formats
        ;; elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
@@ -122,7 +122,7 @@
        ;;ledger            ; an accounting system in Emacs
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       ;;php               ; perl's insecure younger brother
+       php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        ;;qt                ; the 'cutest' gui framework ever
