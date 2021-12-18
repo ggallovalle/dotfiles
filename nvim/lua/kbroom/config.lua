@@ -79,6 +79,7 @@ require("packer").startup(function(use)
         use("vim-scripts/ReplaceWithRegister")
         use("godlygeek/tabular")
         use("plasticboy/vim-markdown")
+	use("vim-scripts/aspnet.vim")
 end)
 
 --Set colorscheme (order is important here)

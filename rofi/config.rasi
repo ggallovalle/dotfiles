@@ -1,5 +1,7 @@
 configuration {
 	modi: "window,run,drun,combi,powermenu:rofi-power-menu";
 	font: "JetBrainsMono NF 14";
-	theme: "onedark";
 }
+
+@theme "onedark"
+
