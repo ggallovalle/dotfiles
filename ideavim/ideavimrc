@@ -48,7 +48,7 @@ vnoremap <leader>w     <C-w>
 " search action
 nnoremap <leader>:     :action GotoAction<CR>
 vnoremap <leader>:     :action GotoAction<CR>
-nnoremap <leader>;     :action EditorCompleteStatement
+" nnoremap <leader>;     :action EditorCompleteStatement
 nnoremap <leader><Space>    :action GotoFile<CR>
 vnoremap <leader><Space>    :action GotoFile<CR>
 nnoremap <leader>`     <C-S-6>

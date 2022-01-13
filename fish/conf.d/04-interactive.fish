@@ -13,12 +13,12 @@ if status --is-interactive
     thefuck --alias | source
     keychain --quiet --eval id_rsa | source
     
-    if [ $TERM != screen -a $TERM != tmux ]
-        if tmux has-session -t main
-            tmux attach-session -t main
-        else
-            tmux new-session -s main
-        end
-    end
+    # if [ $TERM != screen -a $TERM != tmux ]
+    #     if tmux has-session -t main
+    #         tmux attach-session -t main
+    #     else
+    #         tmux new-session -s main
+    #     end
+    # end
     starship init fish | source
 end
