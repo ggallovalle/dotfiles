@@ -14,11 +14,6 @@
       force: true
       path: home/.Xmodmap
 
-    #--------------- config rogue             ----------------
-    ~/.config/starship.toml:
-      force: true
-      path: config/starship.toml
-
     #--------------- $XDG_CONFIG_HOME  ----------------
 
     ~/.config/alacritty:

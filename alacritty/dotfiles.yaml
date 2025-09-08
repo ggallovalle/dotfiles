@@ -1,0 +1,10 @@
+dependencies:
+  - command: alacritty
+    version: '>=0.15.0'
+    repo:  https://github.com/alacritty/alacritty 
+    docs: https://alacritty.org/config-alacritty.html
+    package:
+      arch: alacritty
+dotfiles:
+  - source: config/alacritty
+    target: '{{ paths.config }}/alacritty'

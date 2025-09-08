@@ -3,7 +3,7 @@ dependencies:
     version: '>=1.23.0'
     repo: https://github.com/starship/starship
     docs: https://starship.rs/guide/
-    os:
+    package:
       arch: starship
 dotfiles:
   - source: config/starship

@@ -1,7 +1,9 @@
 dependencies:
   - command: zsh
     version: '>=5.0.0'
-    os:
+    repo: https://github.com/zsh-users/zsh
+    docs: https://zsh.sourceforge.io/Doc/
+    package:
       arch: zsh
 dotfiles:
   - source: config/zsh
