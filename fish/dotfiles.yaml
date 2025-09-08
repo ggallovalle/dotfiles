@@ -1,0 +1,10 @@
+dependencies:
+  - command: fish
+    version: '>=4.0'
+    repo:  https://github.com/fish-shell/fish-shell 
+    docs: https://fishshell.com/
+    package:
+      arch: fish
+dotfiles:
+  - source: config/fish
+    target: '{{ paths.config }}/fish'
