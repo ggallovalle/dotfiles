@@ -21,7 +21,6 @@
       path: git
     ~/.config/ideavim:
     ~/.config/kitty:
-    ~/.config/lf:
     ~/.config/maven:
     # ~/.config/sxhkd: # is deleted for some reason
 #--------------- $XDG_DATA_HOME    ----------------
