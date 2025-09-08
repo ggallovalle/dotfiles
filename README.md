@@ -21,3 +21,7 @@ For example:
     - zsh
       - zshrc
       - zshenv
+
+# TODO
+
+- [ ] Explore [mist](https://linuxiac.com/mist-mpr-helper-for-debian-and-ubuntu/) for managing dependencies and packages in debian based systems.

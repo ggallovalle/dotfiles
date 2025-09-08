@@ -4,7 +4,13 @@ dependencies:
     repo:  https://github.com/alacritty/alacritty 
     docs: https://alacritty.org/config-alacritty.html
     package:
+      cargo: alacritty
       arch: alacritty
+      winget: Alacritty.Alacritty
+      chocolatey: alacritty
+      brew:
+        id: alacritty
+        cask: true
 dotfiles:
   - source: config/alacritty
     target: '{{ paths.config }}/alacritty'

@@ -1,0 +1,10 @@
+dependencies:
+  - command: picom
+    version: '>=12.5'
+    repo:  https://github.com/yshui/picom 
+    docs: https://wiki.archlinux.org/title/Picom
+    package:
+      arch: picom
+dotfiles:
+  - source: config/picom
+    target: '{{ paths.config }}/picom'
