@@ -1,0 +1,10 @@
+dependencies:
+  - command: starship
+    version: '>=1.23.0'
+    repo: https://github.com/starship/starship
+    docs: https://starship.rs/guide/
+    os:
+      arch: starship
+dotfiles:
+  - source: config/starship
+    target: '{{ paths.config }}/starship'

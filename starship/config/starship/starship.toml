@@ -43,7 +43,7 @@ symbol = ""
 
 [character]
 success_symbol = "[λ](bold green)"
-vicmd_symbol = "[❮](bold yellow)"
+# vicmd_symbol = "[❮](bold yellow)"
 # end stylish ]]
 
 # [[ system
@@ -132,8 +132,8 @@ disabled = true
 
 [cmd_duration]
 disabled = true
-[env_var]
-disabled = true
+# [env_var]
+# disabled = true
 [memory_usage]
 symbol = " "
 disabled = true
