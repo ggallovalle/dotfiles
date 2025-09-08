@@ -22,9 +22,6 @@
     ~/.xmodmaprc:
       force: true
       path: home/.Xmodmap
-    ~/.zshenv:
-      force: true
-      path: home/.zshenv
     # NOTE use $XDG_CONFIG instead
     # ~/.tmux.conf.local:
     #   force: true
@@ -38,10 +35,6 @@
       force: true
       path: config/starship.toml
 
-    # #--------------- $HOME             ----------------
-    #     ~/.zshrc:
-    #       force: true
-    #       path: zsh/.zshrc
     #--------------- $XDG_CONFIG_HOME  ----------------
 
     ~/.config/alacritty:
@@ -59,7 +52,6 @@
     ~/.config/maven:
     # ~/.config/sxhkd: # is deleted for some reason
     ~/.config/tmux:
-    ~/.config/zsh:
 #--------------- $XDG_DATA_HOME    ----------------
 
 - asdf:
