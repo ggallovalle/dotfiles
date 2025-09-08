@@ -1,0 +1,10 @@
+dependencies:
+  - command: kitty
+    version: '>=0.42.2'
+    repo:   https://github.com/kovidgoyal/kitty 
+    docs: https://sw.kovidgoyal.net/kitty/
+    package:
+      arch: kitty
+dotfiles:
+  - source: config/kitty
+    target: '{{ paths.config }}/kitty'
