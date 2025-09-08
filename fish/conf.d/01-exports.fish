@@ -8,7 +8,6 @@ set -x DOTFILES $HOME/.dotfiles
 set -x OMF_CONFIG "$__fish_config_dir/omf"
 set -x OMF_PATH "$XDG_DATA_HOME/omf"
 # ----------------- default apps ------------------
-# set -x TERM xterm # use the following because tmux messes up vim colors
 # set -x TERM screen-256color-bce
 set -x EDITOR nvim
 set -x VISUAL nvim

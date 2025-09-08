@@ -7,11 +7,8 @@ sxhkdrc
 # editors
 .idea
 .vscode
-tmux/plugins/
 # python
 __pycache__/
-# tmux
-tmux/resurrect/
 # others
 default.target.wants/
 *.uuid

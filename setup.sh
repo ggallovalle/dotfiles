@@ -59,12 +59,5 @@ if [[ ! -d "$data/fonts" ]]; then
     cd -
 fi
 
-installer tmux tmux
-clonner "tmux plugin manager" https://github.com/tmux-plugins/tpm "$data/tmux/tpm"
-if [[ -d "$data/tmux" ]]; then
-    info install tmux plugins
-    bash -c "$data/tmux/tpm/bindings/install_plugins"
-fi
-
 installer cowsay cowsay
 cowsay -p OK
