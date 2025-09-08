@@ -46,7 +46,6 @@
 
     ~/.config/alacritty:
     ~/.config/awesome:
-    #~/.config/bspwm:
     ~/.config/fish:
     ~/.config/fontconfig:
       force: true
@@ -58,9 +57,6 @@
     ~/.config/kitty:
     ~/.config/lf:
     ~/.config/maven:
-    ~/.config/polybar:
-    ~/.config/picom:
-    ~/.config/rofi:
     # ~/.config/sxhkd: # is deleted for some reason
     ~/.config/tmux:
     ~/.config/zsh:

@@ -289,18 +289,6 @@ globals.root.buttons(gears.table.join(
 -- {{{ Key bindings
 -- Custom
 local globalkeys = gears.table.join(
-	awful.key({ modkey }, "d", function()
-		awful.spawn.with_shell("rofi -show combi -combi-modi window,drun")
-	end, {
-		description = "show rofi",
-		group = "hotkeys",
-	}),
-	awful.key({ modkey, "Shift" }, "q", function()
-		awful.spawn.with_shell("rofi -show powermenu")
-	end, {
-		description = "rofi powermenu",
-		group = "hotkeys",
-	}),
 	awful.key({}, "Print", function()
 		awful.spawn.with_shell("flameshot gui")
 	end, {

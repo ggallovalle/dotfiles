@@ -24,7 +24,6 @@ set -x LS_COLORS "ln=0;38;2;249;38;114:cd=0;38;2;249;38;114;48;2;51;51;51:st=0:p
 # ----------------- initialization ----------------
 # set -p PATH $HOME/.local/bin
 fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.config/rofi/modes
 set -x CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 # ----------------- ghq   -------------------------
 set -x GHQ_ROOT $HOME/ghq

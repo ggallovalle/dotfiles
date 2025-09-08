@@ -88,17 +88,6 @@ local groups = {
 }
 
 function M.configure()
-    groups.launcher({
-        M.super({
-            key = "p",
-            on_press = function()
-                awful.spawn.with_shell(
-                    "rofi -show combi -combi-modi window,drun"
-                )
-            end,
-            description = "open rofi",
-        }),
-    })
     return _keymap
 end
 

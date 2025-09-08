@@ -14,7 +14,6 @@ typeset -U PATH path
 typeset -U CDPATH cdpath
 path+=(
     $HOME/.local/bin
-    $HOME/.config/rofi/modes
 )
 # ----------------- XDG standard ------------------
 
