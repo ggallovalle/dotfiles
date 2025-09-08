@@ -1,0 +1,12 @@
+dependencies:
+  - command: zsh
+    version: '>=5.0.0'
+    os:
+      arch: zsh
+dotfiles:
+  - source: config/zsh
+    target: '{{ paths.config }}/zsh'
+  - source: home/dot_zhsrc
+    target: '{{ paths.home }}/.zshrc'
+  - source: home/dot_zshenv
+    target: '{{ paths.home }}/.zshenv'
