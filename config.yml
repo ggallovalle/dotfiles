@@ -16,10 +16,6 @@
 
     #--------------- $XDG_CONFIG_HOME  ----------------
 
-    ~/.config/fish:
-    ~/.config/fontconfig:
-      force: true
-      path: fontconfig
     ~/.config/git:
       force: true
       path: git

@@ -1,0 +1,6 @@
+dotfiles:
+  - source: config/fontconfig
+    target: '{{ paths.config }}/fontconfig'
+scripts:
+  - source: scripts/download_fonts.sh
+    run_when: onchange
