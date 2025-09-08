@@ -1,0 +1,10 @@
+dependencies:
+  - command: awesome
+    version: '>=4.3'
+    repo:  https://github.com/awesomeWM/awesome 
+    docs: https://awesomewm.org
+    package:
+      arch: awesome
+dotfiles:
+  - source: config/awesome
+    target: '{{ paths.config }}/awesome'

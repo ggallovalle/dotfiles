@@ -16,8 +16,6 @@
 
     #--------------- $XDG_CONFIG_HOME  ----------------
 
-    ~/.config/alacritty:
-    ~/.config/awesome:
     ~/.config/fish:
     ~/.config/fontconfig:
       force: true
