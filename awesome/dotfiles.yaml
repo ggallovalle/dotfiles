@@ -8,3 +8,6 @@ dependencies:
 dotfiles:
   - source: config/awesome
     target: '{{ paths.config }}/awesome'
+scripts:
+  - source: scripts/download_dependencies.sh
+    run_when: onchange
