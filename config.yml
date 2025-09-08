@@ -47,7 +47,6 @@
     ~/.config/alacritty:
     ~/.config/awesome:
     #~/.config/bspwm:
-    ~/.config/doom:
     ~/.config/fish:
     ~/.config/fontconfig:
       force: true
@@ -66,10 +65,6 @@
     ~/.config/tmux:
     ~/.config/zsh:
 #--------------- $XDG_DATA_HOME    ----------------
-
-- ghqfile:
-    - file: repos.txt
-      flags: [--silent]
 
 - asdf:
     # https://www.reddit.com/r/golang/comments/cmb5bp/is_there_an_lts_version_of_go/

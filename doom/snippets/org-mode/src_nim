@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: src nim
-# key: /<nim
-# --
- #+begin_src nim :results none
- $0
- #+end_src

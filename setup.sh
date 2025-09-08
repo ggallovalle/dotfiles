@@ -35,14 +35,6 @@ clonner() {
 
 clonner zinit https://github.com/zdharma/zinit.git "$data/zinit/bin"
 
-installer emacs emacs
-clonner "emacs doom" https://github.com/hlissner/doom-emacs "$HOME/.emacs.d" --depth 1
-if [[ ! -x $HOME/.emacs.d/bin/doom ]]; then
-    "$HOME/.emacs.d/bin/doom" install --no-config
-    info emacs doom doctor
-    "$HOME/.emacs.d/bin/doom" doctor
-fi
-
 clonner "asdf" https://github.com/asdf-vm/asdf.git "$data/asdf"
 if [[ ! -d "$data/asdf" ]]; then
     cd "$data/asdf"

@@ -9,7 +9,6 @@ function __fish_httpie_styles
     echo "bw"
     echo "colorful"
     echo "default"
-    echo "emacs"
     echo "friendly"
     echo "fruity"
     echo "igor"
