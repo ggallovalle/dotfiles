@@ -13,10 +13,6 @@ error(){ echo -e "$RED--------------- $* ---------------$NC";  }
 positive(){ echo -e "$GREEN--------------- $* ----------------$NC";  }
 info(){ echo -e "$YELLOW--------------- $* ----------------$NC";  }
 
-dotbot() {
-    "$data/dotbot/bin/dotbot" -d "$dotfiles" --plugin-dir \
-        "$dotfiles/.dotbot/plugins" -c "$dotfiles/config.yml" "$@"
-}
 installer(){
     local cmd="$1" package="$2"
     if ! command -v "$cmd" &> /dev/null; then
@@ -36,19 +32,6 @@ clonner() {
     fi
 }
 
-# first clone and setup dotbot
-clonner dotbot https://github.com/anishathalye/dotbot "$data/dotbot" --recurse-submodules --jobs 8
-info add dotbot to ~/.local/bin
-clonner dotbot-plugin https://github.com/ggallovalle/dotbot-plugins "$data/dotbot-plugins"
-info add dotbot-plugins to ~/.local/bin
-# add dotbot shim to PATH
-if [[ ! -d "$HOME/.local/bin" ]]; then
-    mkdir "$HOME/.local/bin"
-fi
-cp ./dotbot "$HOME/.local/bin/dotbot"
-info Linking dotfiles
-dotbot --only link
-# bash -c "${BASEDIR}/dotbot --only link"
 
 clonner zinit https://github.com/zdharma/zinit.git "$data/zinit/bin"
 
@@ -68,7 +51,6 @@ if [[ ! -d "$data/asdf" ]]; then
     "$data/asdf/bin/asdf" plugin-add nodejs https://github.com/ggallovalle/asdf-nodejs
     info setting up gpg keys for nodejs
     bash -c "$data/asdf/plugins/nodejs/bin/import-release-team-keyring"
-    bash -c "${BASEDIR}/dotbot --only asdf"
 fi
 
 if [[ $SHELL = "/bin/bash" ]]; then
