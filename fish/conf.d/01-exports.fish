@@ -4,7 +4,6 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x DOTFILES $HOME/.dotfiles
-set -x SCRIPTFILES $XDG_DATA_HOME/scripts
 # ----------------- oh my fish --------------------
 set -x OMF_CONFIG "$__fish_config_dir/omf"
 set -x OMF_PATH "$XDG_DATA_HOME/omf"

@@ -1,5 +1,0 @@
-#!/bin/bash
-DIR=$(dirname "$0")
-source $DIR/utils.sh
-
-pipx install git+https://github.com/ggallovalle/pkginfo

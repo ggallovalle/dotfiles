@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-git stash
-git stash -u
-git stash pop stash@{1}
-

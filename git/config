@@ -40,5 +40,4 @@
 
 [alias]
 	unstage = reset HEAD --
-	stash-untracked = !${SCRIPTFILES}/stash-untracked
 
