@@ -66,7 +66,6 @@
     ~/.config/tmux:
     ~/.config/yay:
     ~/.config/zsh:
-    ~/.config/nvim:
 #--------------- $XDG_DATA_HOME    ----------------
 
 - ghqfile:
