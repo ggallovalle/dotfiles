@@ -17,8 +17,8 @@ installer(){
     local cmd="$1" package="$2"
     if ! command -v "$cmd" &> /dev/null; then
         info installing "$package"
-        yay -Si "$package"
-        yay -S "$package"
+        paru -Si "$package"
+        paru -S "$package"
     else
         positive "$package" already installed
     fi

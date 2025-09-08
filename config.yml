@@ -64,7 +64,6 @@
     ~/.config/rofi:
     # ~/.config/sxhkd: # is deleted for some reason
     ~/.config/tmux:
-    ~/.config/yay:
     ~/.config/zsh:
 #--------------- $XDG_DATA_HOME    ----------------
 
