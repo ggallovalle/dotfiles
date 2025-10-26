@@ -1,0 +1,4 @@
+# show local files only; no network
+local: true
+# word-wrap at width
+width: 100
