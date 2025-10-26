@@ -1,0 +1,7 @@
+local inspect = require 'inspect'
+function pinspect(thing)
+    print(inspect(thing))
+end
+
+
+return {}

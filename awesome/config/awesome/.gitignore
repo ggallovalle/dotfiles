@@ -1,0 +1,9 @@
+# /luarocks
+# /lua
+/lua_modules/*
+/.luarocks
+/awesome-buttons
+/awesome-wm-widgets
+/config-default
+/rc.lua
+/runtime.lua

@@ -11,6 +11,7 @@ local function outputs()
     local outputs = {}
     local xrandr = io.popen("xrandr -q --current")
 
+
     if xrandr then
         for line in xrandr:lines() do
             local output = line:match("^([%w-]+) connected ")
@@ -93,8 +94,7 @@ end
 local state = { cid = nil }
 
 local function naughty_destroy_callback(reason)
-    if
-        reason == naughty.notificationClosedReason.expired
+    if reason == naughty.notificationClosedReason.expired
         or reason == naughty.notificationClosedReason.dismissedByUser
     then
         local action = state.index and state.menu[state.index - 1][2]
@@ -133,4 +133,26 @@ local function xrandr()
     }).id
 end
 
-return { outputs = outputs, arrange = arrange, menu = menu, xrandr = xrandr }
+---comment
+---@return table<string, {connected: boolean, index: number, orientation: string?}>
+local function real_result()
+    local xrandr_encoded = assert(io.popen("node ~/.config/awesome/xrandr-see.js"))
+    local dkjson = require("dkjson")
+    local contents = xrandr_encoded:read("*a")
+    -- local contents = ""
+    -- for line in xrandr_encoded:lines() do
+    --     contents = contents .. line
+    -- end
+    local decoded = dkjson.decode(contents)
+    -- local pls_parse = require("xrandr.parse")
+    -- debug_notify("contents", dkjson.decode(contents))
+
+    xrandr_encoded:close()
+    -- local parsed = pls_parse.parse(nil, contents)
+
+    ---@diagnostic disable-next-line: return-type-mismatch
+    return decoded
+
+end
+
+return { outputs = outputs, arrange = arrange, menu = menu, xrandr = xrandr, real_result = real_result }

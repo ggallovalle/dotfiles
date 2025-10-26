@@ -4,13 +4,12 @@ local awful = require("awful")
 local io = io
 local os = os
 
-_ENV = nil
 local M = {}
 
 -- get the current Pid of awesome
 local function get_current_pid()
     -- get awesome pid from pgrep
-    local fpid = io.popen("pgrep -u " .. os.getenv("USER") .. " -o awesome")
+    local fpid = assert(io.popen("pgrep -u " .. os.getenv("USER") .. " -o awesome"))
     local pid = fpid:read("*n")
     fpid:close()
 
@@ -42,7 +41,7 @@ local function get_old_pid(filename)
 end
 
 local function write_pid(filename, pid)
-    local pidFile = io.open(filename, "w+")
+    local pidFile = assert(io.open(filename, "w+"))
     pidFile:write(pid)
     pidFile:close()
 end
