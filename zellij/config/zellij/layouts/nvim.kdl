@@ -1,0 +1,20 @@
+layout {
+  // cwd "~/.config/astronvim/"
+
+  pane focus=true name="nvim" {
+      command "nvim"
+      args "lua/user/polish.lua" "lua/user/plugins/init.lua"
+  }
+  pane split_direction="vertical" {
+    pane close_on_exit=true name="lf" {
+      command "lf"
+    }
+    pane close_on_exit=true name="nushell" {
+      command "nu"
+    }
+  }
+  pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+  }
+}
+
