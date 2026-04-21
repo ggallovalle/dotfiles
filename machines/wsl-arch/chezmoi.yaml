@@ -1,11 +1,2 @@
-sourceDir = "/home/kbroom/dotfiles/dots"
-casaDir = "/home/kbroom/dotfiles/machines/wsl-arch"
-
-[data]
-  email = "kbroom@example.com"
-  hostname = "{{ .chezmoi.hostname }}"
-  os = "{{ .chezmoi.os }}"
-
-[git]
-  autoPush = false
-  autoCommit = false
+sourceDir: /home/kbroom/dotfiles/dots
+casaDir: /home/kbroom/dotfiles/machines/wsl-arch
