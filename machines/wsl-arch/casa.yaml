@@ -70,6 +70,13 @@ entries:
       - "glow"
     type: directory
 
+  # Mise
+  - source: mise/config/mise
+    target:
+      - "{{ env.XDG_CONFIG_HOME }}"
+      - "mise"
+    type: directory
+
   # IDEAvim
   - source: ideavim/config/ideavim
     target:
