@@ -1,0 +1,3 @@
+# Ignore dotfiles.yaml files - they belong to another dotfiles manager
+**/dotfiles.yaml
+**/dotfiles.yml
