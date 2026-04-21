@@ -1,4 +1,5 @@
 sourceDir = "/home/kbroom/dotfiles/dots"
+casaDir = "/home/kbroom/dotfiles/machines/wsl-arch"
 
 [data]
   email = "kbroom@example.com"
