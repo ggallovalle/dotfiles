@@ -1,0 +1,10 @@
+sourceDir = "/home/kbroom/dotfiles/dots"
+
+[data]
+  email = "kbroom@example.com"
+  hostname = "{{ .chezmoi.hostname }}"
+  os = "{{ .chezmoi.os }}"
+
+[git]
+  autoPush = false
+  autoCommit = false

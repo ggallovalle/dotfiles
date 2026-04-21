@@ -1,0 +1,19 @@
+entries:
+  - source: starship/config/starship/starship.toml
+    target:
+      - "{{ env.XDG_CONFIG_HOME }}"
+      - "starship"
+      - "starship.toml"
+    type: file
+    attributes:
+      - template
+      - private
+
+  - source: glow/config/glow/glow.yml
+    target:
+      - "{{ env.XDG_CONFIG_HOME }}"
+      - "glow"
+      - "glow.yml"
+    type: file
+    attributes:
+      - template
