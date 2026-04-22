@@ -1,3 +1,0 @@
-dotfiles:
-  - source: config/git
-    target: '{{ paths.config }}/git'

@@ -1,7 +1,0 @@
-entries:
-  - source: mise/config/mise
-    target:
-      # - "{{ .env.XDG_CONFIG_HOME }}"
-      - ".config"
-      - "mise"
-    type: directory
