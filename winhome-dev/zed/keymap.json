@@ -1,0 +1,99 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+        "context": "Workspace",
+        "bindings": {
+            // "shift shift": "file_finder::Toggle"
+        }
+    },
+    {
+        // leader like keys
+        "context": "Editor && vim_mode == normal",
+        "bindings": {
+            "space space": "file_finder::Toggle",
+            // open ai chat
+            "space c": "agent::ToggleFocus",
+            "space F": "editor::Format",
+            "space r": "editor::ReloadFile"
+        }
+    },
+    {
+        // nvim cmp
+        "context": "Editor && (showing_code_actions || showing_completions)",
+        "bindings": {
+            "ctrl-y": "editor::ConfirmCompletionReplace",
+            "ctrl-j": "editor::ContextMenuNext",
+            "ctrl-k": "editor::ContextMenuPrevious"
+        }
+    },
+    {
+        // nvim cmp
+        "context": "Picker > Editor",
+        "bindings": {
+            "ctrl-y": "menu::Confirm",
+            "ctrl-j": "menu::SelectNext",
+            "ctrl-k": "menu::SelectPrevious"
+        }
+    },
+    {
+        // leader like keys
+        "context": "Editor && vim_mode == normal",
+        "bindings": {
+            "space f o": "pane::RevealInProjectPanel"
+        }
+    },
+    {
+        // see: https://github.com/zed-industries/zed/blob/main/crates/project_panel/src/project_panel.rs
+        // mirrors nvim oil
+        // https://github.com/stevearc/oil.nvim
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "escape": "workspace::ToggleLeftDock",
+            // fold/unfold
+            "z": "project_panel::Open",
+            // fs operations
+            "o": "project_panel::NewFile",
+            "y y": "project_panel::Copy", // yank file
+            "y d": "project_panel::Duplicate", // yank duplicate
+            "y p": "workspace::CopyPath", // yank path
+            "p": "project_panel::Paste",
+            "d d": ["project_panel::Delete", { "skip_prompt": true }],
+            "c c": "project_panel::Rename",
+            "x": "project_panel::Cut",
+            // TODO: this is pretty new, just developed 2026-03-18
+            // https://github.com/zed-industries/zed/commit/7baf5dc04ed3f7c0d979dbce813b253a58f894e1
+            "u": "project_panel::Undo",
+            "enter": [
+                "action::Sequence",
+                ["project_panel::OpenPermanent", "workspace::ToggleLeftDock"]
+            ],
+            "ctrl-s": [
+                "action::Sequence",
+                [
+                    "project_panel::OpenSplitHorizontal",
+                    "workspace::ToggleLeftDock"
+                ]
+            ],
+            "ctrl-h": [
+                // could be ctrl-v but to not clash with common "copy paste workflow"
+                "action::Sequence",
+                [
+                    "project_panel::OpenSplitVertical",
+                    "workspace::ToggleLeftDock"
+                ]
+            ]
+        }
+    },
+    {
+        "context": "AgentPanel > (Editor && vim_mode == normal)",
+        "bindings": {
+            "escape": "workspace::ToggleRightDock"
+        }
+    }
+]

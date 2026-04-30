@@ -1,0 +1,106 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "buffer_font_family": "GeistMono Nerd Font",
+    "agent_servers": {
+        "OpenCode": {
+          "command": "opencode",
+          "args": ["acp"]
+        },
+        "codex-acp": {
+            "default_config_options": {
+                "mode": "full-access"
+            },
+            "type": "registry"
+        }
+    },
+    "wsl_connections": [
+        {
+            "distro_name": "archlinux",
+            "user": null,
+            "projects": [
+                {
+                    "paths": [
+                        "/home/kbroom/.zi/plugins/_local---kbroom/./"
+                    ]
+                },
+                {
+                    "paths": [
+                        "/home/kbroom/dev/ggallovalle/chante/./"
+                    ]
+                },
+                {
+                    "paths": [
+                        "/home/kbroom/dev/ggallovalle/remember/./"
+                    ]
+                },
+                {
+                    "paths": [
+                        "/home/kbroom/ghq/github.com/Effect-TS/effect-smol/./"
+                    ]
+                }
+            ]
+        }
+    ],
+    "icon_theme": "Catppuccin Macchiato",
+    "agent": {
+        "default_model": {
+            "provider": "copilot_chat",
+            "model": "gpt-5-mini",
+            "enable_thinking": false,
+            "effort": "high"
+        },
+        "favorite_models": [],
+        "model_parameters": []
+    },
+    "session": {
+        "trust_all_worktrees": true
+    },
+    "confirm_quit": false,
+    // "ui_font_family": "GeistMono Nerd Font",
+    "ui_font_family": "GeistMono Nerd Font",
+    "vim_mode": true,
+    "ui_font_size": 16,
+    "buffer_font_size": 15,
+    // "ui_font_size": 20,
+    // "buffer_font_size": 18,
+    "theme": {
+        "mode": "system",
+        "light": "Gruvbox Light",
+        "dark": "Gruvbox Dark"
+    },
+    "format_on_save": "off",
+    "project_panel": {
+        "hide_gitignore": true,
+        "hide_hidden": false,
+        "auto_open": {
+            "on_create": false,
+            "on_drop": false,
+            "on_paste": false
+        }
+    },
+    "auto_install_extensions": {
+        // ui
+        "catppuccin": true,
+        "catppuccin-icons": true,
+        // languages
+        "biome": true,
+        "kdl": true,
+        "toml": true,
+        "git-firefly": true
+    },
+    // lsp
+    "lsp": {
+      "biome": {
+        "settings": {
+          "require_config_file": true
+        }
+      }
+    }
+}
