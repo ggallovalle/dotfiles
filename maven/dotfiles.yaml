@@ -1,3 +1,0 @@
-dotfiles:
-  - source: config/maven
-    target: '{{ paths.config }}/maven'

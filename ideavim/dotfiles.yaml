@@ -1,3 +1,0 @@
-dotfiles:
-  - source: config/ideavim
-    target: '{{ paths.config }}/ideavim'
