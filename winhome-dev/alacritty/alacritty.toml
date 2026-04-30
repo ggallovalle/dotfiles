@@ -1,0 +1,27 @@
+[general]
+import = [
+"theme-gruvbox.toml",
+]
+
+[terminal]
+shell = 'C:\Windows\system32\wsl.exe --distribution-id {82c338c4-dce8-47f6-8540-f6d107ee2d84} -- systemd-run --user --shell --quiet'
+
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 12
+
+[font.normal]
+family = "GeistMono Nerd Font"
+
+[font.offset]
+x = 1
+y = 1
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
+

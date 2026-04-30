@@ -1,0 +1,21 @@
+[general]
+import = [
+"theme-gruvbox.toml",
+]
+
+[terminal]
+shell = 'pwsh'
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 12
+
+[font.normal]
+family = "GeistMono Nerd Font"
+
+[font.offset]
+x = 1
+y = 1
+
