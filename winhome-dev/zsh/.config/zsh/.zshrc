@@ -1,0 +1,30 @@
+export PATH="$HOME/.cargo/bin:$PATH"
+
+if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
+  command mkdir -p "$HOME/.zi" && command chmod go-rwX "$HOME/.zi"
+  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+source "$HOME/.zi/bin/zi.zsh"
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
+zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
+zi light-mode for \
+  z-shell/z-a-meta-plugins \
+  @annexes @zunit
+
+# alias code="'/mnt/c/Users/kbroom/AppData/Local/Programs/Microsoft VS Code/bin/code'"
+
+zi load _local/kbroom
+
+# Vite+ bin (https://viteplus.dev)
+source "$HOME/.vite-plus/env"
+
+# bun completions
+[ -s "/home/kbroom/.bun/_bun" ] && source "/home/kbroom/.bun/_bun"
+
+# t3code
+alias t3code='GDK_DPI_SCALE=0.5 cd ~/apps/t3code/ && ./T3-Code-0.0.21-x86_64.AppImage --force-device-scale-factor=1.6'

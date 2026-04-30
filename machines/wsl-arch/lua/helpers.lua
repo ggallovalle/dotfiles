@@ -1,3 +1,4 @@
+local path = require("chuaz.path")
 local M = {}
 
 function M.entry_config_dir(program, attributes, opts)
@@ -8,7 +9,8 @@ function M.entry_config_dir(program, attributes, opts)
 
     local entry = {
         type = "directory",
-        source = { program, "config", opts.config_dir },
+        --- source = { program, "config", opts.config_dir },
+        source = path.join(program, "config", opts.config_dir),
         target = { ".config", opts.config_dir }
     }
     if type(attributes) == "table" then

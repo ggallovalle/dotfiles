@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+bun run "${HOME}/dev/ggallovalle/remember/src/cli.ts" -- $@
